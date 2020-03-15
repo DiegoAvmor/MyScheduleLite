@@ -4,7 +4,7 @@ require '../lib/Medoo.php';
 
 
 function establishConnectionDB(){
-    $jsonStr = file_get_contents("../resources/dbconfig.json");
+    $jsonStr = file_get_contents("../resource/dbconfig.json");
     $config = json_decode($jsonStr);
     $connection = new Medoo(
         [
