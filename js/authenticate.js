@@ -16,6 +16,8 @@ $("#logBtn").click(function(){
     }
 })
 
+
+
 const handleResponse = response =>{
     try {
         let parsedResponse = JSON.parse(response);
