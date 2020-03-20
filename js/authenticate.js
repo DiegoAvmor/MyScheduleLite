@@ -34,11 +34,5 @@ const handleResponse = response =>{
 }
 
 function generateResponseMessage(message){
-    let alertDiv = document.createElement('div');
-    alertDiv.setAttribute("class","alert alert-danger");
-    alertDiv.setAttribute("role","alert");
-    alertDiv.innerHTML = message +"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>";
-    $("#container").append(alertDiv);
+    //TODO
 }
-
-$().alert('close')
