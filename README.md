@@ -43,4 +43,4 @@ Docker con imagen de apache con PHP 7 [https://hub.docker.com/_/php]
 ## License
 Este proyecto corre bajo la licencia de APACHE [https://www.apache.org/licenses/LICENSE-2.0]
 
-![alt text](https://github.com/DiegoAvmor/MyScheduleLite/TeamLogo.jpeg "Logo")
+![alt text](https://github.com/DiegoAvmor/MyScheduleLite/blob/master/TeamLogo.jpeg "Logo")
