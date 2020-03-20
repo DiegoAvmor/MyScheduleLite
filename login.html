@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/authenticate.js" defer></script>
+    <script src="js/secret.js" defer></script>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <div id="container">
-        <input type="text" name="email" id="email" required>
-        <input type="text" name="password" id="password" required>
-        <input type="button" value="Log In" id="logBtn">
+        <div id="login-container">
+            <div class="login-form">
+                <div id="header-form">
+                    <h1>MyScheduleLite</h1>
+                    <p>Ingresar a MyScheduleLite</p>
+                </div>
+                <div class="input-form">
+                    <p>Correo Institucional</p>
+                    <input type="text" name="email" id="email" required>
+                </div>
+                <div class="input-form">
+                    <p>Contraseña</p>
+                    <input type="text" name="password" id="password" required>
+                </div>
+                <div>
+                    <input type="button" value="Entrar" id="logBtn">
+                </div>
+            </div>
+        </div>
+        <div id="info-container">
+            <div>
+                <img src="images/Logo.png" alt="InnerCircleLogo">
+                <p>Orgnaniza los horarios de clase para la universidad de forma práctica e intuitiva.</p>
+            </div>
+            <div>
+                <img src="images/login/BackpackRedbackpas.png" alt="BackpackRedbackpas" class="backpack-image" id="1">
+                <img src="images/login/BackpackGreenbackpas.png" alt="GreenBackpack" class="backpack-image" id="2">
+                <img src="images/login/Notebookbackpas.png" alt="Notebookbackpas" class="backpack-image" id="3">
+                <img src="images/login/Celphonebackpas.png" alt="Celphonebackpas" class="backpack-image" id="4">
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
