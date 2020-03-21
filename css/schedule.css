@@ -1,0 +1,50 @@
+body{
+    margin: 0px 0px 0px 0px;
+    background-color:rgba(240, 240, 240, 1);
+}
+
+#cabecera{
+    display: block;
+    height: 86px;
+}
+
+#logoequipo{
+    padding-left: 10px;
+    padding-top: 30px;
+    height: 71px;
+    width: 250px;
+}
+
+#barratareas{
+    margin-top: 23px;
+    display: block;
+    float:left;
+    height: 900px;
+    background-color: #FE9900;
+    border-radius: 0px 65px 65px 0px;
+    width: 212px;
+}
+
+#barrainicio{
+    margin-top: 73px;
+    width: 212px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    letter-spacing: 0.05em;
+}
+
+#barrainicioindicador{
+    width: 4px;
+    position: absolute;
+}
+
+#barrainicio:hover #barrainicioindicador{
+    background-color: black;
+}
+
+#iniciotextlogo{
+    text-align: center;
+}
