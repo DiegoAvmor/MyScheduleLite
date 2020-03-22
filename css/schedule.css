@@ -9,9 +9,8 @@ body{
 }
 
 #logoequipo{
-    padding-left: 10px;
-    padding-top: 30px;
-    height: 71px;
+    padding-top: 10px;
+    height: 100px;
     width: 250px;
 }
 
@@ -19,32 +18,57 @@ body{
     margin-top: 23px;
     display: block;
     float:left;
-    height: 900px;
+    height: 650px;
     background-color: #FE9900;
     border-radius: 0px 65px 65px 0px;
     width: 212px;
+    position: relative;
 }
 
-#barrainicio{
+.barraherramienta{
     margin-top: 73px;
     width: 212px;
+    text-align: center;
+}
+
+.barraindicador{
+    width: 5px;
+    position: absolute;
+}
+
+.barraherramienta:hover .barraindicador{
+    background-color: black;
+}
+
+.icono{
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+}
+
+.texto{
+    vertical-align: top;
+    display: inline-block;
     font-family: 'Nunito Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 26px;
     line-height: 35px;
     letter-spacing: 0.05em;
+    background: transparent;
+    border: none !important;
 }
 
-#barrainicioindicador{
-    width: 4px;
+.grupos{
+    margin-left: 25px;
+}
+
+.ayuda{
+    margin-left: 15px;
+}
+
+.fondo{
     position: absolute;
-}
-
-#barrainicio:hover #barrainicioindicador{
-    background-color: black;
-}
-
-#iniciotextlogo{
-    text-align: center;
+    bottom: 0;
+    padding-bottom: 70px;
 }
