@@ -2,8 +2,8 @@
     "database" : {
         "type" : "mysql",
         "server" : "localhost",
-        "username" : "diego",
-        "password": "admin123",
+        "username" : "root",
+        "password": "",
         "dbname":"my_schedule_lite"
     }
 }

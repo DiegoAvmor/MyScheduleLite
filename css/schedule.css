@@ -1,0 +1,111 @@
+body{
+    margin: 0px 0px 0px 0px;
+    background-color:rgba(240, 240, 240, 1);
+}
+
+#cabecera{
+    display: block;
+    height: 86px;
+}
+
+#logoequipo{
+    padding-top: 10px;
+    height: 100px;
+    width: 250px;
+}
+
+#barratareas{
+    margin-top: 23px;
+    display: block;
+    float:left;
+    height: 520px;
+    background-color: #FE9900;
+    border-radius: 0px 65px 65px 0px;
+    width: 212px;
+    position: relative;
+}
+
+.barraherramienta{
+    margin-top: 50px;
+    width: 212px;
+    text-align: center;
+}
+
+.barraindicador{
+    width: 5px;
+    height: 40px;
+    position: absolute;
+}
+
+.barraherramienta:hover .barraindicador{
+    background-color: black;
+}
+
+.icono{
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+}
+
+.texto{
+    vertical-align: top;
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    letter-spacing: 0.05em;
+}
+
+.boton{
+    background: transparent;
+    border: none !important;
+}
+
+.grupos{
+    margin-left: 25px;
+}
+
+.ayuda{
+    margin-left: 15px;
+}
+
+.fondo{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+#secciongrupos{
+    margin-top: 23px;
+    margin-left: 30px;
+    height: 100px;
+    width: 431px;
+    float: left;
+}
+
+#busqueda{
+    border-radius: 10px 10px 10px 10px;
+    height: 40px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.center {
+    padding-top: 5px;
+}
+
+.prueba{
+    text-align: center;
+}
+
+.busqueda{
+    font-size: 23px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.inicio{
+    font-weight: bold;
+}
