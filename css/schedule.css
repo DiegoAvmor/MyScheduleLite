@@ -18,7 +18,7 @@ body{
     margin-top: 23px;
     display: block;
     float:left;
-    height: 650px;
+    height: 520px;
     background-color: #FE9900;
     border-radius: 0px 65px 65px 0px;
     width: 212px;
@@ -26,13 +26,14 @@ body{
 }
 
 .barraherramienta{
-    margin-top: 73px;
+    margin-top: 50px;
     width: 212px;
     text-align: center;
 }
 
 .barraindicador{
     width: 5px;
+    height: 40px;
     position: absolute;
 }
 
@@ -55,6 +56,9 @@ body{
     font-size: 26px;
     line-height: 35px;
     letter-spacing: 0.05em;
+}
+
+.boton{
     background: transparent;
     border: none !important;
 }
@@ -70,5 +74,38 @@ body{
 .fondo{
     position: absolute;
     bottom: 0;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
+}
+
+#secciongrupos{
+    margin-top: 23px;
+    margin-left: 30px;
+    height: 100px;
+    width: 431px;
+    float: left;
+}
+
+#busqueda{
+    border-radius: 10px 10px 10px 10px;
+    height: 40px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.center {
+    padding-top: 5px;
+}
+
+.prueba{
+    text-align: center;
+}
+
+.busqueda{
+    font-size: 23px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.inicio{
+    font-weight: bold;
 }
