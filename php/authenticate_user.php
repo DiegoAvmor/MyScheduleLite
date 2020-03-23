@@ -23,7 +23,7 @@ function authenticate($email,$password){
         ]);
         if($credentials['password']===$password){
             $response -> set_status(200);
-            $response -> set_message("../MyScheduleLite/schedule.html");
+            $response -> set_message("../MyScheduleLite/pages/main.html");
             session_start();
             $_SESSION['access'] = true;
             $_SESSION['user'] = $email;

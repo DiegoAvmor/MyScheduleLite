@@ -1,43 +1,52 @@
 <?php
-/*
-Este es un archivo temporal para administrar la información, para que sea más facil 
-la parte de las pruebas a la base de datos
-*/
+//This file is used when the main.html is onready state
+//This file returns a JSON with the relations with groups and signments created
 include_once 'db.php';
-include 'model/SimpleResponse.php';
 
-//$name = $_POST['name'];
-//$response = insert($name);
-//$response = getInfo();
-//echo $response;
+echo getInfo();
 
 function getInfo(){
     $dbconnection = establishConnectionDB();
-    
-    $raw_groups = $dbconnection->select("grupos", "*");
-    $raw_subjects = $dbconnection->select("materia", "*");
-    $processed_data = json_encode(
+    $not_assigned = $dbconnection->select(
+        "grupos",//Primero la tabla de la base de datos
+        [//Joins que se tengan que hacer
+            "[>]grupos_materia" => ["clave_grupo" => "clave_grupo"],
+            "[><]carrera" => ["clave_carrera" => "clave_carrera"]
+        ],
+        [//Selecionamos las columnas que necesitemos
+            "grupos.clave_grupo",
+            "grupos.ciclo_escolar",
+            "grupos.clave_carrera",
+            "grupos.turno",
+            "carrera.nombre_carrera"
+        ],//Condiciones que esperamos que se cumplan
+        ["grupos_materia.clave_grupo[=]" => null]
+    );
+    $assigned = $dbconnection->select(
+        "grupos_materia",
+        [
+            "[><]carrera" => ["clave_carrera" => "clave_carrera"],
+            "[><]materia" => ["clave_materia" => "clave_materia"],
+            "[><]grupos" => ["clave_grupo" => "clave_grupo"]
+        ],
+        [
+            "grupos_materia.clave_grupo",
+            "grupos_materia.ciclo_escolar",
+            "grupos_materia.clave_carrera",
+            "grupos.turno",
+            "carrera.nombre_carrera",
+            "grupos_materia.clave_materia",
+            "materia.nombre_materia",
+            "materia.creditos"
+        ]
+    );
+
+    return json_encode(
         array(
-        'groups'=> $raw_groups,
-        'subjects'=> $raw_subjects
+        'not_assigned'=> $not_assigned,
+        'assigned' => $assigned
         )
     );
-    
-    return $processed_data;
 }
 
-function insert($name){
-    $dbconnection = establishConnectionDB();
-    //Falta añadir sentencia SQL
-    for ($i=0; $i < 20; $i++) { 
-        $clave_mat = $i;
-        $dbconnection->insert('materia',[
-            'clave_materia' => $clave_mat,
-            'nombre_materia' => $name.$i,
-            'creditos' => $clave_mat,
-        ]); 
-    }
-    
-    return "Yei";
-}
 ?>
