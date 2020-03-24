@@ -43,5 +43,4 @@ const handleResponse = response =>{
         $("#grupos").append(infogrupo);
         console.log(gruposasignados[contador]);
     }
-    console.log(parsedResponse);
 }

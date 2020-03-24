@@ -1,6 +1,6 @@
 FROM php:7.0-apache
 
-RUN mkdir /var/wwww/html/MyScheduleLite/
+RUN mkdir /var/www/html/MyScheduleLite/
 
 COPY . /var/www/html/MyScheduleLite/
 

@@ -37,10 +37,15 @@
 
 
 .barragrupos{
+    padding-top: 10px;
     margin-bottom: 15px;
     background-color: white;
     box-shadow: 0 8px 6px -6px black;
     transition: width .5s;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .barragrupos,#crearhorario{
@@ -72,3 +77,4 @@
     height: 40px;
     font-size: 16px;
 }
+
