@@ -1,0 +1,74 @@
+#secciongrupos{
+    margin-top: 15px;
+    margin-left: 30px;
+    height: 100px;
+    width: 431px;
+    float: left;
+}
+
+#barrabusqueda, .barragrupos {
+    padding-top: 5px;
+}
+
+.prueba{
+    text-align: center;
+}
+
+.busqueda{
+    font-size: 23px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.boldfont{
+    font-weight: bold;
+}
+
+#barrabusqueda,.barragrupos{
+    height: 40px;
+    width: 400px;
+}
+
+#barrabusqueda{
+    box-shadow: 0 8px 6px -6px black;
+    background-color: white;
+    margin-bottom: 30px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+
+.barragrupos{
+    margin-bottom: 15px;
+    background-color: white;
+    box-shadow: 0 8px 6px -6px black;
+    transition: width .5s;
+}
+
+.barragrupos,#crearhorario{
+    border-radius: 5px 5px 5px 5px;
+}
+
+.barragrupos:hover{
+    width: 420px;
+    height: 50px;
+    position: relative;
+}
+
+#grupos{
+    height: 348px;
+    overflow-y: scroll;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+}
+
+#boton{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#crearhorario{
+    background-color: rgba(254, 153, 0, 1);
+    border: 0px;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+}

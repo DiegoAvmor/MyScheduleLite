@@ -1,0 +1,10 @@
+header{
+    display: block;
+    height: 86px;
+}
+
+#teamlogo{
+    padding-top: 10px;
+    height: 100px;
+    width: 250px;
+}

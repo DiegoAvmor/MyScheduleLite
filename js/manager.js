@@ -35,5 +35,13 @@ $("#get").click(function(){
 
 const handleResponse = response =>{
     let parsedResponse = JSON.parse(response);
+    let gruposasignados = parsedResponse.assigned;
+    for(var contador= 0;contador < gruposasignados.length;contador++){
+        let infogrupo = document.createElement('div');
+        infogrupo.setAttribute("class","texto barragrupos");
+        infogrupo.innerHTML = "informacion";
+        $("#grupos").append(infogrupo);
+        console.log(gruposasignados[contador]);
+    }
     console.log(parsedResponse);
 }
