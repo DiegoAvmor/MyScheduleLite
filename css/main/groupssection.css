@@ -38,12 +38,13 @@
 .barragrupos{
     padding-top: 16px;
     margin-bottom: 15px;
-    transition: width .5s;
+    transition:  width .5s, height .5s,padding-top .5s;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 .barragrupos,#crearhorario{

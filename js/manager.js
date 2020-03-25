@@ -39,24 +39,31 @@ const handleResponse = response =>{
     for(var contador= 0;contador < grupos.length;contador++){
         let infogrupo = document.createElement('div');
         infogrupo.setAttribute("class","texto barragrupos");
-        infogrupo.setAttribute("onclick","gruposClickEvent()");
+        infogrupo.setAttribute("onclick","gruposClickEvent(this)");
         infogrupo.innerHTML = grupos[contador].grupo.clave_carrera + " - Grupo" 
         + grupos[contador].grupo.clave_grupo + '<img id="divisor" src="../images/iconos/divisor.png" alt="divisor"> Generación: '
         + grupos[contador].grupo.ciclo_escolar + ' - ' + grupos[contador].grupo.turno;
         $("#grupos").append(infogrupo);
         console.log(grupos[contador]);
     }
-   // focusButtonFunction();
 }
 
-function focusButtonFunction(){
-    var elements = document.getElementsByClassName("barragrupos");
-    for (var i = 0, len = elements.length; i < len; i++) {
-        //elements[i].onclick = gruposClickEvent();
-        elements[i].addEventListener("click", alert("hola mundo"));
+var elementselected = null;
+
+function gruposClickEvent(gruposeleccionado){
+    if(elementselected){
+        elementselected.style.width = "";
+        elementselected.style.height = "";
+        elementselected.style.position = "";
+        elementselected.style.paddingTop = "";
+        elementselected.style.transition = "";
+        elementselected.style.boxShadow = "";
+        elementselected.style.border = "";
     }
-}
-
-function gruposClickEvent(){
-    alert("hola mundo");
+    gruposeleccionado.style.width = "420px";
+    gruposeleccionado.style.height = "50px";
+    gruposeleccionado.style.position = "relative";
+    gruposeleccionado.style.paddingTop = "25px";
+    gruposeleccionado.style.border = "1px solid";
+    elementselected = gruposeleccionado;
 }
