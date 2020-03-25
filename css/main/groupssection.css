@@ -26,26 +26,24 @@
 #barrabusqueda,.barragrupos{
     height: 40px;
     width: 400px;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: white;
 }
 
 #barrabusqueda{
-    box-shadow: 0 8px 6px -6px black;
-    background-color: white;
     margin-bottom: 30px;
     border-radius: 10px 10px 10px 10px;
 }
 
-
 .barragrupos{
-    padding-top: 10px;
+    padding-top: 16px;
     margin-bottom: 15px;
-    background-color: white;
-    box-shadow: 0 8px 6px -6px black;
     transition: width .5s;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
+    text-align: center;
 }
 
 .barragrupos,#crearhorario{
@@ -56,6 +54,7 @@
     width: 420px;
     height: 50px;
     position: relative;
+    padding-top: 25px;
 }
 
 #grupos{
@@ -76,5 +75,11 @@
     width: 200px;
     height: 40px;
     font-size: 16px;
+    font-weight: 100px;
 }
 
+#divisor{
+    vertical-align: bottom;
+    margin-left: 12px;
+    margin-right: 15px;
+}

@@ -34,13 +34,29 @@ $("#get").click(function(){
 })*/
 
 const handleResponse = response =>{
-    let parsedResponse = JSON.parse(response);
-    let gruposasignados = parsedResponse.assigned;
-    for(var contador= 0;contador < gruposasignados.length;contador++){
+    let respuesta = JSON.parse(response);
+    let grupos = respuesta;
+    for(var contador= 0;contador < grupos.length;contador++){
         let infogrupo = document.createElement('div');
         infogrupo.setAttribute("class","texto barragrupos");
-        infogrupo.innerHTML = "informacion";
+        infogrupo.setAttribute("onclick","gruposClickEvent()");
+        infogrupo.innerHTML = grupos[contador].grupo.clave_carrera + " - Grupo" 
+        + grupos[contador].grupo.clave_grupo + '<img id="divisor" src="../images/iconos/divisor.png" alt="divisor"> Generación: '
+        + grupos[contador].grupo.ciclo_escolar + ' - ' + grupos[contador].grupo.turno;
         $("#grupos").append(infogrupo);
-        console.log(gruposasignados[contador]);
+        console.log(grupos[contador]);
     }
+   // focusButtonFunction();
+}
+
+function focusButtonFunction(){
+    var elements = document.getElementsByClassName("barragrupos");
+    for (var i = 0, len = elements.length; i < len; i++) {
+        //elements[i].onclick = gruposClickEvent();
+        elements[i].addEventListener("click", alert("hola mundo"));
+    }
+}
+
+function gruposClickEvent(){
+    alert("hola mundo");
 }

@@ -1,6 +1,4 @@
-var grupos = document.getElementsByClassName("barragrupos");
-var lastelement;
-
-window.onload = function nuevafuncion(){
+$(document).ready(() => {
+    var grupos = document.getElementsByClassName("barragrupos");
     alert(grupos.length);
-};
+});
