@@ -33,9 +33,11 @@ $("#get").click(function(){
         .fail((xhr, status, error) => console.log(error));
 })*/
 
+var grupos;
+
 const handleResponse = response =>{
     let respuesta = JSON.parse(response);
-    let grupos = respuesta;
+    grupos = respuesta;
     for(var contador= 0;contador < grupos.length;contador++){
         let infogrupo = document.createElement('div');
         infogrupo.setAttribute("class","texto barragrupos");
@@ -44,26 +46,9 @@ const handleResponse = response =>{
         + grupos[contador].grupo.clave_grupo + '<img id="divisor" src="../images/iconos/divisor.png" alt="divisor"> Generación: '
         + grupos[contador].grupo.ciclo_escolar + ' - ' + grupos[contador].grupo.turno;
         $("#grupos").append(infogrupo);
-        console.log(grupos[contador]);
     }
-}
-
-var elementselected = null;
-
-function gruposClickEvent(gruposeleccionado){
-    if(elementselected){
-        elementselected.style.width = "";
-        elementselected.style.height = "";
-        elementselected.style.position = "";
-        elementselected.style.paddingTop = "";
-        elementselected.style.transition = "";
-        elementselected.style.boxShadow = "";
-        elementselected.style.border = "";
+    nuevoselementos = document.getElementsByClassName("barragrupos");
+    for(var contador = 0;contador<nuevoselementos.length;contador++){
+        nuevoselementos[contador].value = contador;
     }
-    gruposeleccionado.style.width = "420px";
-    gruposeleccionado.style.height = "50px";
-    gruposeleccionado.style.position = "relative";
-    gruposeleccionado.style.paddingTop = "25px";
-    gruposeleccionado.style.border = "1px solid";
-    elementselected = gruposeleccionado;
 }

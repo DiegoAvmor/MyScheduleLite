@@ -1,8 +1,39 @@
 #materias{
-    width: 640px;
     height: 515px;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     float: right;
-    position: absolute;
-    margin-left: 700px;
+    margin-right: 20px;
+}
+
+#separadortitulo{
+    vertical-align: top;
+    height: 32px;
+    margin-left: 12px;
+    margin-right: 15px;
+}
+
+h2{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#cuadromaterias,#materias{
+    width: 650px;
+}
+
+#cuadromaterias{
+    height: 440px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow-y: scroll;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+}
+
+.informacionmateria{
+    margin-left:  10px;
+    margin-right: 14px;
+    margin-top: 16px;
+    width: 295px;
+    height: 200px;
+    background-color: blue;
+    display: inline-block;
 }
