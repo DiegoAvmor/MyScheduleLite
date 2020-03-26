@@ -84,7 +84,7 @@ INSERT INTO `aula` (`clave_aula`, `nombre_aula`, `tipo`, `descripcion`, `horas_r
 --
 
 CREATE TABLE `carrera` (
-  `clave_carrera` int(11) NOT NULL,
+  `clave_carrera` varchar(6) NOT NULL,
   `duracion` int(10) NOT NULL,
   `nombre_carrera` varchar(50) NOT NULL
 ) ENGINE=InnoDB;
@@ -125,7 +125,7 @@ CREATE TABLE `grupos` (
   `clave_grupo` int(11) NOT NULL,
   `ciclo_escolar` varchar(50) NOT NULL,
   `clave_carrera` int(11) NOT NULL,
-  `turno` int(11) NOT NULL,
+  `turno` varchar(12) NOT NULL,
   `creditos_aprobados` int(11) NOT NULL,
   `semestre` int(11) NOT NULL
 ) ENGINE=InnoDB;
@@ -238,7 +238,7 @@ INSERT INTO `maestro` (`clave_maestro`, `nombre_maestro`, `email`) VALUES
 --
 
 CREATE TABLE `materia` (
-  `clave_materia` int(11) NOT NULL,
+  `clave_materia` varchar(50) NOT NULL,
   `nombre_materia` varchar(50) NOT NULL,
   `creditos` int(10) NOT NULL
 ) ENGINE=InnoDB;
