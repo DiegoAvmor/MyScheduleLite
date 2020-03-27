@@ -42,8 +42,16 @@ function buttonText(subjectsnumber){
 }
 
 function subjectsPictures(groupsubjects){
+    console.log(groupsubjects);
     var subjectpicture = $("#cuadromaterias");
     for(var contador = 0; contador<groupsubjects.length; contador++){
-        subjectpicture.append('<div class = "informacionmateria"> &nbsp </div>');
+        subjectpicture.append('<div class = "informacionmateria"> '+ 
+                                '<div class = "font title">' + groupsubjects[contador].nombre_materia + '</div>' +
+                                '<img src="../images/iconos/line.png" class = "line">' + 
+                                '<p class = "font space">'+ groupsubjects[contador].clave_materia + '</p>' + 
+                                '<p class = "font space">Horas presenciales:</p>' + 
+                                '<p class = "font space">Horas no presenciales:</p>' + 
+                                '<p class = "font space">Horas totales: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Creditos: </p>' +
+                                 '</div>');
     }
 }
