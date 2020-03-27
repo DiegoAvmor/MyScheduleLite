@@ -55,3 +55,7 @@ function subjectsPictures(groupsubjects){
                                  '</div>');
     }
 }
+
+function chargeSchedule(){
+    
+}

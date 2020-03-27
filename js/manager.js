@@ -75,4 +75,5 @@ const handleResponse = response =>{
     for(var contador = 0;contador<nuevoselementos.length;contador++){
         nuevoselementos[contador].value = contador;
     }
+    let idindicador = document.getElementsByClassName("barraindicador")[0].style.backgroundColor = "black";
 }
