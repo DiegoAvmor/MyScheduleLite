@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../js/validate.js"></script>
     <script src="../js/manager.js?" defer></script>
     <script src="../js/main.js?" defer></script>
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="../css/main/toolsaside.css">
     <link rel="stylesheet" href="../css/main/groupssection.css">
     <link rel="stylesheet" href="../css/main/subjectsection.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
     <title>My schedule lite</title>
 </head>
@@ -46,7 +48,7 @@
         </div>
         <div id = "barrabusqueda">
             <form class = "prueba">
-                <img src = "../images/iconos/lupaicon.png">
+                <img src = "../images/iconos/lupaicon.png" id = "lupa">
                 <input type="text" class = "boton busqueda" size="25" id="searchBar">
             </form>
         </div>
@@ -54,7 +56,7 @@
             
         </div>
         <div id = "boton">
-            <button id = "crearhorario" class = texto >Crear horario</button>
+            <button id = "crearhorario" class = "texto" onclick="chargeSchedule()">Crear horario</button>
         </div>
     </section>
     <section id = "materias">

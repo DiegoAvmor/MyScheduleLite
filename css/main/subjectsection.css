@@ -61,3 +61,19 @@ h2{
 .space{
     margin-top: 1px;
 }
+
+@media only screen and (min-width: 1440px){
+
+    #materias{
+        height: 650px;
+    }
+        
+    #cuadromaterias,#materias{
+        width: 650px;
+    }
+
+    #cuadromaterias{
+        height: 580px;
+    }
+
+}

@@ -42,7 +42,6 @@ function buttonText(subjectsnumber){
 }
 
 function subjectsPictures(groupsubjects){
-    console.log(groupsubjects);
     var subjectpicture = $("#cuadromaterias");
     for(var contador = 0; contador<groupsubjects.length; contador++){
         subjectpicture.append('<div class = "informacionmateria"> '+ 
@@ -57,5 +56,15 @@ function subjectsPictures(groupsubjects){
 }
 
 function chargeSchedule(){
-    
+    /**
+    numbergroup = elementselected.value;
+    subjects = grupos[numbergroup].materias;
+    console.log(subjects);
+    for(var contador = 0;contador<subjects.length;contador++){
+        var subjectname = subjects[contador].nombre_materia;
+        Cookies.set(contador + "-nombre", subjectname);
+        Cookies.set(contador + "-",subjects[contador]);
+    }
+    **/
+    window.location.href = "../pages/schedule.html";
 }

@@ -40,7 +40,7 @@
     margin-bottom: 15px;
     transition:  width .5s, height .5s,padding-top .5s;
     font-style: normal;
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 16px;
     line-height: 20px;
     text-align: center;
@@ -88,4 +88,45 @@
     vertical-align: bottom;
     margin-left: 12px;
     margin-right: 15px;
+}
+
+@media only screen and (min-width: 1440px) {
+
+    #lupa{
+        margin-left: -50px;
+        width: 16px;
+        height: 16px;
+    }
+
+    #barrabusqueda,.barragrupos{
+        height: 40px;
+        width: 450px;
+    }
+
+    #barrabusqueda{
+        padding-top: 9px;
+    }
+
+    #barratareas {
+      height: 680px;
+    }
+
+    #secciongrupos{
+        height: 650px;
+        width: 495px;
+    }
+
+    #grupos{
+        height: 500px;
+    }
+
+    .barragrupos:hover{
+        width: 476px;
+        height: 50px;
+    }
+
+    #crearhorario{
+        margin-right: 30px;
+    }
+
 }
