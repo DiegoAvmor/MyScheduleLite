@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="../css/main/document.css">
     <link rel="stylesheet" href="../css/main/head.css">
     <link rel="stylesheet" href="../css/main/toolsaside.css">
+    <link rel="stylesheet" href="../css/schedule/head.css">
+    <link rel="stylesheet" href="../css/schedule/schedulesection.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../js/schedule.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
@@ -14,6 +18,7 @@
 <body>
     <header>
         <img id = "teamlogo" src="../images/Logo.png" alt="Italian Trulli">
+        <div id = "head"><div class="inlineblocks texto">Grupos</div><div id = "groupinfo" class="inlineblocks texto">Info del grupo</div><button id = "addsubject" class="inlineblocks texto">Agregar clase</button></div>
     </header>
     <aside id = barratareas>
         <div class = barraherramienta>
@@ -36,5 +41,315 @@
             <button class = "texto boton">Salir</button>
         </div>
     </aside>
+    <section id = "schedulesection">
+        <div id = "weekdays">
+            <div class = "inlineblocks texto th font16">Lunes</div><div class = "inlineblocks texto th font16">Martes</div><div class = "inlineblocks texto th font16">Miercoles</div><div class = "inlineblocks texto th font16">Jueves</div><div class = "inlineblocks texto th font16">Viernes</div>
+        </div>
+        <div id = "schedulepicture">
+            <div id = "hours">
+                <div class = "time">
+                    7:00
+                </div>
+                <div class = "time">
+                    7:30
+                </div>
+                <div class = "time">
+                    8:00
+                </div>
+                <div class = "time">
+                    8:30
+                </div>
+                <div class = "time">
+                    9:00
+                </div>
+                <div class = "time">
+                    9:30
+                </div>
+                <div class = "time">
+                    10:00
+                </div>
+                <div class = "time">
+                    10:30
+                </div>
+                <div class = "time">
+                    11:00
+                </div>
+                <div class = "time">
+                    11:30
+                </div>
+                <div class = "time">
+                    12:00
+                </div>
+                <div class = "time">
+                    12:30
+                </div>
+                <div class = "time">
+                    13:00
+                </div>
+                <div class = "time">
+                    13:30
+                </div>
+                <div class = "time">
+                    14:00
+                </div>
+                <div class = "time">
+                    14:30
+                </div>
+                <div class = "time">
+                    15:00
+                </div>
+                <div class = "time">
+                    15:30
+                </div>
+                <div class = "time">
+                    16:00
+                </div>
+                <div class = "time">
+                    16:30
+                </div>
+                <div class = "time">
+                    17:00
+                </div>
+                <div class = "time">
+                    17:30
+                </div>
+                <div class = "time">
+                    18:00
+                </div>
+                <div class = "time">
+                    18:30
+                </div>
+                <div class = "time">
+                    19:00
+                </div>
+                <div class = "time">
+                    19:30
+                </div>
+                 <div class = "time">
+                    20:00
+                </div>
+                <div class = "time">
+                    20:30
+                </div>
+                <div class = "time">
+                    21:00
+                </div>
+            </div>
+            <div id = "subjects">
+                <table style="width:100%">
+                    <tr>
+                      <th></th>
+                      <th class = "centerth cleangrid"></th> 
+                      <th class = "centerth cleangrid"></th>
+                      <th class = "centerth cleangrid"></th> 
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <td class = "asidetd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "asidetd"></td>
+                    </tr>
+                    <tr>
+                      <td class = "asidetd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "asidetd"></td>
+                    </tr>
+                    <tr>
+                      <td class = "asidetd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class = "centertd"></td>
+                      <td class =  "asidetd"></td>
+                    </tr>
+                    <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <th class = "centerth cleangrid"></th> 
+                        <th class = "centerth cleangrid"></th>
+                        <th class = "centerth cleangrid"></th> 
+                        <th></th>
+                      </tr>
+                  </table>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -1,0 +1,90 @@
+#schedulesection{
+    margin: 20px auto auto 220px;
+    width: 80%;
+    height: 525px;
+}
+
+#weekdays{
+    text-align: center;
+    float: right;
+    height: 37px;
+    width: 90%;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#schedulepicture{
+    float: left;
+    height: 425px;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+}
+
+#hours{
+    display: inline-block;
+    height: 1425px;
+    width: 10%;
+}
+
+#subjects{
+    display: inline-block;
+    height: 1425px;
+    width: 89.6%;
+}
+
+td{
+    height: 91.5px;
+}
+
+.th{
+    width: 196px;
+}
+
+th{
+    height: 40px;
+    width: 200px;
+}
+
+.centertd{
+    height: 80px;
+    border: 2px solid #FE9900;
+}
+
+.asidetd{
+    border-top: 2px solid #FE9900;
+    border-bottom: 2px solid #FE9900;
+}
+
+.centerth{
+    border-left: 2px solid #FE9900;
+    border-right: 2px solid #FE9900;
+}
+
+table{
+    border-collapse: collapse;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.font16{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.time{
+    text-align: center;
+    padding-top: 33%;
+    float: right;
+    display: block;
+    height: 59.6px;
+    width: 90%;
+}
+
+@media only screen and (min-width: 1440px){
+
+    .time{
+        padding-top: 30%;
+        height: 60px;
+    }
+    
+}

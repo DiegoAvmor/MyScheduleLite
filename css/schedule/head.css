@@ -1,0 +1,30 @@
+header{
+    width:100%;
+}
+
+#head{
+    width: 80%;
+    text-align: center;
+    margin-top: 35px;
+    display: inline-block;
+   position: absolute;
+}
+
+.inlineblocks{
+    display: inline-block;
+}
+
+#groupinfo{
+    width: 60%;
+}
+
+#addsubject{
+    background-color: rgba(254, 153, 0, 1);
+    border: 0px;
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 100px;
+    border-radius: 5px;
+
+}
