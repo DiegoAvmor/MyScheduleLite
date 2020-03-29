@@ -8,15 +8,18 @@ echo getInfo();
 function getInfo(){
     $dbconnection = establishConnectionDB();
     $groups = $dbconnection->select(
-        "grupos",//Primero la tabla de la base de datos
+        "grupo",
         [//Joins que se tengan que hacer
             "[><]carrera" => ["clave_carrera" => "clave_carrera"]
         ],
-        [//Selecionamos las columnas que necesitemos
-            "grupos.clave_grupo",
-            "grupos.ciclo_escolar",
-            "grupos.clave_carrera",
-            "grupos.turno",
+        [
+            "grupo.clave_grupo",
+            "grupo.numero_grupo",
+            "grupo.ciclo_escolar",
+            "grupo.clave_carrera",
+            "grupo.turno",
+            "grupo.semestre",
+            "grupo.clave_carrera",
             "carrera.nombre_carrera"
         ]
     );
@@ -24,20 +27,18 @@ function getInfo(){
     foreach ($groups as $group) {
         $clave_grupo = $group['clave_grupo'];
         $materias = $dbconnection->select(
-            "grupos_materia",
+            "carga",
             [
-                "[><]carrera" => ["clave_carrera" => "clave_carrera"],
-                "[><]materia" => ["clave_materia" => "clave_materia"]
+                "[><]materia" => ["clave_materia" => "clave_materia"],
+                "[<]grupo" => ["clave_grupo" => "clave_grupo"]
             ],
             [
-                "carrera.nombre_carrera",
-                "materia.nombre_materia",
-                "materia.creditos",
-                "materia.clave_materia"
-            ]
-            ,
+                "carga.clave_materia",
+                "carga.clave_grupo",
+                "materia.nombre_materia"
+            ],
             [
-                "clave_grupo" => $clave_grupo
+                "grupo.clave_grupo" => $clave_grupo
             ]
         );
         $array_grupo_materias = array(
