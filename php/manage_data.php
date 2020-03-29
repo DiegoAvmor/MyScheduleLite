@@ -35,7 +35,11 @@ function getInfo(){
             [
                 "carga.clave_materia",
                 "carga.clave_grupo",
-                "materia.nombre_materia"
+                "materia.nombre_materia",
+                "materia.nombre_materia",
+                "materia.creditos_materia",
+                "materia.horas_presenciales",
+                "materia.horas_no_presenciales"
             ],
             [
                 "grupo.clave_grupo" => $clave_grupo
