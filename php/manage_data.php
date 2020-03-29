@@ -30,7 +30,7 @@ function getInfo(){
             "carga",
             [
                 "[><]materia" => ["clave_materia" => "clave_materia"],
-                "[<]grupo" => ["clave_grupo" => "clave_grupo"]
+                "[><]grupo" => ["clave_grupo" => "clave_grupo"]
             ],
             [
                 "carga.clave_materia",
