@@ -61,15 +61,8 @@ function subjectsPictures(groupsubjects){
 }
 
 function chargeSchedule(){
-    /**
+    
     numbergroup = elementselected.value;
-    subjects = grupos[numbergroup].materias;
-    console.log(subjects);
-    for(var contador = 0;contador<subjects.length;contador++){
-        var subjectname = subjects[contador].nombre_materia;
-        Cookies.set(contador + "-nombre", subjectname);
-        Cookies.set(contador + "-",subjects[contador]);
-    }
-    **/
-    window.location.href = "../pages/schedule.html";
+    clave = grupos[numbergroup].grupo.clave_grupo;
+    window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave;
 }
