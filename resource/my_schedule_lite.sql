@@ -7,10 +7,7 @@
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.3.11
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -30,9 +27,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administrador` (
   `clave_administrador` int(10) NOT NULL,
-  `nombre_administrador` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre_administrador` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `administrador`
@@ -56,7 +53,7 @@ CREATE TABLE `alumno` (
   `nombre_alumno` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `clave_grupo` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `alumno`
@@ -76,7 +73,7 @@ CREATE TABLE `aula` (
   `clave_aula` varchar(10) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `tipo_aula` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `aula`
@@ -110,7 +107,7 @@ CREATE TABLE `aula_carga` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL,
   `clave_grupo` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -122,7 +119,7 @@ CREATE TABLE `carga` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL,
   `clave_grupo` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `carga`
@@ -171,7 +168,7 @@ CREATE TABLE `carrera` (
   `clave_carrera` varchar(10) NOT NULL,
   `nombre_carrera` varchar(50) NOT NULL,
   `duracion` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `carrera`
@@ -198,7 +195,7 @@ CREATE TABLE `grupo` (
   `semestre` int(10) NOT NULL DEFAULT '1',
   `turno` varchar(20) NOT NULL,
   `creditos_aprobados` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `grupo`
@@ -224,7 +221,7 @@ CREATE TABLE `horario` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL,
   `clave_grupo` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -236,7 +233,7 @@ CREATE TABLE `maestro` (
   `clave_maestro` int(10) NOT NULL,
   `nombre_maestro` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `maestro`
@@ -264,7 +261,7 @@ CREATE TABLE `malla_curricular` (
   `clave_carrera` varchar(10) NOT NULL,
   `semestre` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `malla_curricular`
@@ -329,7 +326,7 @@ CREATE TABLE `materia` (
   `creditos_materia` int(10) NOT NULL,
   `horas_presenciales` int(10) DEFAULT NULL,
   `horas_no_presenciales` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `materia`
@@ -391,7 +388,7 @@ INSERT INTO `materia` (`clave_materia`, `nombre_materia`, `creditos_materia`, `h
 CREATE TABLE `oferta` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `oferta`
@@ -440,7 +437,7 @@ INSERT INTO `oferta` (`clave_maestro`, `clave_materia`) VALUES
 CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Volcado de datos para la tabla `usuarios`
