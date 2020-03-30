@@ -2,7 +2,7 @@
     margin-top: 23px;
     display: block;
     float:left;
-    height: 520px;
+    /**height: 520px;**/
     background-color: #FE9900;
     border-radius: 0px 65px 65px 0px;
     width: 212px;
@@ -48,10 +48,4 @@
     position: absolute;
     bottom: 0;
     padding-bottom: 20px;
-}
-
-@media only screen and (min-width: 1440px) {
-    #barratareas {
-      height: 650px;
-    }
 }

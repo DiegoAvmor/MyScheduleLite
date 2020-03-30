@@ -5,7 +5,7 @@ var subjectsbutton = $("#crearhorario");
 function gruposClickEvent(gruposeleccionado){
     seccionmaterias.empty();
     if(elementselected){
-        elementselected.style.width = "";
+        elementselected.style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
         elementselected.style.height = "";
         elementselected.style.position = "";
         elementselected.style.paddingTop = "";
@@ -13,8 +13,10 @@ function gruposClickEvent(gruposeleccionado){
         elementselected.style.boxShadow = "";
         elementselected.style.border = "";
     }
-    gruposeleccionado.style.width = "420px";
-    gruposeleccionado.style.height = "50px";
+    console.log(gruposeleccionado.offsetHeight);
+    console.log(gruposeleccionado.offsetWidth);
+    gruposeleccionado.style.width = gruposeleccionado.offsetWidth + 5 + "px";
+    gruposeleccionado.style.height = gruposeleccionado.offsetHeight - 25 + "px";
     gruposeleccionado.style.position = "relative";
     gruposeleccionado.style.paddingTop = "25px";
     gruposeleccionado.style.border = "1px solid";
@@ -73,3 +75,40 @@ function chargeSchedule(){
     **/
     window.location.href = "../pages/schedule.html";
 }
+
+var grupos;
+var domGrupos = new Array();//Elementos DOM de los grupos
+var nuevoselementos;
+function createDivsGrous(){
+    for(var contador= 0;contador < grupos.length;contador++){
+        let infogrupo = document.createElement('div');
+        infogrupo.setAttribute("class","texto barragrupos");
+        infogrupo.setAttribute("onclick","gruposClickEvent(this)");
+        infogrupo.setAttribute("id","Grupo " + grupos[contador].grupo.clave_grupo );
+        infogrupo.innerHTML = grupos[contador].grupo.clave_carrera + " - Grupo" 
+        + grupos[contador].grupo.clave_grupo + '<img id="divisor" src="../images/iconos/divisor.png" alt="divisor"> Generación: '
+        + grupos[contador].grupo.ciclo_escolar + ' - ' + grupos[contador].grupo.turno;
+        $("#grupos").append(infogrupo);
+        domGrupos.push(infogrupo);
+    }
+    nuevoselementos = document.getElementsByClassName("barragrupos");
+    for(var contador = 0;contador<nuevoselementos.length;contador++){
+        nuevoselementos[contador].value = contador;
+    }
+    displayWindowSize();
+}
+
+function displayWindowSize(){
+    document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
+    document.getElementById("grupos").style.height = document.documentElement.clientHeight - 280 + "px";
+    document.getElementById("grupos").style.width = document.documentElement.clientWidth/3 +"px";
+    barragrupos = document.getElementsByClassName("barragrupos");
+    for(var contador = 0;contador<nuevoselementos.length;contador++){
+        console.log(document.getElementById("grupos").offsetWidth);
+        barragrupos[contador].style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
+    }
+    document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.1 + "px";
+    document.getElementById("materias").style.width = document.documentElement.clientWidth/2.1 + "px";
+}
+
+window.addEventListener("resize",displayWindowSize);
