@@ -3,10 +3,20 @@ $(document).ready(function(){
     const urlParams = new URLSearchParams(queryString);
     const key_value = urlParams.get('clave_grupo')
     getSubjectSchedules(key_value);
-    console.log(key_value);
-    console.log(Cookies.get('name')+ "hola");
+    getOffer(key_value);
 });
 
+function getOffer(clave_grupo){
+    $.ajax({
+        type: "GET",
+        url: "../php/manage_offer.php",
+        data: {
+            "clave_grupo": clave_grupo
+        }
+      })
+        .done(handleOffer)
+        .fail((xhr, status, error) => console.log(error));
+}
 
 
 function getSubjectSchedules(clave_grupo){
@@ -24,4 +34,11 @@ function getSubjectSchedules(clave_grupo){
 const handleResponse = response =>{
     console.log(response);
     console.log(JSON.parse(response));
+}
+
+const handleOffer = response =>{
+    let parsedOffer = JSON.parse(response);
+    parsedOffer.forEach(offer => {
+        console.log(offer);
+    });
 }
