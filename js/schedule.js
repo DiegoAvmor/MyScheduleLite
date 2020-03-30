@@ -32,13 +32,10 @@ function getSubjectSchedules(clave_grupo){
 }
 
 const handleResponse = response =>{
-    console.log(response);
     console.log(JSON.parse(response));
 }
 
 const handleOffer = response =>{
-    let parsedOffer = JSON.parse(response);
-    parsedOffer.forEach(offer => {
-        console.log(offer);
-    });
+    let parsedResponse = JSON.parse(response);
+    console.log(parsedResponse);
 }
