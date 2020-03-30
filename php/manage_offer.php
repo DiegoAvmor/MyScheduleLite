@@ -9,7 +9,7 @@ echo getOffers($clave_grupo);
 
 function getOffers($clave_grupo){
     $dbconnection = establishConnectionDB();
-    $offerta = $dbconnection->query("
+    $offerta_materias = $dbconnection->query("
     SELECT materia.clave_materia, materia.nombre_materia, maestro.clave_maestro, maestro.nombre_maestro FROM grupo 
     JOIN malla_curricular ON malla_curricular.clave_carrera = grupo.clave_carrera
     JOIN oferta ON oferta.clave_materia = malla_curricular.clave_materia
@@ -20,7 +20,20 @@ function getOffers($clave_grupo){
         ":clave_grupo"=>$clave_grupo
     ])->fetchAll();
 
-    return json_encode($offerta);
+    $aulas = $dbconnection->select(
+        "aula",
+        [
+            "clave_aula",
+            "descripcion"
+        ]
+    );
+
+    $response = array(
+        'maestro_materia' => $offerta_materias,
+        'aulas' => $aulas
+    );
+
+    return json_encode($response);
 }
 
 ?>
