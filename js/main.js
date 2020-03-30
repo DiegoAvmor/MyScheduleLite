@@ -106,8 +106,8 @@ function displayWindowSize(){
         console.log(document.getElementById("grupos").offsetWidth);
         barragrupos[contador].style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
     }
-    document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.1 + "px";
-    document.getElementById("materias").style.width = document.documentElement.clientWidth/2.1 + "px";
+    document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.2 + "px";
+    document.getElementById("materias").style.width = document.documentElement.clientWidth/2.2 + "px";
 }
 
 window.addEventListener("resize",displayWindowSize);
