@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 28-03-2020 a las 21:34:16
--- Versión del servidor: 8.0.18
--- Versión de PHP: 7.3.11
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-03-2020 a las 00:31:50
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.1
 
 
 
@@ -126,37 +126,37 @@ CREATE TABLE `carga` (
 --
 
 INSERT INTO `carga` (`clave_maestro`, `clave_materia`, `clave_grupo`) VALUES
-(121212, 'MAT161-A', 1),
-(232323, 'MAT161-AS', 1),
-(343434, 'MAT161-FIS', 1),
-(454545, 'MAT161-GA', 1),
-(565656, 'MAT161-RSU', 1),
-(121212, 'MAT162-AA', 2),
-(232323, 'MAT162-CD', 2),
-(343434, 'MAT162-CM', 2),
-(454545, 'MAT162-MD', 2),
-(565656, 'MATLCC-PE', 2),
-(121212, 'MAT163-AL', 3),
-(232323, 'MAT163-AL', 3),
-(343434, 'MAT163-CI', 3),
-(454545, 'MAT163-PO', 3),
-(565656, 'MAT163-TC', 3),
 (21001, 'LAFMAT-AI', 4),
+(21001, 'LAFMAT-AL', 6),
+(21001, 'LAFMAT-AR', 5),
 (21001, 'LAFMAT-RSU', 4),
 (21002, 'LAFMAT-AS', 4),
-(21003, 'LAFMAT-CF', 4),
-(21004, 'LAFMAT-GAI', 4),
-(21005, 'LAFMAT-IC', 4),
-(21001, 'LAFMAT-AR', 5),
 (21002, 'LAFMAT-AS2', 5),
-(21003, 'LAFMAT-CM', 5),
-(21004, 'LAFMAT-CUV', 5),
-(21005, 'LAFMAT-SF', 5),
-(21001, 'LAFMAT-AL', 6),
 (21002, 'LAFMAT-CMT', 6),
+(21003, 'LAFMAT-CF', 4),
+(21003, 'LAFMAT-CM', 5),
 (21003, 'LAFMAT-M', 6),
+(21004, 'LAFMAT-CUV', 5),
+(21004, 'LAFMAT-GAI', 4),
 (21004, 'LAFMAT-MF', 6),
-(21005, 'LAFMAT-P1', 6);
+(21005, 'LAFMAT-IC', 4),
+(21005, 'LAFMAT-P1', 6),
+(21005, 'LAFMAT-SF', 5),
+(121212, 'MAT161-A', 1),
+(121212, 'MAT162-AA', 2),
+(121212, 'MAT163-AL', 3),
+(232323, 'MAT161-AS', 1),
+(232323, 'MAT162-CD', 2),
+(232323, 'MAT163-AL', 3),
+(343434, 'MAT161-FIS', 1),
+(343434, 'MAT162-CM', 2),
+(343434, 'MAT163-CI', 3),
+(454545, 'MAT161-GA', 1),
+(454545, 'MAT162-MD', 2),
+(454545, 'MAT163-PO', 3),
+(565656, 'MAT161-RSU', 1),
+(565656, 'MAT163-TC', 3),
+(565656, 'MATLCC-PE', 2);
 
 -- --------------------------------------------------------
 
@@ -192,9 +192,9 @@ CREATE TABLE `grupo` (
   `numero_grupo` int(10) NOT NULL,
   `ciclo_escolar` varchar(50) NOT NULL,
   `clave_carrera` varchar(10) NOT NULL,
-  `semestre` int(10) NOT NULL DEFAULT '1',
+  `semestre` int(10) NOT NULL DEFAULT 1,
   `turno` varchar(20) NOT NULL,
-  `creditos_aprobados` int(11) DEFAULT '0'
+  `creditos_aprobados` int(11) DEFAULT 0
 ) ENGINE=InnoDB;
 
 --
@@ -220,8 +220,24 @@ CREATE TABLE `horario` (
   `clave_aula` varchar(10) NOT NULL,
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL,
-  `clave_grupo` int(10) NOT NULL
+  `clave_grupo` int(10) NOT NULL,
+  `hora_inicio` varchar(10) NOT NULL,
+  `hora_termina` varchar(10) NOT NULL,
+  `dia_semana` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `horario`
+--
+
+INSERT INTO `horario` (`clave_aula`, `clave_maestro`, `clave_materia`, `clave_grupo`, `hora_inicio`, `hora_termina`, `dia_semana`) VALUES
+('CC1', 121212, 'MAT161-A', 1, '7:30', '8:00', 'Lunes'),
+('CC1', 121212, 'MAT161-A', 1, '10:00', '10:30', 'Martes'),
+('CC1', 232323, 'MAT161-AS', 1, '8:30', '9:00', 'Lunes'),
+('CC1', 343434, 'MAT161-FIS', 1, '9:00', '9:30', 'Lunes'),
+('CC1', 454545, 'MAT161-GA', 1, '9:30', '10:00', 'Lunes'),
+('CC1', 565656, 'MAT161-RSU', 1, '8:00', '8:30', 'Lunes'),
+('CC3', 121212, 'MAT161-A', 1, '9:30', '10:00', 'Miercoles');
 
 -- --------------------------------------------------------
 
@@ -274,40 +290,40 @@ INSERT INTO `malla_curricular` (`clave_carrera`, `semestre`, `clave_materia`) VA
 ('LA', 1, 'LAFMAT-GAI'),
 ('LA', 1, 'LAFMAT-IC'),
 ('LA', 1, 'LAFMAT-RSU'),
-('LCC', 1, 'MATLCC-A'),
-('LCC', 1, 'MATLCC-AI'),
-('LCC', 1, 'MATLCC-AS'),
-('LCC', 1, 'MATLCC-GA'),
-('LCC', 1, 'MATLCC-RSU'),
-('LIS', 1, 'MAT161-A'),
-('LIS', 1, 'MAT161-AS'),
-('LIS', 1, 'MAT161-FIS'),
-('LIS', 1, 'MAT161-GA'),
-('LIS', 1, 'MAT161-RSU'),
 ('LA', 2, 'LAFMAT-AR'),
 ('LA', 2, 'LAFMAT-AS2'),
 ('LA', 2, 'LAFMAT-CM'),
 ('LA', 2, 'LAFMAT-CUV'),
 ('LA', 2, 'LAFMAT-SF'),
-('LCC', 2, 'MATLCC-AA'),
-('LCC', 2, 'MATLCC-CD'),
-('LCC', 2, 'MATLCC-CM'),
-('LCC', 2, 'MATLCC-MD'),
-('LCC', 2, 'MATLCC-PE'),
-('LIS', 2, 'MAT162-AA'),
-('LIS', 2, 'MAT162-CD'),
-('LIS', 2, 'MAT162-CM'),
-('LIS', 2, 'MAT162-MD'),
-('LIS', 2, 'MAT162-PE'),
 ('LA', 3, 'LAFMAT-AL'),
 ('LA', 3, 'LAFMAT-CMT'),
 ('LA', 3, 'LAFMAT-M'),
 ('LA', 3, 'LAFMAT-MF'),
 ('LA', 3, 'LAFMAT-P1'),
+('LCC', 1, 'MATLCC-A'),
+('LCC', 1, 'MATLCC-AI'),
+('LCC', 1, 'MATLCC-AS'),
+('LCC', 1, 'MATLCC-GA'),
+('LCC', 1, 'MATLCC-RSU'),
+('LCC', 2, 'MATLCC-AA'),
+('LCC', 2, 'MATLCC-CD'),
+('LCC', 2, 'MATLCC-CM'),
+('LCC', 2, 'MATLCC-MD'),
+('LCC', 2, 'MATLCC-PE'),
 ('LCC', 3, 'MATLCC-AL'),
 ('LCC', 3, 'MATLCC-CI'),
 ('LCC', 3, 'MATLCC-ED'),
 ('LCC', 3, 'MATLCC-TC'),
+('LIS', 1, 'MAT161-A'),
+('LIS', 1, 'MAT161-AS'),
+('LIS', 1, 'MAT161-FIS'),
+('LIS', 1, 'MAT161-GA'),
+('LIS', 1, 'MAT161-RSU'),
+('LIS', 2, 'MAT162-AA'),
+('LIS', 2, 'MAT162-CD'),
+('LIS', 2, 'MAT162-CM'),
+('LIS', 2, 'MAT162-MD'),
+('LIS', 2, 'MAT162-PE'),
 ('LIS', 3, 'MAT163-AC'),
 ('LIS', 3, 'MAT163-AL'),
 ('LIS', 3, 'MAT163-CI'),
@@ -451,8 +467,8 @@ INSERT INTO `usuarios` (`email`, `password`) VALUES
 ('admin5@admin.com', 'asdadsasd'),
 ('alumno1@alumno.com', 'asdadsasd'),
 ('alumno2@alumno.com', 'asdasdasd'),
-('maestro1@maestro.com', 'asdadsasd'),
 ('maestro10@maestro.com', 'asdawqwrq'),
+('maestro1@maestro.com', 'asdadsasd'),
 ('maestro2@maestro.com', 'asdadsads'),
 ('maestro3@maestro.com', 'asdasdasd'),
 ('maestro4@maestro.com', 'asdasdasd'),
@@ -521,7 +537,7 @@ ALTER TABLE `grupo`
 -- Indices de la tabla `horario`
 --
 ALTER TABLE `horario`
-  ADD PRIMARY KEY (`clave_aula`,`clave_maestro`,`clave_materia`,`clave_grupo`),
+  ADD PRIMARY KEY (`clave_aula`,`clave_maestro`,`clave_materia`,`clave_grupo`,`dia_semana`) USING BTREE,
   ADD KEY `clave_maestro` (`clave_maestro`),
   ADD KEY `clave_materia` (`clave_materia`),
   ADD KEY `clave_grupo` (`clave_grupo`);

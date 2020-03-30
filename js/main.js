@@ -63,8 +63,9 @@ function subjectsPictures(groupsubjects){
 }
 
 function chargeSchedule(){
-    /**
+    
     numbergroup = elementselected.value;
+<<<<<<< HEAD
     subjects = grupos[numbergroup].materias;
     console.log(subjects);
     for(var contador = 0;contador<subjects.length;contador++){
@@ -112,3 +113,8 @@ function displayWindowSize(){
 }
 
 window.addEventListener("resize",displayWindowSize);
+=======
+    clave = grupos[numbergroup].grupo.clave_grupo;
+    window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave;
+}
+>>>>>>> cf3a258037a338d6c846617d614e8f1e396fbe01
