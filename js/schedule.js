@@ -21,11 +21,11 @@ function chargeTime(classbeginning){
     let htmldivtime;
     for(var counter = 0;counter < numberhoursturn; counter++){
         htmldivtime = document.createElement('div');
-        htmldivtime.setAttribute("class","time");
+        htmldivtime.setAttribute("class","time texto font16");
         htmldivtime.innerHTML = classbeginning + counter + ":00";
         divhours.append(htmldivtime);
         htmldivtime = document.createElement('div');
-        htmldivtime.setAttribute("class","time");
+        htmldivtime.setAttribute("class","time texto font16");
         htmldivtime.innerHTML = classbeginning + counter + ":30";
         divhours.append(htmldivtime);
     }

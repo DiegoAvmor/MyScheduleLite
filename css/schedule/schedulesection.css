@@ -1,6 +1,6 @@
 #schedulesection{
     margin: 20px auto auto 220px;
-    width: 80%;
+    width: 1100px;
     height: 525px;
 }
 
@@ -30,7 +30,12 @@
 #subjects{
     display: inline-block;
     height: 1425px;
-    width: 89.6%;
+    width: 89%;
+}
+
+table{
+    height: 1425px;
+    width: 100%;
 }
 
 td{
