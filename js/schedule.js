@@ -8,7 +8,32 @@ $(document).ready(function(){
     getOffer(key_value);
     displayWindowSize();
     pageId();
+    if(turno === 'Matutino'){
+        chargeTime(7);
+        return;
+    }
+    chargeTime(14)
 });
+
+const numberhoursturn = 7;
+function chargeTime(classbeginning){
+    let divhours = $('#hours');
+    let htmldivtime;
+    for(var counter = 0;counter < numberhoursturn; counter++){
+        htmldivtime = document.createElement('div');
+        htmldivtime.setAttribute("class","time");
+        htmldivtime.innerHTML = classbeginning + counter + ":00";
+        divhours.append(htmldivtime);
+        htmldivtime = document.createElement('div');
+        htmldivtime.setAttribute("class","time");
+        htmldivtime.innerHTML = classbeginning + counter + ":30";
+        divhours.append(htmldivtime);
+    }
+    htmldivtime = document.createElement('div');
+    htmldivtime.setAttribute("class","time");
+    htmldivtime.innerHTML = classbeginning + numberhoursturn + ":00";
+    divhours.append(htmldivtime);
+}
 
 function pageId(){
     document.getElementById("scheduleid").style.backgroundColor = "black";
