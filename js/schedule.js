@@ -2,6 +2,8 @@ $(document).ready(function(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const key_value = urlParams.get('clave_grupo')
+    const turno = urlParams.get('turno');
+    console.log("Aqui esta el turno rico: " + turno);
     getSubjectSchedules(key_value);
     getOffer(key_value);
     displayWindowSize();

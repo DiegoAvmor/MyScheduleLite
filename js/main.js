@@ -70,7 +70,7 @@ function chargeSchedule(){
     if(elementselected){
         numbergroup = elementselected.value;
         clave = grupos[numbergroup].grupo.clave_grupo;
-        window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave;
+        window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave+"&turno="+grupos[numbergroup].grupo.turno;
     }
 }
 
