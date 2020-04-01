@@ -24,6 +24,10 @@ function gruposClickEvent(gruposeleccionado){
     subjectsCharge(gruposeleccionado.value);
 }
 
+function pageId(){
+    document.getElementById("mainid").style.backgroundColor = "black";
+}
+
 function subjectsCharge(value){
     seccionmaterias.append('<h2 class = "texto">' + grupos[value].grupo.clave_carrera + ' - Grupo' 
     + grupos[value].grupo.clave_grupo + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
@@ -56,17 +60,18 @@ function subjectsPictures(groupsubjects){
                                     '<p class = "font space">'+ subject.clave_materia + '</p>' + 
                                     '<p class = "font space">Horas presenciales:'+hpresenciales+'</p>' + 
                                     '<p class = "font space">Horas no presenciales:'+hnpresenciales+'</p>' + 
-                                    '<p class = "font space">Horas totales:'+ htotal +'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Creditos:'+ subject.creditos_materia +'</p>' +
+                                    '<p class = "font space">Horas totales:'+ htotal +'&nbsp; &nbsp; &nbsp;  Creditos:'+ subject.creditos_materia +'</p>' +
                                     '</div>');
         }
     });
 }
 
 function chargeSchedule(){
-    
-    numbergroup = elementselected.value;
-    clave = grupos[numbergroup].grupo.clave_grupo;
-    window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave;
+    if(elementselected){
+        numbergroup = elementselected.value;
+        clave = grupos[numbergroup].grupo.clave_grupo;
+        window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave;
+    }
 }
 
 var grupos;
@@ -97,11 +102,13 @@ function displayWindowSize(){
     document.getElementById("grupos").style.width = document.documentElement.clientWidth/3 +"px";
     barragrupos = document.getElementsByClassName("barragrupos");
     for(var contador = 0;contador<nuevoselementos.length;contador++){
-        console.log(document.getElementById("grupos").offsetWidth);
         barragrupos[contador].style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
     }
+    document.getElementById("secciongrupos").style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
     document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.2 + "px";
     document.getElementById("materias").style.width = document.documentElement.clientWidth/2.2 + "px";
+    document.getElementById("materias").style.height = document.documentElement.clientHeight - 260 + "px";
+    //document.getElementById("cuadromaterias").style.height = document.documentElement.clientHeight - 260 + "px"; 
 }
 
 window.addEventListener("resize",displayWindowSize);

@@ -4,7 +4,13 @@ $(document).ready(function(){
     const key_value = urlParams.get('clave_grupo')
     getSubjectSchedules(key_value);
     getOffer(key_value);
+    displayWindowSize();
+    pageId();
 });
+
+function pageId(){
+    document.getElementById("scheduleid").style.backgroundColor = "black";
+}
 
 function getOffer(clave_grupo){
     $.ajax({
@@ -71,4 +77,8 @@ function getTeachersBySubjectId(subject_id, array){
         }
     });
     return teachers;
+}
+
+function displayWindowSize(){
+    document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
 }
