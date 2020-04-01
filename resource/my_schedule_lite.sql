@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-03-2020 a las 00:31:50
+-- Tiempo de generación: 01-04-2020 a las 23:03:04
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -430,6 +430,7 @@ INSERT INTO `oferta` (`clave_maestro`, `clave_materia`) VALUES
 (121212, 'MAT161-A'),
 (121212, 'MAT162-AA'),
 (121212, 'MAT163-AC'),
+(232323, 'MAT161-A'),
 (232323, 'MAT161-AS'),
 (232323, 'MAT162-CD'),
 (232323, 'MAT163-AL'),
