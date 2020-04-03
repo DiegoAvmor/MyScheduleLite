@@ -21,9 +21,13 @@
 
 -- --------------------------------------------------------
 
+CREATE DATABASE my_schedule_lite;
+
 --
 -- Estructura de tabla para la tabla `administrador`
 --
+
+USE my_schedule_lite;
 
 CREATE TABLE `administrador` (
   `clave_administrador` int(10) NOT NULL,

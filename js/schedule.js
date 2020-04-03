@@ -1,3 +1,46 @@
+//associative subjects
+var timesmorning = {
+    "7:00":1,
+    "7:30":2,
+    "8:00":3,
+    "8:30":4,
+    "9:00":5,
+    "9:30":6,
+    "10:00":7,
+    "10:30":8,
+    "11:00":9,
+    "11:30":10,
+    "12:00":11,
+    "12:30":12,
+    "13:00":13,
+    "13:30":14,
+}
+
+var timesafternoon = {
+    "14:00":15,
+    "14:30":16,
+    "15:00":17,
+    "15:30":18,
+    "16:00":19,
+    "16:30":20,
+    "17:00":21,
+    "17:30":22,
+    "18:00":23,
+    "18:30":24,
+    "19:00":25,
+    "19:30":26,
+    "20:00":27,
+    "20:30":28
+}
+
+var weekdays = {
+    "Lunes":0,
+    "Martes":1,
+    "Miercoles":2,
+    "Jueves":3,
+    "Viernes":4
+}
+
 $(document).ready(function(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -10,9 +53,10 @@ $(document).ready(function(){
     pageId();
     if(turno === 'Matutino'){
         chargeTime(7);
-        return;
     }
-    chargeTime(14)
+    else{
+        chargeTime(14);
+    }
 });
 
 const numberhoursturn = 7;
@@ -65,7 +109,49 @@ function getSubjectSchedules(clave_grupo){
 }
 
 const handleResponse = response =>{
-    console.log(JSON.parse(response));
+    var subjects = JSON.parse(response);
+    for(var counter=0;counter < subjects.length;counter ++){
+        chargeSubjectsTable(subjects[counter]);
+    }
+}
+
+/**
+ * 
+<div class = "scheduleinfo">
+    <div class = "scheduletitle montserratfont font16 fontsemibold">Fundamentos de ingnieria de software</div><img src = "../images/iconos/options.png" class = "optionsbuton">
+    <img id = "horizontalseparator" src = "../images/iconos/horizontalseparator.png">
+    <p class = "montserratfont font16">Nombre del maestro</p>
+    <p class = "montserratfont font16">Aula</p>
+</div>
+ */
+function chargeSubjectsTable(subject){
+    let newschedulelement = document.createElement('div');
+    newschedulelement.setAttribute("class","scheduleinfo");
+    let newsubjecttitle = document.createElement('div');
+    newsubjecttitle.setAttribute("class","scheduletitle montserratfont font16 fontsemibold");
+    newsubjecttitle.innerHTML = subject.nombre_materia;
+    let newoptionsbutton = document.createElement("img");
+    newoptionsbutton.setAttribute("src","../images/iconos/options.png");
+    newoptionsbutton.setAttribute("class","optionsbuton");
+    let newseparator = document.createElement("img");
+    newseparator.setAttribute("id","horizontalseparator");
+    newseparator.setAttribute("src","../images/iconos/horizontalseparator.png");
+    let newteachername = document.createElement("p");
+    newteachername.setAttribute("class","montserratfont font16");
+    newteachername.innerHTML = subject.nombre_maestro;
+    let newroomname = document.createElement("p");
+    newroomname.setAttribute("class","montserratfont font16");
+    newseparator.innerHTML = "Aula: " + subject.clave_aula;
+    newschedulelement.append(newsubjecttitle);
+    newschedulelement.append(newoptionsbutton);
+    newschedulelement.append(newseparator);
+    newschedulelement.append(newteachername);
+    newschedulelement.append(newroomname);
+    console.log(subject.dia_semana);
+    console.log(subject.hora_inicio);
+    console.log(weekdays[subject.dia_semana]);
+    console.log(timesmorning[subject.hora_inicio]);
+   document.getElementById("scheduletable").rows[timesmorning[subject.hora_inicio]].cells[weekdays[subject.dia_semana]].append(newschedulelement);
 }
 
 const handleOffer = response =>{
@@ -73,8 +159,9 @@ const handleOffer = response =>{
     deconstructSubjectResponse(parsedResponse.maestro_materia);
 }
 
+let subjects_schedule;
 let subjects_offer = new Array(); //Arreglo de materias
-let map_subjects_teachers; //Mapa de materias respecto a maestros
+let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
 
 function deconstructSubjectResponse(subject_teacher_relations){
     subject_teacher_relations.forEach(relation => {
@@ -88,8 +175,6 @@ function deconstructSubjectResponse(subject_teacher_relations){
         relation["teachers"] = getTeachersBySubjectId(subject.clave_materia,subject_teacher_relations);
         return relation;
     });
-    console.log(subjects_offer);
-    console.log(map_subjects_teachers);
 }
 
 function checkSubjectInArray(subject_id){
