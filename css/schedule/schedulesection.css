@@ -114,6 +114,10 @@ table{
     width: 14px;
     height: 14px;
     float: right;
+    cursor: pointer;
+    background: transparent;
+    border: none !important;
+    background: url("../../images/iconos/options.png");
 }
 
 #horizontalseparator{

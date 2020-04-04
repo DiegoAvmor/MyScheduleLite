@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main/document.css">
     <link rel="stylesheet" href="../css/main/head.css">
-    <link rel="stylesheet" href="../css/main/toolsaside.css">
+    <link rel="stylesheet" href="../css/template//toolsaside.css">
     <link rel="stylesheet" href="../css/schedule/head.css">
     <link rel="stylesheet" href="../css/schedule/schedulesection.css">
+    <link rel="stylesheet" href="../css/schedule/optionspopup.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../js/schedule.js" defer></script>
+    <script src="../js/schedule/optionpopup.js" defer></script>
+    <script src="../js/schedule/schedule.js" defer></script>
     <title>Horario</title>
 </head>
 <body>
@@ -168,5 +170,16 @@
             </div>
         </div>
     </section>
+    <div id = "optionspopup">
+      <div id = "optionsheader">
+        <div id = "title" class = "montserratfont font16">Opciones</div>
+        <button data-close-button id = "closebutton" onclick="closeModalButtons()">&times;</button>
+      </div>
+      <div id = "optionsbody">
+        <button class = "montserratfont font16 optionbuton">Editar</button><br>
+        <button class = "montserratfont font16 optionbuton">Eliminar</button>
+      </div>
+    </div>
+    <div id = "overlay"></div>
 </body>
 </html>
