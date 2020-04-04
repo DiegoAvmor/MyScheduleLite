@@ -33,6 +33,17 @@ const handleResponse = response =>{
     }
 }
 
+const popUp = $("#pop-up");
+popUp.hide();
+
+popUp.on("click",function(){
+  $(this).hide();
+})
+
 function generateResponseMessage(message){
     //TODO
+    if(!popUp.is(':visible')){
+        popUp.show();
+    }
+    $("#pop-up-message").html(message);
 }
