@@ -28,3 +28,32 @@ header{
     border-radius: 5px;
 
 }
+
+.groupinfo{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.pagetitle{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 26px;
+    line-height: 32px;
+}
+
+.buttonsetschedule{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#separadortitulo{
+    margin-right: 15px;
+    margin-left: 15px;
+}

@@ -85,10 +85,6 @@ function chargeSubjectsTable(subject){
     newschedulelement.append(newseparator);
     newschedulelement.append(newteachername);
     newschedulelement.append(newroomname);
-    console.log(subject.dia_semana);
-    console.log(subject.hora_inicio);
-    console.log(weekdays[subject.dia_semana]);
-    console.log(timesmorning[subject.hora_inicio]);
     document.getElementById("scheduletable").rows[timesmorning[subject.hora_inicio]].cells[weekdays[subject.dia_semana]].append(newschedulelement);
 }
 

@@ -13,6 +13,10 @@ $(document).ready(function(){
     pageId();
     groupInfo();
     chargeTime(turno);
+    const info = document.cookie.split(';');
+    const carrerkey = info[0].split('=')[1];
+    const groupgeneration = info[1].split('=')[1];
+    setGroupHeader(carrerkey, key_value, groupgeneration, turno);
 });
 
 function getSubjectSchedules(clave_grupo){
@@ -77,4 +81,11 @@ function getTeachersBySubjectId(subject_id, array){
         }
     });
     return teachers;
+}
+
+function setGroupHeader(keycarrer, keygroup, groupgeneration, groupturn){
+    $('#groupinfo').append(
+        '<h2>' + keycarrer + ' - Grupo' 
+    + keygroup + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
+    + groupgeneration + ' - ' + groupturn + "</h2>"    );
 }
