@@ -41,115 +41,16 @@ var weekdays = {
     "Viernes":4
 }
 
-$(document).ready(function(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const key_value = urlParams.get('clave_grupo')
-    const turno = urlParams.get('turno');
-    console.log("Aqui esta el turno rico: " + turno);
-    getSubjectSchedules(key_value);
-    getOffer(key_value);
-    displayWindowSize();
-    pageId();
-    if(turno === 'Matutino'){
-        chargeTime(7);
-    }
-    else{
-        chargeTime(14);
-    }
-});
-
-const numberhoursturn = 7;
-function chargeTime(classbeginning){
-    let divhours = $('#hours');
-    let htmldivtime;
-    for(var counter = 0;counter < numberhoursturn; counter++){
-        htmldivtime = document.createElement('div');
-        htmldivtime.setAttribute("class","time texto font16");
-        htmldivtime.innerHTML = classbeginning + counter + ":00";
-        divhours.append(htmldivtime);
-        htmldivtime = document.createElement('div');
-        htmldivtime.setAttribute("class","time texto font16");
-        htmldivtime.innerHTML = classbeginning + counter + ":30";
-        divhours.append(htmldivtime);
-    }
-    htmldivtime = document.createElement('div');
-    htmldivtime.setAttribute("class","time");
-    htmldivtime.innerHTML = classbeginning + numberhoursturn + ":00";
-    divhours.append(htmldivtime);
+function chargeTime(turno){
+   document.getElementById(turno).style.display = 'block';
 }
 
 function pageId(){
     document.getElementById("scheduleid").style.backgroundColor = "black";
 }
 
-function getOffer(clave_grupo){
-    $.ajax({
-        type: "GET",
-        url: "../php/manage_offer.php",
-        data: {
-            "clave_grupo": clave_grupo
-        }
-      })
-        .done(handleOffer)
-        .fail((xhr, status, error) => console.log(error));
-}
-
-
-function getSubjectSchedules(clave_grupo){
-    $.ajax({
-        type: "GET",
-        url: "../php/manage_subject_data.php",
-        data: {
-            "clave_grupo": clave_grupo
-        }
-      })
-        .done(handleResponse)
-        .fail((xhr, status, error) => console.log(error));
-}
-
-const handleResponse = response =>{
-    var subjects = JSON.parse(response);
-    for(var counter=0;counter < subjects.length;counter ++){
-        chargeSubjectsTable(subjects[counter]);
-    }
-}
-
-const handleOffer = response =>{
-    let parsedResponse = JSON.parse(response);
-    deconstructSubjectResponse(parsedResponse.maestro_materia);
-}
-
-let subjects_schedule;
-let subjects_offer = new Array(); //Arreglo de materias
-let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
-
-function deconstructSubjectResponse(subject_teacher_relations){
-    subject_teacher_relations.forEach(relation => {
-        if(!checkSubjectInArray(relation.clave_materia)){
-            subjects_offer.push({"clave_materia":relation.clave_materia,"nombre_materia":relation.nombre_materia});
-        }
-    });
-    map_subjects_teachers = subjects_offer.map(subject => {
-        let relation = {};
-        relation["key"] = subject.clave_materia;
-        relation["teachers"] = getTeachersBySubjectId(subject.clave_materia,subject_teacher_relations);
-        return relation;
-    });
-}
-
-function checkSubjectInArray(subject_id){
-    return subjects_offer.find(subject => subject.clave_materia == subject_id);
-}
-
-function getTeachersBySubjectId(subject_id, array){
-    let teachers = new Array();
-    array.forEach(relation => {
-        if(relation.clave_materia == subject_id){
-            teachers.push({"clave_maestro": relation.clave_maestro , "nombre_maestro": relation.nombre_maestro});
-        }
-    });
-    return teachers;
+function groupInfo(){
+    
 }
 
 /**
@@ -191,12 +92,6 @@ function chargeSubjectsTable(subject){
     document.getElementById("scheduletable").rows[timesmorning[subject.hora_inicio]].cells[weekdays[subject.dia_semana]].append(newschedulelement);
 }
 
-function displayWindowSize(){
-    document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
-}
-
-window.addEventListener("resize",displayWindowSize);
-
 function openModalButtons(){
     const modal = document.getElementById('optionspopup');
     if(modal == null) return;
@@ -210,3 +105,9 @@ function closeModalButtons(){
     modal.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+function displayWindowSize(){
+    document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
+}
+
+window.addEventListener("resize",displayWindowSize);

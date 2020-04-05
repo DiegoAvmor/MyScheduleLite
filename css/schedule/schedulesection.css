@@ -1,7 +1,6 @@
 #schedulesection{
     margin: 20px auto auto 220px;
-    width: 1100px;
-    height: 525px;
+    width: 1400px;
 }
 
 #weekdays{
@@ -10,27 +9,35 @@
     height: 37px;
     width: 90%;
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-right: 4px;
+}
+
+.size-300{
+    width: 249px;
 }
 
 #schedulepicture{
     float: left;
-    height: 425px;
+    height: 555px;
     width: 100%;
     overflow-y: scroll;
     scrollbar-color: rgba(196, 196, 196, 1) transparent;
     scrollbar-width: thin;
 }
 
+#Matutino,#Vespertino{
+    display: none;
+}
+
 #hours{
     display: inline-block;
-    height: 1425px;
+    height: 1880px;
     width: 10%;
 }
 
 #subjects{
     display: inline-block;
-    height: 1425px;
-    width: 89%;
+    width: 89.7%;
 }
 
 table{
@@ -40,16 +47,11 @@ table{
 
 td{
     height: 125px;
-    width: 227px;
-}
-
-.th{
-    width: 196px;
+    width: 200px;
 }
 
 th{
     height: 40px;
-    width: 227px;
 }
 
 .centertd{
@@ -76,19 +78,23 @@ table{
     font-weight: lighter;
 }
 
+#firsttime{
+    padding-top: 27px;
+}
+
 .time{
-    text-align: center;
-    padding-top: 33%;
+    padding-right: 12px;
+    text-align: right;
     float: right;
     display: block;
-    height: 59.6px;
+    height: 128px;
     width: 90%;
 }
 
 .scheduleinfo{
     height: 125px;
     border: 10px;
-    width: 92%;
+    width: 90%;
     margin-right: -15px;
     margin-top: -20px;
     margin-bottom: -20px;
@@ -135,4 +141,8 @@ p{
 
 .fontsemibold{
     font-weight: bold;
+}
+
+.centeralign{
+    text-align: center;
 }

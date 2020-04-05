@@ -13,14 +13,15 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/schedule/manager.js" defer></script>
     <script src="../js/schedule/optionpopup.js" defer></script>
     <script src="../js/schedule/schedule.js" defer></script>
     <title>Horario</title>
 </head>
 <body>
     <header>
-        <img id = "teamlogo" src="../images/Logo.png" alt="Italian Trulli">
-        <div id = "head"><div class="inlineblocks texto">Grupos</div><div id = "groupinfo" class="inlineblocks texto">Info del grupo</div><button id = "addsubject" class="inlineblocks texto">Agregar clase</button></div>
+        <img id = "teamlogo" src="../images/Logo.png" alt="Inner circle">
+        <div id = "head"><div class="inlineblocks texto">Grupos</div><div id = "groupinfo" class="inlineblocks texto"> </div><button id = "addsubject" class="inlineblocks texto">Agregar clase</button></div>
     </header>
     <aside id = barratareas>
         <div class = barraherramienta>
@@ -40,10 +41,44 @@
     </aside>
     <section id = "schedulesection">
         <div id = "weekdays">
-            <div class = "inlineblocks texto th font16">Lunes</div><div class = "inlineblocks texto th font16">Martes</div><div class = "inlineblocks texto th font16">Míercoles</div><div class = "inlineblocks texto th font16">Jueves</div><div class = "inlineblocks texto th font16">Viernes</div>
+            <div class = "inlineblocks centeralign size-300 texto font16">Lunes</div><div class = "inlineblocks centeralign size-300 texto font16">Martes</div><div class = "inlineblocks centeralign size-300 texto font16">Miércoles</div><div class = "inlineblocks centeralign size-300 texto font16">Jueves</div><div class = "inlineblocks centeralign size-300 texto font16">Viernes</div>
         </div>
         <div id = "schedulepicture">
-            <div id = "hours">              
+            <div id = "hours">
+              <div id = "Matutino">    
+                <div id = "firsttime" class="time texto font16">7:00</div>
+                <div class="time texto font16">7:30</div>
+                <div class="time texto font16">8:00</div>
+                <div class="time texto font16">8:30</div>
+                <div class="time texto font16">9:00</div>
+                <div class="time texto font16">9:30</div>
+                <div class="time texto font16">10:00</div>
+                <div class="time texto font16">10:30</div>
+                <div class="time texto font16">11:00</div>
+                <div class="time texto font16">11:30</div>
+                <div class="time texto font16">12:00</div>
+                <div class="time texto font16">12:30</div>
+                <div class="time texto font16">13:00</div>
+                <div class="time texto font16">13:30</div>
+                <div class="time texto font16">14:00</div>
+              </div>
+              <div id = "Vespertino">    
+                <div id = "firsttime" class="time texto font16">14:00</div>
+                <div class="time texto font16">14:30</div>
+                <div class="time texto font16">15:00</div>
+                <div class="time texto font16">15:30</div>
+                <div class="time texto font16">16:00</div>
+                <div class="time texto font16">16:30</div>
+                <div class="time texto font16">17:00</div>
+                <div class="time texto font16">17:30</div>
+                <div class="time texto font16">18:00</div>
+                <div class="time texto font16">18:30</div>
+                <div class="time texto font16">19:00</div>
+                <div class="time texto font16">19:30</div>
+                <div class="time texto font16">20:00</div>
+                <div class="time texto font16">20:30</div>
+                <div class="time texto font16">21:00</div>
+              </div>              
             </div>
             <div id = "subjects">
                 <table id = "scheduletable">
@@ -176,8 +211,8 @@
         <button data-close-button id = "closebutton" onclick="closeModalButtons()">&times;</button>
       </div>
       <div id = "optionsbody">
-        <button class = "montserratfont font16 optionbuton">Editar</button><br>
-        <button class = "montserratfont font16 optionbuton">Eliminar</button>
+        <button class = "montserratfont font16 optionbuton">Editar horario</button><br>
+        <button class = "montserratfont font16 optionbuton">Eliminar horario</button>
       </div>
     </div>
     <div id = "overlay"></div>
