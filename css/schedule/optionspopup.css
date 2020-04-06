@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-#optionsheader #closebutton{
+#optionsheader .closebutton{
     cursor: pointer;
     border: none;
     outline: none;
@@ -49,6 +49,10 @@
 
 #overlay.active{
     opacity: 1;
+    pointer-events: all;
+}
+
+#overlay.activenoopacity{
     pointer-events: all;
 }
 

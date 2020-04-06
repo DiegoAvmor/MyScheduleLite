@@ -102,8 +102,32 @@ function closeModalButtons(){
     overlay.classList.remove('active');
 }
 
+function openAddScheduleButtons(){
+    const modal = document.getElementById('addschedulepopup');
+    if(modal == null) return;
+    modal.classList.add('active');
+    overlay.classList.add('activenoopacity');
+}
+
+function closeAddScheduleButtons(){
+    const modal = document.getElementById('addschedulepopup');
+    if(modal == null) return;
+    modal.classList.remove('active');
+    overlay.classList.remove('activenoopacity');
+}
+
 function displayWindowSize(){
     document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
 }
 
 window.addEventListener("resize",displayWindowSize);
+
+function displayElementWeek(value){
+    if(value.style.color != 'rgb(254, 153, 0)'){
+        value.style.color = 'rgb(254, 153, 0)';
+        document.getElementsByName(value.id)[0].style.display = "block";
+        return;
+    }
+    value.style.color = '#444444';
+    document.getElementsByName(value.id)[0].style.display = "none";
+}

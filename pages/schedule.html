@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="../css/schedule/head.css">
     <link rel="stylesheet" href="../css/schedule/schedulesection.css">
     <link rel="stylesheet" href="../css/schedule/optionspopup.css">
+    <link rel="stylesheet" href="../css/schedule/addschedulepopup.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../js/schedule/manager.js" defer></script>
     <script src="../js/schedule/optionpopup.js" defer></script>
@@ -21,7 +22,7 @@
 <body>
     <header>
         <img id = "teamlogo" src="../images/Logo.png" alt="Inner circle">
-        <div id = "head"><div class="inlineblocks pagetitle">Grupos</div><div id = "groupinfo" class="inlineblocks groupinfo"> </div><button id = "addsubject" class="inlineblocks buttonsetschedule">Agregar clase</button></div>
+        <div id = "head"><div class="inlineblocks pagetitle">Grupos</div><div id = "groupinfo" class="inlineblocks groupinfo"> </div><button id = "addsubject" class="inlineblocks buttonsetschedule" onclick="openAddScheduleButtons()">Agregar clase</button></div>
     </header>
     <aside id = barratareas>
         <div class = barraherramienta>
@@ -208,13 +209,55 @@
     <div id = "optionspopup">
       <div id = "optionsheader">
         <div id = "title" class = "montserratfont font16">Opciones</div>
-        <button data-close-button id = "closebutton" onclick="closeModalButtons()">&times;</button>
+        <button class = "closebutton" onclick="closeModalButtons()">&times;</button>
       </div>
       <div id = "optionsbody">
         <button class = "montserratfont font16 optionbuton">Editar horario</button><br>
         <button class = "montserratfont font16 optionbuton">Eliminar horario</button>
       </div>
     </div>
+
+    <div id = "addschedulepopup">
+      <div id = "addscheduleheader">
+        <div id = "title">Nueva clase</div>
+        <button style = "float: right;" class = "closebutton" onclick="closeAddScheduleButtons()">&times;</button>    
+      </div>
+      <div id = "addschedulebody">
+        <div class = "sectionpanel">
+
+        </div>
+        <div class = "sectionpanel">
+
+        </div>
+        <div id = "weekdayspopup">
+          <img src = "../images/iconos/calendar.png">
+          <div id = "monday" class = "inlineblocks dayspopup" onclick = "displayElementWeek(this)">Lunes</div>
+          <div id  = "tuesday" class = "inlineblocks dayspopup" onclick = "displayElementWeek(this)">Martes</div>
+          <div id = "wednesday" class = "inlineblocks dayspopup" onclick = "displayElementWeek(this)">Miércoles</div>
+          <div id = "thursday" class = "inlineblocks dayspopup" onclick = "displayElementWeek(this)">Jueves</div>
+          <div id = "friday" class = "inlineblocks dayspopup" onclick = "displayElementWeek(this)">Viernes</div>
+        </div>
+        <div name = "monday" class = "weekinfo">
+          lunes
+        </div>
+        <div name = "tuesday" class = "weekinfo">
+          martes
+        </div>
+        <div name = "wednesday" class = "weekinfo">
+          miercoles
+        </div>
+        <div name = "thursday" class = "weekinfo">
+          Jueves
+        </div>
+        <div name = "friday" class = "weekinfo">
+          viernes
+        </div>
+        <button class = "buttonpopup buttonsetschedule">
+          Guardar clase
+        </button>
+      </div>
+    </div>
     <div id = "overlay"></div>
+
 </body>
 </html>
