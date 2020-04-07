@@ -63,8 +63,10 @@
     width: 434px;
     margin-left: 33px;
     height: 25px;
-    background-color: darkcyan;
     margin-bottom: 10px;
+}
+
+.verticalalign{
     display: flex;
     align-items: center;
 }
@@ -72,12 +74,13 @@
 .weekinfo{
     height: 95px;
     width: 432px;
-    background-color: darkorchid;
     margin-left: 34px;
     margin-bottom: 15px;
-    background: rgb(204, 204, 204);
+    background: rgb(236, 236, 236);
     border-radius: 5px;
     display: none;
+    padding-left: 15px;
+    padding-top: 15px;
 }
 
 .buttonpopup{
@@ -92,11 +95,62 @@
 
 .dayspopup{
     margin-left: 29px;
+    color: #444444;
+    cursor: pointer;
+}
+
+.daysfont{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #444444;
-    cursor: pointer;
+}
+
+.orangefont{
+    color:  #FE9900;
+}
+
+.daytimes{
+    width: 365px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.classroomselection{
+    width: 257px;
+    height: 25px;
+}
+
+.finishhour{
+    width: 45px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.morninglist{
+    width: 45px;
+    height: 28px;
+    border-radius: 5px;
+    border: none;
+    -webkit-appearance: button;
+    text-align: center;
+}
+
+.insideelement{
+    margin-right: 29px;
+}
+
+.iconsize{
+    width: 25px;
+    height: 25px;
+}
+
+.classroomselect{
+    width: 150px;
+    height: 25px;
+    border: none;
+    -webkit-appearance: button;
 }
