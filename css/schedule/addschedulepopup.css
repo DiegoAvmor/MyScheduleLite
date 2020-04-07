@@ -54,9 +54,9 @@
 .sectionpanel{
     width: 432px;
     height: 45px;
-    background-color: green;
     margin-left: 35px;
     margin-bottom: 15px;
+    text-align: left;
 }
 
 #weekdayspopup{
@@ -135,7 +135,8 @@
     height: 28px;
     border-radius: 5px;
     border: none;
-    -webkit-appearance: button;
+    -moz-appearance:none;
+    -webkit-appearance: none;
     text-align: center;
 }
 
@@ -152,5 +153,42 @@
     width: 150px;
     height: 25px;
     border: none;
-    -webkit-appearance: button;
+    -moz-appearance:none;
+    -webkit-appearance: none;
+}
+
+.iconsize45{
+    height: 45px;
+    width: 45px;
+}
+
+.marginr25{
+    margin-right: 25px;
+}
+
+.marginr20{
+    margin-right: 20px;
+}
+
+.sectionpanelselector select{
+    background: #F5F6F7;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    -moz-appearance:none;
+    -webkit-appearance: none;
+    outline: none;
+    width: 265px;
+    height: 45px;
+}
+
+.sectionbefore{
+    border-radius: 0px 5px 5px 0px;
+    width: 35px;
+    height: 45px;
+    background-color: #F5F6F7;
+}
+
+.iconsize14{
+    width: 14px;
+    height: 14px;
 }

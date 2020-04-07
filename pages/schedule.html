@@ -223,11 +223,29 @@
         <button style = "float: right;" class = "closebutton" onclick="closeAddScheduleButtons()">&times;</button>    
       </div>
       <div id = "addschedulebody">
-        <div class = "sectionpanel">
-
+        <div class = "sectionpanel verticalalign">
+          <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
+          <label class = "inlineblocks daysfont marginr25">Materia</label>
+          <div class = "sectionpanelselector">
+            <select class = "daysfont">
+              <option value = "deafult">default</option>
+            </select>
+          </div>
+          <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
+            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+          </div>
         </div>
-        <div class = "sectionpanel">
-
+        <div class = "sectionpanel verticalalign">
+          <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
+          <label class = "inlineblocks daysfont marginr20">Profesor</label>
+          <div class = "sectionpanelselector">
+            <select class = "daysfont">
+              <option value = "deafult">default</option>
+            </select>
+          </div>
+          <div class = "inlineblocks sectionbefore verticalalign">
+            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+          </div>
         </div>
         <div id = "weekdayspopup" class = "verticalalign">
           <img src = "../images/iconos/calendar.png">
@@ -244,7 +262,7 @@
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
             <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option style="font-family: sans-serif;" value = "7:00">7:00</option>
+              <option value = "7:00">7:00</option>
               <option value = "7:30">7:30</option>
               <option value = "8:00">8:00</option>
               <option value = "8:30">8:30</option>
@@ -266,7 +284,7 @@
             <img src = "../images/iconos/classroom.png" class = "insideelement">
             <div class = "daysfont inlineblocks insideelement">Salón</div>
             <select name = "classroom" class = "daysfont insideelement classroomselect">
-              <option style="font-family: sans-serif;" value = "H3">H3</option>
+              <option value = "H3">H3</option>
             </select>
           </div>
         </div>
