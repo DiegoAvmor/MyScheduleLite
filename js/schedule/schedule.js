@@ -131,3 +131,8 @@ function displayElementWeek(value){
     value.style.color = '#444444';
     document.getElementsByName(value.id)[0].style.display = "none";
 }
+
+function chargeSchedulesPopUp(){
+   // console.log(subjects_offer);
+    var teachersselect = $('#subjectspopup');
+}
