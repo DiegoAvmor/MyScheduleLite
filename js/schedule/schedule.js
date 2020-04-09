@@ -49,10 +49,6 @@ function pageId(){
     document.getElementById("scheduleid").style.backgroundColor = "black";
 }
 
-function groupInfo(){
-    
-}
-
 /**
  * 
 <div class = "scheduleinfo">
@@ -107,6 +103,50 @@ function openAddScheduleButtons(){
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('activenoopacity');
+    chargeOffer();
+}
+
+var hasbeencharged = false;
+function chargeOffer(){
+    if(!hasbeencharged){
+        for(var counter=0;counter < subjects_schedule.length;counter ++){
+            for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
+                if(subjects_offer[counter2].clave_materia === subjects[counter].clave_materia){
+                    subjects_offer.splice(counter2);
+                    break;
+                }
+            }
+        }
+        optionDivCharge();
+        hasbeencharged = true;
+    }
+}
+
+var subjectselect = $('#subjectspopup');
+function optionDivCharge(){
+    for(var counter = 0; counter<subjects_offer.length; counter ++){
+        subjectselect.append('<option value = ' + subjects_offer[counter].clave_materia + '>' + subjects_offer[counter].nombre_materia + '</option>');
+    }
+}
+
+var teacherselect = $('#teacherspopup');
+function teacherSectionCharge(subjectselected){
+    teacherselect.empty();
+    var subjectkey = subjectselected.value;
+    console.log(map_subjects_teachers);
+    for(var counter = 0;counter < map_subjects_teachers.length;counter ++){
+        if(map_subjects_teachers[counter].key === subjectkey){
+            teachersDivCharge(map_subjects_teachers[counter].teachers);
+            break;
+        }
+    }
+}
+
+function teachersDivCharge(teachersarray){
+    console.log(teachersarray);
+    for(var counter = 0;counter < teachersarray.length; counter ++){
+        teacherselect.append('<option>' + teachersarray[counter].nombre_maestro + '</option>');
+    }
 }
 
 function closeAddScheduleButtons(){
@@ -130,9 +170,4 @@ function displayElementWeek(value){
     }
     value.style.color = '#444444';
     document.getElementsByName(value.id)[0].style.display = "none";
-}
-
-function chargeSchedulesPopUp(){
-   // console.log(subjects_offer);
-    var teachersselect = $('#subjectspopup');
 }

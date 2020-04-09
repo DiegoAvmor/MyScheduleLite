@@ -11,7 +11,6 @@ $(document).ready(function(){
     getOffer(key_value);
     displayWindowSize();
     pageId();
-    groupInfo();
     chargeTime(turno);
     const info = document.cookie.split(';');
     const carrerkey = info[0].split('=')[1];
@@ -44,21 +43,10 @@ function getOffer(clave_grupo){
 }
 
 const handleResponse = response =>{
-    var subjects = JSON.parse(response);
-    console.log(subjects);
-    for(var counter=0;counter < subjects.length;counter ++){
-        chargeSubjectsTable(subjects[counter]);
-        console.log("hey");
-        for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
-            console.log(subjects_offer[counter2].clave_materia);
-            console.log(subjects[counter].clave_materia)
-            if(subjects_offer[counter2].clave_materia === subjects[counter].clave_materia){
-                subjects_offer.splice(counter2);
-                break;
-            }
-        }
+    subjects_schedule = JSON.parse(response);
+    for(var counter=0;counter < subjects_schedule.length;counter ++){
+        chargeSubjectsTable(subjects_schedule[counter]);
     }
-    console.log(subjects_offer);
 }
 
 const handleOffer = response =>{
@@ -78,7 +66,7 @@ function deconstructSubjectResponse(subject_teacher_relations){
         relation["teachers"] = getTeachersBySubjectId(subject.clave_materia,subject_teacher_relations);
         return relation;
     });
-    chargeSchedulesPopUp();
+    console.log(subjects_offer.length);
 }
 
 function checkSubjectInArray(subject_id){

@@ -227,7 +227,7 @@
           <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
           <label class = "inlineblocks daysfont marginr25">Materia</label>
           <div class = "sectionpanelselector">
-            <select id = "subjectspopup" class = "daysfont">
+            <select id = "subjectspopup" class = "daysfont" onchange="teacherSectionCharge(this)">
               <option value = ""></option>
             </select>
           </div>
@@ -239,7 +239,7 @@
           <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
           <label class = "inlineblocks daysfont marginr20">Profesor</label>
           <div class = "sectionpanelselector">
-            <select class = "daysfont">
+            <select id = "teacherspopup" class = "daysfont">
               <option value = ""> </option>
             </select>
           </div>
