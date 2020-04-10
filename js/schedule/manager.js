@@ -1,6 +1,7 @@
 let subjects_schedule;
 let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
+let classrooms;
 
 $(document).ready(function(){
     displayWindowSize();
@@ -53,6 +54,7 @@ const handleResponse = response =>{
 
 const handleOffer = response =>{
     let parsedResponse = JSON.parse(response);
+    classrooms = parsedResponse.aulas; 
     deconstructSubjectResponse(parsedResponse.maestro_materia);
 }
 
@@ -68,7 +70,6 @@ function deconstructSubjectResponse(subject_teacher_relations){
         relation["teachers"] = getTeachersBySubjectId(subject.clave_materia,subject_teacher_relations);
         return relation;
     });
-    console.log(subjects_offer.length);
 }
 
 function checkSubjectInArray(subject_id){

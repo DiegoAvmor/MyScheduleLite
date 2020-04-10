@@ -142,16 +142,19 @@ function setFinalTime(turn){
 
 var hasbeencharged = false;
 function chargeOffer(){
+    console.log(subjects_offer);
+    console.log(subjects);
     if(!hasbeencharged){
         for(var counter=0;counter < subjects_schedule.length;counter ++){
             for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
-                if(subjects_offer[counter2].clave_materia === subjects[counter].clave_materia){
+                if(subjects_offer[counter2].clave_materia === subjects_schedule[counter].clave_materia){
                     subjects_offer.splice(counter2);
                     break;
                 }
             }
         }
         optionDivCharge();
+        classRoomDivCharge();
         hasbeencharged = true;
     }
 }
@@ -167,7 +170,6 @@ var teacherselect = $('#teacherspopup');
 function teacherSectionCharge(subjectselected){
     teacherselect.empty();
     var subjectkey = subjectselected.value;
-    console.log(map_subjects_teachers);
     for(var counter = 0;counter < map_subjects_teachers.length;counter ++){
         if(map_subjects_teachers[counter].key === subjectkey){
             teachersDivCharge(map_subjects_teachers[counter].teachers);
@@ -177,7 +179,6 @@ function teacherSectionCharge(subjectselected){
 }
 
 function teachersDivCharge(teachersarray){
-    console.log(teachersarray);
     for(var counter = 0;counter < teachersarray.length; counter ++){
         teacherselect.append('<option>' + teachersarray[counter].nombre_maestro + '</option>');
     }
@@ -207,14 +208,25 @@ function displayElementWeek(value){
 }
 
 function setFinalHour(optionsection,numbersection){
-    console.log("hola");
     var originalvalue = optionsection.value;
     var minutesdigit = originalvalue.split(':');
     var divoptionshour = document.getElementsByClassName('finishhour')[numbersection];
-    console.log("hola2");
     if(minutesdigit[1] == '00'){
         divoptionshour.value = minutesdigit[0] + ':30';
         return;
     }
     divoptionshour.value = parseInt(minutesdigit[0]) + 1 + ':00';
+}
+
+function classRoomDivCharge(){
+    var classroomdiv = document.getElementsByName("classroom");
+    console.log(classrooms);
+    for(var counter = 0;counter < classroomdiv.length;counter ++){
+        for(var counter2 = 0;counter2 < classrooms.length;counter2 ++){
+            var optiondivclassroom = document.createElement('option');
+            optiondivclassroom.setAttribute('value',classrooms[counter2].clave_aula);
+            optiondivclassroom.innerHTML = classrooms[counter2].clave_aula;
+            classroomdiv[counter].append(optiondivclassroom);
+        }
+    }
 }
