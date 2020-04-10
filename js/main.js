@@ -70,6 +70,8 @@ function chargeSchedule(){
     if(elementselected){
         numbergroup = elementselected.value;
         clave = grupos[numbergroup].grupo.clave_grupo;
+        document.cookie = "groupkey=" + grupos[numbergroup].grupo.clave_carrera;
+        document.cookie = "groupgeneration=" + grupos[numbergroup].grupo.ciclo_escolar;
         window.location.href = "../pages/schedule.html?"+"clave_grupo="+clave+"&turno="+grupos[numbergroup].grupo.turno;
     }
 }
@@ -101,8 +103,9 @@ function displayWindowSize(){
     document.getElementById("grupos").style.height = document.documentElement.clientHeight - 280 + "px";
     document.getElementById("grupos").style.width = document.documentElement.clientWidth/3 +"px";
     barragrupos = document.getElementsByClassName("barragrupos");
+    let groupdivwidth = document.getElementById('grupos').offsetWidth;
     for(var contador = 0;contador<nuevoselementos.length;contador++){
-        barragrupos[contador].style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
+        barragrupos[contador].style.width = groupdivwidth - 20 + "px";
     }
     document.getElementById("secciongrupos").style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
     document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.2 + "px";

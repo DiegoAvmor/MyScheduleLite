@@ -1,0 +1,194 @@
+#addschedulepopup{
+    position: absolute;
+    top: 395px;
+    left: 855px;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 10px;
+    z-index: 10;
+    width: 500px;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+#addschedulepopup.active{
+    transform: translate(260px,-293px) scale(1);
+}
+
+#addscheduleheader{
+
+    width: 100%;
+    height: 47px;
+}
+
+#addscheduleheader .closebutton{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-right: 10px;
+    position: relative;  
+}
+
+#title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 50px;
+    color: #444444;
+}
+
+#addschedulebody{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 21px;
+}
+
+.sectionpanel{
+    width: 432px;
+    height: 45px;
+    margin-left: 35px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#weekdayspopup{
+    width: 434px;
+    margin-left: 33px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.verticalalign{
+    display: flex;
+    align-items: center;
+}
+
+.weekinfo{
+    height: 95px;
+    width: 432px;
+    margin-left: 34px;
+    margin-bottom: 15px;
+    background: rgb(236, 236, 236);
+    border-radius: 5px;
+    display: none;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.buttonpopup{
+    background-color: rgba(254, 153, 0, 1);
+    border: 0px;
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 100px;
+    border-radius: 5px;
+}
+
+.dayspopup{
+    margin-left: 29px;
+    color: #444444;
+    cursor: pointer;
+}
+
+.daysfont{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.orangefont{
+    color:  #FE9900;
+}
+
+.daytimes{
+    width: 365px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.classroomselection{
+    width: 257px;
+    height: 25px;
+}
+
+.finishhour{
+    width: 45px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.morninglist{
+    width: 45px;
+    height: 28px;
+    border-radius: 5px;
+    border: none;
+    -moz-appearance:none;
+    -webkit-appearance: none;
+    text-align: center;
+}
+
+.insideelement{
+    margin-right: 29px;
+}
+
+.iconsize{
+    width: 25px;
+    height: 25px;
+}
+
+.classroomselect{
+    width: 150px;
+    height: 25px;
+    border: none;
+    -moz-appearance:none;
+    -webkit-appearance: none;
+}
+
+.iconsize45{
+    height: 45px;
+    width: 45px;
+}
+
+.marginr25{
+    margin-right: 25px;
+}
+
+.marginr20{
+    margin-right: 20px;
+}
+
+.sectionpanelselector select{
+    background: #F5F6F7;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    -moz-appearance:none;
+    -webkit-appearance: none;
+    outline: none;
+    width: 265px;
+    height: 45px;
+}
+
+.sectionbefore{
+    border-radius: 0px 5px 5px 0px;
+    width: 35px;
+    height: 45px;
+    background-color: #F5F6F7;
+}
+
+.iconsize14{
+    width: 14px;
+    height: 14px;
+}
