@@ -131,6 +131,14 @@ table{
     margin-bottom: -50px;
 }
 
+#piepagina{
+    margin-left: 150px;
+    width: 1250px;
+    float: left;
+    text-align: center;
+    padding-top: 40px;
+}
+
 p{
     margin-top: -6px;
 }

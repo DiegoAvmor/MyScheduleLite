@@ -3,19 +3,21 @@ let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
 
 $(document).ready(function(){
+    displayWindowSize();
+    pageId();
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const key_value = urlParams.get('clave_grupo')
     const turno = urlParams.get('turno');
     getSubjectSchedules(key_value);
     getOffer(key_value);
-    displayWindowSize();
-    pageId();
     chargeTime(turno);
     const info = document.cookie.split(';');
     const carrerkey = info[0].split('=')[1];
     const groupgeneration = info[1].split('=')[1];
     setGroupHeader(carrerkey, key_value, groupgeneration, turno);
+    setTimeOption(turno);
+    setFinalTime(turno)
 });
 
 function getSubjectSchedules(clave_grupo){

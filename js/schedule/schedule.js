@@ -106,6 +106,40 @@ function openAddScheduleButtons(){
     chargeOffer();
 }
 
+function setTimeOption(turno){
+    const selecttime = $('.begtime');
+    var times = ['14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30'];
+    if(turno == 'Matutino'){
+        times = ['7:00','7:30','8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30'];
+    }
+    for(var counter = 0;counter < selecttime.length;counter ++){
+        for(var counter2 = 0;counter2 < times.length;counter2 ++){
+            var optiondiv = document.createElement('option');
+            optiondiv.setAttribute('value',times[counter2]);
+            optiondiv.innerHTML = times[counter2];
+            selecttime[counter].append(optiondiv);
+        }
+    }
+}
+
+/**
+ * Esta funcion sirve para parchar un issue
+ * Al momento de seleccionar un horario de inicio diferente de las 7:00, se cambia normal la hora de finalizacion
+ * El problema es al momento de refresar la pagina, el horario final anterior perciste, quedando tal como:
+ * 7:00 - 10:00
+ * Lo que puede provocar issues futuros
+ */
+function setFinalTime(turn){
+    var divfinalhours = $('.finishhour');
+    var hour = '14:30';
+    if(turn == 'Matutino'){
+        hour = '7:30';
+    }
+    for(var counter = 0;counter < divfinalhours.length;counter ++){
+        divfinalhours[counter].value = hour;
+    }
+}
+
 var hasbeencharged = false;
 function chargeOffer(){
     if(!hasbeencharged){
@@ -170,4 +204,17 @@ function displayElementWeek(value){
     }
     value.style.color = '#444444';
     document.getElementsByName(value.id)[0].style.display = "none";
+}
+
+function setFinalHour(optionsection,numbersection){
+    console.log("hola");
+    var originalvalue = optionsection.value;
+    var minutesdigit = originalvalue.split(':');
+    var divoptionshour = document.getElementsByClassName('finishhour')[numbersection];
+    console.log("hola2");
+    if(minutesdigit[1] == '00'){
+        divoptionshour.value = minutesdigit[0] + ':30';
+        return;
+    }
+    divoptionshour.value = parseInt(minutesdigit[0]) + 1 + ':00';
 }

@@ -206,6 +206,9 @@
             </div>
         </div>
     </section>
+    <footer id = "piepagina">
+      <button class="inlineblocks buttonsetschedule">Guardar horario</button>
+    </footer>
     <div id = "optionspopup">
       <div id = "optionsheader">
         <div id = "title" class = "montserratfont font16">Opciones</div>
@@ -216,7 +219,6 @@
         <button class = "montserratfont font16 optionbuton">Eliminar horario</button>
       </div>
     </div>
-
     <div id = "addschedulepopup">
       <div id = "addscheduleheader">
         <div id = "title">Nueva clase</div>
@@ -254,31 +256,16 @@
           <div id = "wednesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Miércoles</div>
           <div id = "thursday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Jueves</div>
           <div id = "friday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Viernes</div>
-        </div>
-        
+        </div>       
         <div name = "monday" class = "weekinfo">
           <div class = "daytimes verticalalign">
             <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option value = "7:00">7:00</option>
-              <option value = "7:30">7:30</option>
-              <option value = "8:00">8:00</option>
-              <option value = "8:30">8:30</option>
-              <option value = "9:00">9:00</option>
-              <option value = "9:30">9:30</option>
-              <option value = "10:00">10:00</option>
-              <option value = "10:30">10:30</option>
-              <option value = "11:00">11:00</option>
-              <option value = "11:30">11:30</option>
-              <option value = "12:00">12:00</option>
-              <option value = "audi">12:30</option>
-              <option value = "volvo">13:00</option>
-              <option value = "saab">13:30</option>
+            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" value = "7:00" readonly>
+            <input type="text" class = "daysfont insideelement finishhour" value = "7:30" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
@@ -293,24 +280,10 @@
             <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option style="font-family: sans-serif;" value = "7:00">7:00</option>
-              <option value = "7:30">7:30</option>
-              <option value = "8:00">8:00</option>
-              <option value = "8:30">8:30</option>
-              <option value = "9:00">9:00</option>
-              <option value = "9:30">9:30</option>
-              <option value = "10:00">10:00</option>
-              <option value = "10:30">10:30</option>
-              <option value = "11:00">11:00</option>
-              <option value = "11:30">11:30</option>
-              <option value = "12:00">12:00</option>
-              <option value = "audi">12:30</option>
-              <option value = "volvo">13:00</option>
-              <option value = "saab">13:30</option>
+            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,1)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement name finishhour"country" value = "7:00" readonly>
+            <input type="text" class = "daysfont insideelement name finishhour" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
@@ -325,24 +298,10 @@
             <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option style="font-family: sans-serif;" value = "7:00">7:00</option>
-              <option value = "7:30">7:30</option>
-              <option value = "8:00">8:00</option>
-              <option value = "8:30">8:30</option>
-              <option value = "9:00">9:00</option>
-              <option value = "9:30">9:30</option>
-              <option value = "10:00">10:00</option>
-              <option value = "10:30">10:30</option>
-              <option value = "11:00">11:00</option>
-              <option value = "11:30">11:30</option>
-              <option value = "12:00">12:00</option>
-              <option value = "audi">12:30</option>
-              <option value = "volvo">13:00</option>
-              <option value = "saab">13:30</option>
+            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,2)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" value = "7:00" readonly>
+            <input type="text" class = "daysfont insideelement finishhour" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
@@ -357,24 +316,10 @@
             <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option style="font-family: sans-serif;" value = "7:00">7:00</option>
-              <option value = "7:30">7:30</option>
-              <option value = "8:00">8:00</option>
-              <option value = "8:30">8:30</option>
-              <option value = "9:00">9:00</option>
-              <option value = "9:30">9:30</option>
-              <option value = "10:00">10:00</option>
-              <option value = "10:30">10:30</option>
-              <option value = "11:00">11:00</option>
-              <option value = "11:30">11:30</option>
-              <option value = "12:00">12:00</option>
-              <option value = "audi">12:30</option>
-              <option value = "volvo">13:00</option>
-              <option value = "saab">13:30</option>
+            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,3)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" value = "7:00" readonly>
+            <input type="text" class = "daysfont insideelement finishhour" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
@@ -389,24 +334,10 @@
             <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
             <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
             <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist">
-              <option style="font-family: sans-serif;" value = "7:00">7:00</option>
-              <option value = "7:30">7:30</option>
-              <option value = "8:00">8:00</option>
-              <option value = "8:30">8:30</option>
-              <option value = "9:00">9:00</option>
-              <option value = "9:30">9:30</option>
-              <option value = "10:00">10:00</option>
-              <option value = "10:30">10:30</option>
-              <option value = "11:00">11:00</option>
-              <option value = "11:30">11:30</option>
-              <option value = "12:00">12:00</option>
-              <option value = "audi">12:30</option>
-              <option value = "volvo">13:00</option>
-              <option value = "saab">13:30</option>
+            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,4)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" value = "7:00" readonly>
+            <input type="text" class = "daysfont insideelement finishhour" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
