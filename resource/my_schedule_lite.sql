@@ -1,31 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2020 a las 23:03:04
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
 
-
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `my_schedule_lite`
---
-
--- --------------------------------------------------------
 
 CREATE DATABASE my_schedule_lite;
 
---
--- Estructura de tabla para la tabla `administrador`
---
 
 USE my_schedule_lite;
 
@@ -35,9 +11,6 @@ CREATE TABLE `administrador` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `administrador`
---
 
 INSERT INTO `administrador` (`clave_administrador`, `nombre_administrador`, `email`) VALUES
 (11111, 'Carlos Alejandro Pool Quintal', 'admin1@admin.com'),
@@ -46,11 +19,6 @@ INSERT INTO `administrador` (`clave_administrador`, `nombre_administrador`, `ema
 (44444, 'Johan Abraham Caceres Quintal', 'admin4@admin.com'),
 (55555, 'Magdiel Joab Pech Menendez', 'admin5@admin.com');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `alumno`
---
 
 CREATE TABLE `alumno` (
   `matricula` int(10) NOT NULL,
@@ -59,19 +27,12 @@ CREATE TABLE `alumno` (
   `clave_grupo` int(10) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `alumno`
---
+
 
 INSERT INTO `alumno` (`matricula`, `nombre_alumno`, `email`, `clave_grupo`) VALUES
 (10001, 'Nombre de Alumno 1', 'alumno1@alumno.com', 1),
 (10002, 'Nombre de Alumno 2', 'alumno2@alumno.com', 2);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `aula`
---
 
 CREATE TABLE `aula` (
   `clave_aula` varchar(10) NOT NULL,
@@ -79,9 +40,6 @@ CREATE TABLE `aula` (
   `tipo_aula` int(10) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `aula`
---
 
 INSERT INTO `aula` (`clave_aula`, `descripcion`, `tipo_aula`) VALUES
 ('CC1', 'Centro de computo 1', 1),
@@ -100,11 +58,6 @@ INSERT INTO `aula` (`clave_aula`, `descripcion`, `tipo_aula`) VALUES
 ('L4', 'Laboratorio 4', 2),
 ('L5', 'Laboratorio 5', 2);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `aula_carga`
---
 
 CREATE TABLE `aula_carga` (
   `clave_aula` varchar(10) NOT NULL,
@@ -113,21 +66,12 @@ CREATE TABLE `aula_carga` (
   `clave_grupo` int(10) NOT NULL
 ) ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `carga`
---
-
 CREATE TABLE `carga` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL,
   `clave_grupo` int(10) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `carga`
---
 
 INSERT INTO `carga` (`clave_maestro`, `clave_materia`, `clave_grupo`) VALUES
 (21001, 'LAFMAT-AI', 4),
@@ -162,21 +106,12 @@ INSERT INTO `carga` (`clave_maestro`, `clave_materia`, `clave_grupo`) VALUES
 (565656, 'MAT163-TC', 3),
 (565656, 'MATLCC-PE', 2);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `carrera`
---
 
 CREATE TABLE `carrera` (
   `clave_carrera` varchar(10) NOT NULL,
   `nombre_carrera` varchar(50) NOT NULL,
   `duracion` int(10) NOT NULL
 ) ENGINE=InnoDB;
-
---
--- Volcado de datos para la tabla `carrera`
---
 
 INSERT INTO `carrera` (`clave_carrera`, `nombre_carrera`, `duracion`) VALUES
 ('LA', 'LICENCIATURA EN ACTUARIA', 9),
@@ -185,11 +120,6 @@ INSERT INTO `carrera` (`clave_carrera`, `nombre_carrera`, `duracion`) VALUES
 ('LIS', 'LICENCIATURA EN INGENIERIA DE SOFTWARE', 9),
 ('LM', 'LICENCIATURA EN MATEMATICAS', 9);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `grupo`
---
 
 CREATE TABLE `grupo` (
   `clave_grupo` int(10) NOT NULL,
@@ -201,9 +131,6 @@ CREATE TABLE `grupo` (
   `creditos_aprobados` int(11) DEFAULT 0
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `grupo`
---
 
 INSERT INTO `grupo` (`clave_grupo`, `numero_grupo`, `ciclo_escolar`, `clave_carrera`, `semestre`, `turno`, `creditos_aprobados`) VALUES
 (1, 1, '2019-2020', 'LIS', 1, 'Matutino', 0),
@@ -214,11 +141,6 @@ INSERT INTO `grupo` (`clave_grupo`, `numero_grupo`, `ciclo_escolar`, `clave_carr
 (6, 3, '2019-2020', 'LA', 3, 'Matutino', 0),
 (7, 1, '2019-2020', 'LCC', 1, 'Matutino', 0);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `horario`
---
 
 CREATE TABLE `horario` (
   `clave_aula` varchar(10) NOT NULL,
@@ -230,9 +152,6 @@ CREATE TABLE `horario` (
   `dia_semana` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `horario`
---
 
 INSERT INTO `horario` (`clave_aula`, `clave_maestro`, `clave_materia`, `clave_grupo`, `hora_inicio`, `hora_termina`, `dia_semana`) VALUES
 ('CC1', 121212, 'MAT161-A', 1, '7:30', '8:00', 'Lunes'),
@@ -243,11 +162,6 @@ INSERT INTO `horario` (`clave_aula`, `clave_maestro`, `clave_materia`, `clave_gr
 ('CC1', 565656, 'MAT161-RSU', 1, '8:00', '8:30', 'Lunes'),
 ('CC3', 121212, 'MAT161-A', 1, '9:30', '10:00', 'Miercoles');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `maestro`
---
 
 CREATE TABLE `maestro` (
   `clave_maestro` int(10) NOT NULL,
@@ -255,9 +169,6 @@ CREATE TABLE `maestro` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `maestro`
---
 
 INSERT INTO `maestro` (`clave_maestro`, `nombre_maestro`, `email`) VALUES
 (21001, 'Ernesto Guerrero Lara', 'maestro6@maestro.com'),
@@ -271,11 +182,6 @@ INSERT INTO `maestro` (`clave_maestro`, `nombre_maestro`, `email`) VALUES
 (454545, 'Otilio Santos Aguilar', 'maestro4@maestro.com'),
 (565656, 'Luis Fernando Curi Quintal', 'maestro5@maestro.com');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `malla_curricular`
---
 
 CREATE TABLE `malla_curricular` (
   `clave_carrera` varchar(10) NOT NULL,
@@ -283,9 +189,6 @@ CREATE TABLE `malla_curricular` (
   `clave_materia` varchar(10) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `malla_curricular`
---
 
 INSERT INTO `malla_curricular` (`clave_carrera`, `semestre`, `clave_materia`) VALUES
 ('LA', 1, 'LAFMAT-AI'),
@@ -334,11 +237,6 @@ INSERT INTO `malla_curricular` (`clave_carrera`, `semestre`, `clave_materia`) VA
 ('LIS', 3, 'MAT163-PO'),
 ('LIS', 3, 'MAT163-TC');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia`
---
 
 CREATE TABLE `materia` (
   `clave_materia` varchar(10) NOT NULL,
@@ -348,9 +246,6 @@ CREATE TABLE `materia` (
   `horas_no_presenciales` int(10) DEFAULT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `materia`
---
 
 INSERT INTO `materia` (`clave_materia`, `nombre_materia`, `creditos_materia`, `horas_presenciales`, `horas_no_presenciales`) VALUES
 ('LAFMAT-AI', 'Algebra Intermedia', 8, 64, 64),
@@ -399,20 +294,11 @@ INSERT INTO `materia` (`clave_materia`, `nombre_materia`, `creditos_materia`, `h
 ('MATLCC-RSU', 'Responsabilidad Social Universitaria', 6, 48, 48),
 ('MATLCC-TC', 'Teoria de la Computacion', 8, 72, 56);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `oferta`
---
-
 CREATE TABLE `oferta` (
   `clave_maestro` int(10) NOT NULL,
   `clave_materia` varchar(10) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `oferta`
---
 
 INSERT INTO `oferta` (`clave_maestro`, `clave_materia`) VALUES
 (21001, 'LAFMAT-AI'),
@@ -449,20 +335,12 @@ INSERT INTO `oferta` (`clave_maestro`, `clave_materia`) VALUES
 (565656, 'MAT163-TC'),
 (565656, 'MATLCC-PE');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
 
 CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB;
 
---
--- Volcado de datos para la tabla `usuarios`
---
 
 INSERT INTO `usuarios` (`email`, `password`) VALUES
 ('admin1@admin.com', 'adsadsasd'),
@@ -483,186 +361,101 @@ INSERT INTO `usuarios` (`email`, `password`) VALUES
 ('maestro8@maestro.com', 'dfgdgfadsf'),
 ('maestro9@maestro.com', 'asdfasdfadfs');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `administrador`
---
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`clave_administrador`),
   ADD KEY `email` (`email`);
 
---
--- Indices de la tabla `alumno`
---
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`matricula`),
   ADD KEY `email` (`email`),
   ADD KEY `clave_grupo` (`clave_grupo`);
 
---
--- Indices de la tabla `aula`
---
 ALTER TABLE `aula`
   ADD PRIMARY KEY (`clave_aula`);
 
---
--- Indices de la tabla `aula_carga`
---
 ALTER TABLE `aula_carga`
   ADD PRIMARY KEY (`clave_aula`,`clave_maestro`,`clave_materia`,`clave_grupo`),
   ADD KEY `clave_maestro` (`clave_maestro`),
   ADD KEY `clave_materia` (`clave_materia`),
   ADD KEY `clave_grupo` (`clave_grupo`);
 
---
--- Indices de la tabla `carga`
---
 ALTER TABLE `carga`
   ADD PRIMARY KEY (`clave_maestro`,`clave_materia`,`clave_grupo`),
   ADD KEY `clave_materia` (`clave_materia`),
-  ADD KEY `clave_grupo` (`clave_grupo`);
+  ADD KEY `clave_grupo` (`clave_grupo`);//
 
---
--- Indices de la tabla `carrera`
---
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`clave_carrera`);
 
---
--- Indices de la tabla `grupo`
---
 ALTER TABLE `grupo`
   ADD PRIMARY KEY (`clave_grupo`),
   ADD KEY `clave_carrera` (`clave_carrera`);
 
---
--- Indices de la tabla `horario`
---
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`clave_aula`,`clave_maestro`,`clave_materia`,`clave_grupo`,`dia_semana`) USING BTREE,
   ADD KEY `clave_maestro` (`clave_maestro`),
   ADD KEY `clave_materia` (`clave_materia`),
   ADD KEY `clave_grupo` (`clave_grupo`);
 
---
--- Indices de la tabla `maestro`
---
 ALTER TABLE `maestro`
   ADD PRIMARY KEY (`clave_maestro`),
   ADD KEY `email` (`email`);
 
---
--- Indices de la tabla `malla_curricular`
---
 ALTER TABLE `malla_curricular`
   ADD PRIMARY KEY (`clave_carrera`,`semestre`,`clave_materia`),
   ADD KEY `clave_materia` (`clave_materia`),
   ADD KEY `clave_carrera` (`clave_carrera`),
   ADD KEY `semestre` (`semestre`);
 
---
--- Indices de la tabla `materia`
---
 ALTER TABLE `materia`
   ADD PRIMARY KEY (`clave_materia`);
 
---
--- Indices de la tabla `oferta`
---
 ALTER TABLE `oferta`
   ADD PRIMARY KEY (`clave_maestro`,`clave_materia`),
   ADD KEY `clave_materia` (`clave_materia`),
   ADD KEY `clave_maestro` (`clave_maestro`);
 
---
--- Indices de la tabla `usuarios`
---
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`email`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `grupo`
---
 ALTER TABLE `grupo`
   MODIFY `clave_grupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `administrador`
---
 ALTER TABLE `administrador`
   ADD CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`email`) REFERENCES `usuarios` (`email`);
 
---
--- Filtros para la tabla `alumno`
---
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`email`) REFERENCES `usuarios` (`email`),
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`clave_grupo`) REFERENCES `grupo` (`clave_grupo`);
 
---
--- Filtros para la tabla `aula_carga`
---
 ALTER TABLE `aula_carga`
   ADD CONSTRAINT `aula_carga_ibfk_1` FOREIGN KEY (`clave_aula`) REFERENCES `aula` (`clave_aula`),
   ADD CONSTRAINT `aula_carga_ibfk_2` FOREIGN KEY (`clave_maestro`) REFERENCES `carga` (`clave_maestro`),
   ADD CONSTRAINT `aula_carga_ibfk_3` FOREIGN KEY (`clave_materia`) REFERENCES `carga` (`clave_materia`),
   ADD CONSTRAINT `aula_carga_ibfk_4` FOREIGN KEY (`clave_grupo`) REFERENCES `carga` (`clave_grupo`);
 
---
--- Filtros para la tabla `carga`
---
 ALTER TABLE `carga`
   ADD CONSTRAINT `carga_ibfk_1` FOREIGN KEY (`clave_maestro`) REFERENCES `oferta` (`clave_maestro`),
   ADD CONSTRAINT `carga_ibfk_2` FOREIGN KEY (`clave_materia`) REFERENCES `oferta` (`clave_materia`),
   ADD CONSTRAINT `carga_ibfk_3` FOREIGN KEY (`clave_grupo`) REFERENCES `grupo` (`clave_grupo`);
 
---
--- Filtros para la tabla `grupo`
---
 ALTER TABLE `grupo`
   ADD CONSTRAINT `grupo_ibfk_1` FOREIGN KEY (`clave_carrera`) REFERENCES `carrera` (`clave_carrera`);
 
---
--- Filtros para la tabla `horario`
---
 ALTER TABLE `horario`
   ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`clave_aula`) REFERENCES `aula` (`clave_aula`),
   ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`clave_maestro`) REFERENCES `carga` (`clave_maestro`),
   ADD CONSTRAINT `horario_ibfk_3` FOREIGN KEY (`clave_materia`) REFERENCES `carga` (`clave_materia`),
   ADD CONSTRAINT `horario_ibfk_4` FOREIGN KEY (`clave_grupo`) REFERENCES `carga` (`clave_grupo`);
 
---
--- Filtros para la tabla `maestro`
---
 ALTER TABLE `maestro`
   ADD CONSTRAINT `maestro_ibfk_1` FOREIGN KEY (`email`) REFERENCES `usuarios` (`email`);
 
---
--- Filtros para la tabla `malla_curricular`
---
 ALTER TABLE `malla_curricular`
   ADD CONSTRAINT `malla_curricular_ibfk_1` FOREIGN KEY (`clave_carrera`) REFERENCES `carrera` (`clave_carrera`),
   ADD CONSTRAINT `malla_curricular_ibfk_2` FOREIGN KEY (`clave_materia`) REFERENCES `materia` (`clave_materia`);
 
---
--- Filtros para la tabla `oferta`
---
 ALTER TABLE `oferta`
   ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`clave_maestro`) REFERENCES `maestro` (`clave_maestro`),
   ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`clave_materia`) REFERENCES `materia` (`clave_materia`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
