@@ -17,6 +17,9 @@
     <script src="../js/schedule/manager.js" defer></script>
     <script src="../js/schedule/optionpopup.js" defer></script>
     <script src="../js/schedule/schedule.js" defer></script>
+    <script src="../js/schedule/popupaddsubject.js" defer></script>
+
+    
     <title>Horario</title>
 </head>
 <body>
@@ -251,11 +254,11 @@
         </div>
         <div id = "weekdayspopup" class = "verticalalign">
           <img src = "../images/iconos/calendar.png">
-          <div id = "monday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Lunes</div>
-          <div id  = "tuesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Martes</div>
-          <div id = "wednesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Miércoles</div>
-          <div id = "thursday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Jueves</div>
-          <div id = "friday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this)">Viernes</div>
+          <div id = "monday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
+          <div id  = "tuesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
+          <div id = "wednesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
+          <div id = "thursday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
+          <div id = "friday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
         </div>       
         <div name = "monday" class = "weekinfo">
           <div class = "daytimes verticalalign">
@@ -265,7 +268,7 @@
             <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0)">
             </select>
             <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" value = "7:30" readonly>
+            <input type="text" class = "daysfont insideelement finishhour" readonly>
           </div>
           <div class = "classroomselection verticalalign">
             <img src = "../images/iconos/classroom.png" class = "insideelement">
@@ -342,7 +345,7 @@
             </select>
           </div>
         </div>
-        <button class = "buttonpopup buttonsetschedule">
+        <button class = "buttonpopup buttonsetschedule" onclick="clic();">
           Guardar clase
         </button>
       </div>
