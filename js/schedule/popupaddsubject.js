@@ -71,7 +71,7 @@ function teacherSectionCharge(subjectselected){
 function teachersDivCharge(teachersarray){
     console.log(teachersarray);
     for(var counter = 0;counter < teachersarray.length; counter ++){
-        teacherselect.append('<option value = "' + teachersarray[counter].clave_maestro + ',' +  teachersarray[counter].nombre_maestro +'">' + teachersarray[counter].nombre_maestro + '</option>');
+        teacherselect.append('<option id = "' + teachersarray[counter].clave_maestro + '" value = "' + teachersarray[counter].clave_maestro + ',' +  teachersarray[counter].nombre_maestro +'">' + teachersarray[counter].nombre_maestro + '</option>');
     }
 }
 

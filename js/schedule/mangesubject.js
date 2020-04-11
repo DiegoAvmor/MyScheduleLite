@@ -32,5 +32,6 @@ function clic(){
         }
     }
     $('#' + document.getElementById('subjectspopup').value.split(',')[0]).remove();
+    $('#' + document.getElementById('teacherspopup').value.split(',')[0]).remove();
     console.log(subjects_schedule);
 }
