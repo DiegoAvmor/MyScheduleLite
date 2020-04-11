@@ -34,8 +34,6 @@ function setFinalTime(turn){
 
 var hasbeencharged = false;
 function chargeOffer(){
-    console.log(subjects_offer);
-    console.log(subjects);
     if(!hasbeencharged){
         for(var counter=0;counter < subjects_schedule.length;counter ++){
             for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
@@ -54,14 +52,14 @@ function chargeOffer(){
 var subjectselect = $('#subjectspopup');
 function optionDivCharge(){
     for(var counter = 0; counter<subjects_offer.length; counter ++){
-        subjectselect.append('<option value = ' + subjects_offer[counter].clave_materia + '>' + subjects_offer[counter].nombre_materia + '</option>');
+        subjectselect.append('<option id= "' + subjects_offer[counter].clave_materia + '" value = "' + subjects_offer[counter].clave_materia + ',' + subjects_offer[counter].nombre_materia + '" >' + subjects_offer[counter].nombre_materia + '</option>');
     }
 }
 
 var teacherselect = $('#teacherspopup');
 function teacherSectionCharge(subjectselected){
     teacherselect.empty();
-    var subjectkey = subjectselected.value;
+    var subjectkey = subjectselected.value.split(',')[0];
     for(var counter = 0;counter < map_subjects_teachers.length;counter ++){
         if(map_subjects_teachers[counter].key === subjectkey){
             teachersDivCharge(map_subjects_teachers[counter].teachers);
@@ -71,8 +69,9 @@ function teacherSectionCharge(subjectselected){
 }
 
 function teachersDivCharge(teachersarray){
+    console.log(teachersarray);
     for(var counter = 0;counter < teachersarray.length; counter ++){
-        teacherselect.append('<option value = "' + teachersarray[counter].nombre_maestro + '">' + teachersarray[counter].nombre_maestro + '</option>');
+        teacherselect.append('<option value = "' + teachersarray[counter].clave_maestro + ',' +  teachersarray[counter].nombre_maestro +'">' + teachersarray[counter].nombre_maestro + '</option>');
     }
 }
 
@@ -102,7 +101,6 @@ function setFinalHour(optionsection,numbersection){
 
 function classRoomDivCharge(){
     var classroomdiv = document.getElementsByName("classroom");
-    console.log(classrooms);
     for(var counter = 0;counter < classroomdiv.length;counter ++){
         for(var counter2 = 0;counter2 < classrooms.length;counter2 ++){
             var optiondivclassroom = document.createElement('option');

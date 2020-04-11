@@ -1,4 +1,4 @@
-let subjects_schedule;
+let subjects_schedule = new Array();
 let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
 let classrooms;
