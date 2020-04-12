@@ -59,15 +59,15 @@ function pageId(){
 </div>
  */
 function chargeSubjectsTable(subject){
-    console.log(subject);
     let newschedulelement = document.createElement('div');
-    newschedulelement.setAttribute("class","scheduleinfo");
+    newschedulelement.setAttribute("class","scheduleinfo " + subject.clave_materia);
     let newsubjecttitle = document.createElement('div');
     newsubjecttitle.setAttribute("class","scheduletitle montserratfont font16 fontsemibold");
     newsubjecttitle.innerHTML = subject.nombre_materia;
     let newoptionsbutton = document.createElement("button");
-    newoptionsbutton.setAttribute("onclick","openModalButtons()");
+    newoptionsbutton.setAttribute("onclick","openModalButtons(this)");
     newoptionsbutton.setAttribute("class","optionsbuton");
+    newoptionsbutton.setAttribute("id",subject.clave_materia + ',' + subject.nombre_materia);
     let newseparator = document.createElement("img");
     newseparator.setAttribute("id","horizontalseparator");
     newseparator.setAttribute("src","../images/iconos/horizontalseparator.png");
@@ -85,26 +85,38 @@ function chargeSubjectsTable(subject){
     document.getElementById("scheduletable").rows[timesmorning[subject.hora_inicio]].cells[weekdays[subject.dia_semana]].append(newschedulelement);
 }
 
-function openModalButtons(){
+var popupoptionssubjectselected;
+var popupoptionssubkeyselected;
+function openModalButtons(divoption){
+    popupoptionssubkeyselected = divoption.id.split(',')[0];
+    popupoptionssubjectselected = divoption.id.split(',')[1];
     const modal = document.getElementById('optionspopup');
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
 }
 
-function closeModalButtons(){
-    const modal = document.getElementById('optionspopup');
-    if(modal == null) return;
+function closeModalButtons(elementname){
+    const modal = document.getElementById(elementname);
     modal.classList.remove('active');
     overlay.classList.remove('active');
+    popupoptionssubkeyselected = "";
+    popupoptionssubjectselected = "";
 }
 
 function openAddScheduleButtons(){
     const modal = document.getElementById('addschedulepopup');
-    if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('activenoopacity');
     chargeOffer();
+}
+
+function openEditModal(){
+    closeModalButtons('optionspopup');
+    const modal = document.getElementById('editionpopup');
+    if(modal == null) return;
+    modal.classList.add('active');
+    overlay.classList.add('active');
 }
 
 function closeAddScheduleButtons(){

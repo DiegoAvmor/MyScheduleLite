@@ -34,6 +34,7 @@ function setFinalTime(turn){
 
 var hasbeencharged = false;
 function chargeOffer(){
+
     if(!hasbeencharged){
         for(var counter=0;counter < subjects_schedule.length;counter ++){
             for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
@@ -52,7 +53,7 @@ function chargeOffer(){
 var subjectselect = $('#subjectspopup');
 function optionDivCharge(){
     for(var counter = 0; counter<subjects_offer.length; counter ++){
-        subjectselect.append('<option id= "' + subjects_offer[counter].clave_materia + '" value = "' + subjects_offer[counter].clave_materia + ',' + subjects_offer[counter].nombre_materia + '" >' + subjects_offer[counter].nombre_materia + '</option>');
+        subjectselect.append('<option id= "' + subjects_offer[counter].clave_materia + 'options" value = "' + subjects_offer[counter].clave_materia + ',' + subjects_offer[counter].nombre_materia + '" >' + subjects_offer[counter].nombre_materia + '</option>');
     }
 }
 
@@ -69,7 +70,6 @@ function teacherSectionCharge(subjectselected){
 }
 
 function teachersDivCharge(teachersarray){
-    console.log(teachersarray);
     for(var counter = 0;counter < teachersarray.length; counter ++){
         teacherselect.append('<option id = "' + teachersarray[counter].clave_maestro + '" value = "' + teachersarray[counter].clave_maestro + ',' +  teachersarray[counter].nombre_maestro +'">' + teachersarray[counter].nombre_maestro + '</option>');
     }

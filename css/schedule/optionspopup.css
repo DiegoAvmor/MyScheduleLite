@@ -1,4 +1,4 @@
-#optionspopup{
+#optionspopup,#editionpopup{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,18 +11,18 @@
     background-color: #FE9900;
 }
 
-#optionspopup.active{
+#optionspopup.active,#editionpopup.active{
     transform: translate(-50%,-50%) scale(1);
 }
 
-#optionsheader{
+#optionsheader,#editionheader{
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#optionsheader .closebutton{
+#optionsheader .closebutton,#editionheader .closebutton{
     cursor: pointer;
     border: none;
     outline: none;
@@ -31,7 +31,7 @@
     font-weight: bold;
 }
 
-#optionsbody{
+#optionsbody,#editionbody{
     text-align: center;
     justify-content: space-between;
 }

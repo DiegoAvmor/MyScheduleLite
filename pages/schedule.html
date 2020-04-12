@@ -213,12 +213,21 @@
     </footer>
     <div id = "optionspopup">
       <div id = "optionsheader">
-        <div id = "title" class = "montserratfont font16">Opciones</div>
-        <button class = "closebutton" onclick="closeModalButtons()">&times;</button>
+        <div class = "montserratfont font16">Opciones</div>
+        <button class = "closebutton" onclick="closeModalButtons('optionspopup')">&times;</button>
       </div>
       <div id = "optionsbody">
-        <button class = "montserratfont font16 optionbuton">Editar horario</button><br>
-        <button class = "montserratfont font16 optionbuton">Eliminar horario</button>
+        <button class = "montserratfont font16 optionbuton" onclick="openEditModal()">Editar horario</button><br>
+        <button class = "montserratfont font16 optionbuton" onclick="deleteSubject()">Eliminar horario</button>
+      </div>
+    </div>
+    <div id = "editionpopup">
+      <div id = "editionheader">
+        <div class = "montserratfont font16">Editar horario</div>
+        <button class = "closebutton" onclick="closeModalButtons('editionpopup')">&times;</button>
+      </div>
+      <div id = "editionbody">
+        r
       </div>
     </div>
     <div id = "addschedulepopup">
@@ -344,7 +353,7 @@
             </select>
           </div>
         </div>
-        <button class = "buttonpopup buttonsetschedule" onclick="clic();">
+        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject();">
           Guardar clase
         </button>
       </div>
