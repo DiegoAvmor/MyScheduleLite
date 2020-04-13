@@ -1,11 +1,3 @@
-var invertedweekdays = {
-    0:"Lunes",
-    1:"Martes",
-    2:"Miercoles",
-    3:"Jueves",
-    4:"Viernes"
-}
-
 function manageSubject(selector){
     try{
         var complement = getComplement(selector);

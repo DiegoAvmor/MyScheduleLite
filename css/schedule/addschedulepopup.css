@@ -1,4 +1,4 @@
-#addschedulepopup{
+#addschedulepopup,#editionpopup{
     position: absolute;
     top: 395px;
     left: 855px;
@@ -45,7 +45,7 @@
     color: #444444;
 }
 
-#addschedulebody{
+#addschedulebody,#editionbody{
     width: 100%;
     text-align: center;
     padding-bottom: 21px;
@@ -59,7 +59,7 @@
     text-align: left;
 }
 
-#weekdayspopup{
+#weekdayspopup,#editionweekdayspopup{
     width: 434px;
     margin-left: 33px;
     height: 25px;
@@ -122,7 +122,7 @@
     height: 25px;
 }
 
-.finishhour{
+.finishhour,.finishhouroption{
     width: 45px;
     height: 25px;
     border-radius: 5px;
@@ -170,7 +170,7 @@
     margin-right: 20px;
 }
 
-.sectionpanelselector select{
+.sectionpanelselector select,.sectionpanelselector input{
     background: #F5F6F7;
     border-radius: 5px 0px 0px 5px;
     border: none;

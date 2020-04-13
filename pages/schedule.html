@@ -19,6 +19,8 @@
     <script src="../js/schedule/schedule.js" defer></script>
     <script src="../js/schedule/popupaddsubject.js" defer></script>
     <script src="../js/schedule/mangesubject.js" defer></script>
+    <script src="../js/schedule/editschedule.js" defer></script>
+    <script src="../js/schedule/arrays.js" defer></script>
     <title>Horario</title>
 </head>
 <body>
@@ -211,6 +213,7 @@
     <footer id = "piepagina">
       <button class="inlineblocks buttonsetschedule">Guardar horario</button>
     </footer>
+
     <div id = "optionspopup">
       <div id = "optionsheader">
         <div class = "montserratfont font16">Opciones</div>
@@ -221,13 +224,130 @@
         <button class = "montserratfont font16 optionbuton" onclick="deleteSubject()">Eliminar horario</button>
       </div>
     </div>
+
     <div id = "editionpopup">
       <div id = "editionheader">
         <div class = "montserratfont font16">Editar horario</div>
         <button class = "closebutton" onclick="closeModalButtons('editionpopup')">&times;</button>
       </div>
       <div id = "editionbody">
-        r
+        <div class = "sectionpanel verticalalign">
+          <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
+          <label class = "inlineblocks daysfont marginr25">Materia</label>
+          <div class = "sectionpanelselector">
+            <input type = "text" id = "subjectspopupoption" class = "daysfont" readonly>
+          </div>
+          <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
+            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+          </div>
+        </div>
+        <div class = "sectionpanel verticalalign">
+          <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
+          <label class = "inlineblocks daysfont marginr20">Profesor</label>
+          <div class = "sectionpanelselector">
+            <select id = "teacherspopupoption" class = "daysfont">
+            </select>
+          </div>
+          <div class = "inlineblocks sectionbefore verticalalign">
+            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+          </div>
+        </div>
+        <div id = "editionweekdayspopup" class = "verticalalign">
+          <img src = "../images/iconos/calendar.png">
+          <div id = "mondayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
+          <div id  = "tuesdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
+          <div id = "wednesdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
+          <div id = "thursdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
+          <div id = "fridayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
+        </div>
+        <div name = "mondayoption" class = "weekinfo">
+          <div class = "daytimes verticalalign">
+            <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
+            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+            <label class = "insideelement daysfont">Inicio</label>
+            <select name="morninglist" class = "daysfont insideelement morninglistoption begtime">
+            </select>
+            <label  class = "insideelement daysfont">Fin</label>  
+            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+          </div>
+          <div class = "classroomselection verticalalign">
+            <img src = "../images/iconos/classroom.png" class = "insideelement">
+            <div class = "daysfont inlineblocks insideelement">Salón</div>
+            <select class = "daysfont insideelement classroomselectoption">
+            </select>
+          </div>
+        </div>
+        <div name = "tuesdayoption" class = "weekinfo">
+          <div class = "daytimes verticalalign">
+            <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
+            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+            <label class = "insideelement daysfont">Inicio</label>
+            <select class = "daysfont insideelement morninglistoption begtime">
+            </select>
+            <label  class = "insideelement daysfont">Fin</label>  
+            <input type="text" class = "daysfont insideelement name finishhouroption" readonly>
+          </div>
+          <div class = "classroomselection verticalalign">
+            <img src = "../images/iconos/classroom.png" class = "insideelement">
+            <div class = "daysfont inlineblocks insideelement">Salón</div>
+            <select class = "daysfont insideelement classroomselectoption">
+            </select>
+          </div>
+        </div>
+        <div name = "wednesdayoption" class = "weekinfo">
+          <div class = "daytimes verticalalign">
+            <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
+            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+            <label class = "insideelement daysfont">Inicio</label>
+            <select class = "daysfont insideelement morninglistoption begtime">
+            </select>
+            <label  class = "insideelement daysfont">Fin</label>  
+            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+          </div>
+          <div class = "classroomselection verticalalign">
+            <img src = "../images/iconos/classroom.png" class = "insideelement">
+            <div class = "daysfont inlineblocks insideelement">Salón</div>
+            <select class = "daysfont insideelement classroomselectoption">
+            </select>
+          </div>
+        </div>
+        <div name = "thursdayoption" class = "weekinfo">
+          <div class = "daytimes verticalalign">
+            <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
+            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+            <label class = "insideelement daysfont">Inicio</label>
+            <select class = "daysfont insideelement morninglistoption begtime">
+            </select>
+            <label  class = "insideelement daysfont">Fin</label>  
+            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+          </div>
+          <div class = "classroomselection verticalalign">
+            <img src = "../images/iconos/classroom.png" class = "insideelement">
+            <div class = "daysfont inlineblocks insideelement">Salón</div>
+            <select class = "daysfont insideelement classroomselectoption">
+            </select>
+          </div>
+        </div>
+        <div name = "fridayoption" class = "weekinfo">
+          <div class = "daytimes verticalalign">
+            <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
+            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+            <label class = "insideelement daysfont">Inicio</label>
+            <select name = "morninglistoption" class = "daysfont insideelement morninglistoption begtime">
+            </select>
+            <label  class = "insideelement daysfont">Fin</label>  
+            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+          </div>
+          <div class = "classroomselection verticalalign">
+            <img src = "../images/iconos/classroom.png" class = "insideelement">
+            <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
+            <select class = "daysfont insideelement classroomselectoption">
+            </select>
+          </div>
+        </div>
+        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(true);">
+          Guardar clase
+        </button>
       </div>
     </div>
     <div id = "addschedulepopup">
@@ -353,7 +473,7 @@
             </select>
           </div>
         </div>
-        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject();">
+        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(false);">
           Guardar clase
         </button>
       </div>

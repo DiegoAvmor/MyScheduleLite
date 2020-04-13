@@ -1,46 +1,3 @@
-//associative subjects
-var timesmorning = {
-    "7:00":1,
-    "7:30":2,
-    "8:00":3,
-    "8:30":4,
-    "9:00":5,
-    "9:30":6,
-    "10:00":7,
-    "10:30":8,
-    "11:00":9,
-    "11:30":10,
-    "12:00":11,
-    "12:30":12,
-    "13:00":13,
-    "13:30":14,
-}
-
-var timesafternoon = {
-    "14:00":15,
-    "14:30":16,
-    "15:00":17,
-    "15:30":18,
-    "16:00":19,
-    "16:30":20,
-    "17:00":21,
-    "17:30":22,
-    "18:00":23,
-    "18:30":24,
-    "19:00":25,
-    "19:30":26,
-    "20:00":27,
-    "20:30":28
-}
-
-var weekdays = {
-    "Lunes":0,
-    "Martes":1,
-    "Miercoles":2,
-    "Jueves":3,
-    "Viernes":4
-}
-
 function chargeTime(turno){
    document.getElementById(turno).style.display = 'block';
 }
@@ -112,11 +69,13 @@ function openAddScheduleButtons(){
 }
 
 function openEditModal(){
+    chargeSubjectName();
     closeModalButtons('optionspopup');
     const modal = document.getElementById('editionpopup');
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
+
 }
 
 function closeAddScheduleButtons(){
