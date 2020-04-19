@@ -47,6 +47,7 @@ function addSubject(aux){
     }
     $('#' + document.getElementById('subjectspopup').value.split(',')[0] + 'options').remove();
     $('#' + document.getElementById('teacherspopup').value.split(',')[0]).remove();
+    closeAddScheduleButtons();
 }
 
 function deleteSubject(){

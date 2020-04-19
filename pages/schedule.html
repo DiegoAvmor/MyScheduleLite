@@ -1,204 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main/document.css">
-    <link rel="stylesheet" href="../css/main/head.css">
-    <link rel="stylesheet" href="../css/template/toolsaside.css">
-    <link rel="stylesheet" href="../css/schedule/head.css">
-    <link rel="stylesheet" href="../css/schedule/schedulesection.css">
-    <link rel="stylesheet" href="../css/schedule/optionspopup.css">
-    <link rel="stylesheet" href="../css/schedule/addschedulepopup.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../js/schedule/manager.js" defer></script>
-    <script src="../js/schedule/optionpopup.js" defer></script>
-    <script src="../js/schedule/schedule.js" defer></script>
-    <script src="../js/schedule/popupaddsubject.js" defer></script>
-    <script src="../js/schedule/mangesubject.js" defer></script>
-    <script src="../js/schedule/editschedule.js" defer></script>
-    <script src="../js/schedule/arrays.js" defer></script>
-    <title>Horario</title>
-</head>
-<body>
-    <header>
-        <img id = "teamlogo" src="../images/Logo.png" alt="Inner circle">
-        <div id = "head"><div class="inlineblocks pagetitle">Grupos</div><div id = "groupinfo" class="inlineblocks groupinfo"> </div><button id = "addsubject" class="inlineblocks buttonsetschedule" onclick="openAddScheduleButtons()">Agregar clase</button></div>
-    </header>
-    <aside id = barratareas>
-        <div class = barraherramienta>
-            <img class = icono src="../images/iconos/homeicon.png" >
-            <button class = "texto boton">Inicio</button>
-        </div>
-        <div class = "barraherramienta">
-            <div id = "scheduleid" class = "barraindicador">&nbsp;</div>
-            <img class = "icono grupos" src="../images/iconos/grupoicon.png" >
-            <button class = "texto boton">Grupos</button>
-        </div>
-        <div class = "barraherramienta fondo">
-            <div class = "barraindicador">&nbsp;</div>
-            <img class = "icono" src="../images/iconos/logout.png" >
-            <button class = "texto boton">Salir</button>
-        </div>
-    </aside>
-    <section id = "schedulesection">
-        <div id = "weekdays">
-            <div class = "inlineblocks centeralign size-300 texto font16">Lunes</div><div class = "inlineblocks centeralign size-300 texto font16">Martes</div><div class = "inlineblocks centeralign size-300 texto font16">Miércoles</div><div class = "inlineblocks centeralign size-300 texto font16">Jueves</div><div class = "inlineblocks centeralign size-300 texto font16">Viernes</div>
-        </div>
-        <div id = "schedulepicture">
-            <div id = "hours">
-              <div id = "Matutino">    
-                <div id = "firsttime" class="time texto font16">7:00</div>
-                <div class="time texto font16">7:30</div>
-                <div class="time texto font16">8:00</div>
-                <div class="time texto font16">8:30</div>
-                <div class="time texto font16">9:00</div>
-                <div class="time texto font16">9:30</div>
-                <div class="time texto font16">10:00</div>
-                <div class="time texto font16">10:30</div>
-                <div class="time texto font16">11:00</div>
-                <div class="time texto font16">11:30</div>
-                <div class="time texto font16">12:00</div>
-                <div class="time texto font16">12:30</div>
-                <div class="time texto font16">13:00</div>
-                <div class="time texto font16">13:30</div>
-                <div class="time texto font16">14:00</div>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../css/main/document.css">
+      <link rel="stylesheet" href="../css/main/head.css">
+      <link rel="stylesheet" href="../css/template/toolsaside.css">
+      <link rel="stylesheet" href="../css/schedule/head.css">
+      <link rel="stylesheet" href="../css/schedule/schedulesection.css">
+      <link rel="stylesheet" href="../css/schedule/optionspopup.css">
+      <link rel="stylesheet" href="../css/schedule/addschedulepopup.css">
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="../js/schedule/manager.js" defer></script>
+      <script src="../js/schedule/optionpopup.js" defer></script>
+      <script src="../js/schedule/schedule.js" defer></script>
+      <script src="../js/schedule/popupaddsubject.js" defer></script>
+      <script src="../js/schedule/mangesubject.js" defer></script>
+      <script src="../js/schedule/editschedule.js" defer></script>
+      <script src="../js/schedule/arrays.js" defer></script>
+      <title>Horario</title>
+  </head>
+  <body>
+      <header>
+          <img id = "teamlogo" src="../images/Logo.png" alt="Inner circle">
+          <div id = "head"><div class="inlineblocks pagetitle">Grupos</div><div id = "groupinfo" class="inlineblocks groupinfo"> </div><button id = "addsubject" class="inlineblocks buttonsetschedule" onclick="openAddScheduleButtons()">Agregar clase</button></div>
+      </header>
+      <aside id = barratareas>
+          <div class = barraherramienta>
+              <img class = icono src="../images/iconos/homeicon.png" >
+              <button class = "texto boton">Inicio</button>
+          </div>
+          <div class = "barraherramienta">
+              <div id = "scheduleid" class = "barraindicador">&nbsp;</div>
+              <img class = "icono grupos" src="../images/iconos/grupoicon.png" >
+              <button class = "texto boton">Grupos</button>
+          </div>
+          <div class = "barraherramienta fondo">
+              <div class = "barraindicador">&nbsp;</div>
+              <img class = "icono" src="../images/iconos/logout.png" >
+              <button class = "texto boton">Salir</button>
+          </div>
+      </aside>
+      <section id = "schedulesection">
+          <div id = "weekdays">
+              <div class = "inlineblocks centeralign size-300 texto font16">Lunes</div><div class = "inlineblocks centeralign size-300 texto font16">Martes</div><div class = "inlineblocks centeralign size-300 texto font16">Miércoles</div><div class = "inlineblocks centeralign size-300 texto font16">Jueves</div><div class = "inlineblocks centeralign size-300 texto font16">Viernes</div>
+          </div>
+          <div id = "schedulepicture">
+              <div id = "hours">
+                <div id = "Matutino">    
+                  <div id = "firsttime" class="time texto font16">7:00</div>
+                  <div class="time texto font16">7:30</div>
+                  <div class="time texto font16">8:00</div>
+                  <div class="time texto font16">8:30</div>
+                  <div class="time texto font16">9:00</div>
+                  <div class="time texto font16">9:30</div>
+                  <div class="time texto font16">10:00</div>
+                  <div class="time texto font16">10:30</div>
+                  <div class="time texto font16">11:00</div>
+                  <div class="time texto font16">11:30</div>
+                  <div class="time texto font16">12:00</div>
+                  <div class="time texto font16">12:30</div>
+                  <div class="time texto font16">13:00</div>
+                  <div class="time texto font16">13:30</div>
+                  <div class="time texto font16">14:00</div>
+                </div>
+                <div id = "Vespertino">    
+                  <div id = "firsttime" class="time texto font16">14:00</div>
+                  <div class="time texto font16">14:30</div>
+                  <div class="time texto font16">15:00</div>
+                  <div class="time texto font16">15:30</div>
+                  <div class="time texto font16">16:00</div>
+                  <div class="time texto font16">16:30</div>
+                  <div class="time texto font16">17:00</div>
+                  <div class="time texto font16">17:30</div>
+                  <div class="time texto font16">18:00</div>
+                  <div class="time texto font16">18:30</div>
+                  <div class="time texto font16">19:00</div>
+                  <div class="time texto font16">19:30</div>
+                  <div class="time texto font16">20:00</div>
+                  <div class="time texto font16">20:30</div>
+                  <div class="time texto font16">21:00</div>
+                </div>              
               </div>
-              <div id = "Vespertino">    
-                <div id = "firsttime" class="time texto font16">14:00</div>
-                <div class="time texto font16">14:30</div>
-                <div class="time texto font16">15:00</div>
-                <div class="time texto font16">15:30</div>
-                <div class="time texto font16">16:00</div>
-                <div class="time texto font16">16:30</div>
-                <div class="time texto font16">17:00</div>
-                <div class="time texto font16">17:30</div>
-                <div class="time texto font16">18:00</div>
-                <div class="time texto font16">18:30</div>
-                <div class="time texto font16">19:00</div>
-                <div class="time texto font16">19:30</div>
-                <div class="time texto font16">20:00</div>
-                <div class="time texto font16">20:30</div>
-                <div class="time texto font16">21:00</div>
-              </div>              
-            </div>
-            <div id = "subjects">
-                <table id = "scheduletable">
-                    <tr>
-                      <th></th>
-                      <th class = "centerth cleangrid"></th> 
-                      <th class = "centerth cleangrid"></th>
-                      <th class = "centerth cleangrid"></th> 
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <td class = "asidetd">
-                      </td>
-                      <td class = "centertd">
-                      </td>
-                      <td class = "centertd">
-                      </td>
-                      <td class = "centertd">
-                      </td>
-                      <td class = "asidetd">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class = "asidetd">
-                      </td>
-                      <td class = "centertd"></td>
-                      <td class = "centertd"></td>
-                      <td class = "centertd"></td>
-                      <td class = "asidetd">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class = "asidetd"></td>
-                      <td class = "centertd"></td>
-                      <td class = "centertd"></td>
-                      <td class = "centertd"></td>
-                      <td class =  "asidetd"></td>
-                    </tr>
-                    <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>
-                      <tr>
-                        <td class = "asidetd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class = "centertd"></td>
-                        <td class =  "asidetd"></td>
-                      </tr>      
+              <div id = "subjects">
+                  <table id = "scheduletable">
                       <tr>
                         <th></th>
                         <th class = "centerth cleangrid"></th> 
@@ -206,278 +94,388 @@
                         <th class = "centerth cleangrid"></th> 
                         <th></th>
                       </tr>
-                  </table>
+                      <tr>
+                        <td class = "asidetd">
+                        </td>
+                        <td class = "centertd">
+                        </td>
+                        <td class = "centertd">
+                        </td>
+                        <td class = "centertd">
+                        </td>
+                        <td class = "asidetd">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd">
+                        </td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "asidetd">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class = "asidetd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class = "centertd"></td>
+                        <td class =  "asidetd"></td>
+                      </tr>
+                      <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>
+                        <tr>
+                          <td class = "asidetd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class = "centertd"></td>
+                          <td class =  "asidetd"></td>
+                        </tr>      
+                        <tr>
+                          <th></th>
+                          <th class = "centerth cleangrid"></th> 
+                          <th class = "centerth cleangrid"></th>
+                          <th class = "centerth cleangrid"></th> 
+                          <th></th>
+                        </tr>
+                    </table>
+              </div>
+          </div>
+      </section>
+      <footer id = "piepagina">
+        <button class="inlineblocks buttonsetschedule">Guardar horario</button>
+      </footer>
+      <div id = "optionspopup">
+        <div id = "optionsheader">
+          <div class = "montserratfont font16">Opciones</div>
+          <button class = "closebutton" onclick="closeModalButtons('optionspopup')">&times;</button>
+        </div>
+        <div id = "optionsbody">
+          <button class = "montserratfont font16 optionbuton" onclick="openEditModal()">Editar horario</button><br>
+          <button class = "montserratfont font16 optionbuton" onclick="deleteSubject()">Eliminar horario</button>
+        </div>
+      </div>
+      <div id = "editionpopup">
+        <div id = "editionheader">
+          <div class = "montserratfont font16">Editar horario</div>
+          <button class = "closebutton" onclick="closeModalButtons('editionpopup')">&times;</button>
+        </div>
+        <div id = "editionbody">
+          <div class = "sectionpanel verticalalign">
+            <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
+            <label class = "inlineblocks daysfont marginr25">Materia</label>
+            <div class = "sectionpanelselector">
+              <input type = "text" id = "subjectspopupoption" class = "daysfont" readonly>
             </div>
+            <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
+              <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+            </div>
+          </div>
+          <div class = "sectionpanel verticalalign">
+            <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
+            <label class = "inlineblocks daysfont marginr20">Profesor</label>
+            <div class = "sectionpanelselector">
+              <select id = "teacherspopupoption" class = "daysfont">
+              </select>
+            </div>
+            <div class = "inlineblocks sectionbefore verticalalign">
+              <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+            </div>
+          </div>
+          <div id = "editionweekdayspopup" class = "verticalalign">
+            <img src = "../images/iconos/calendar.png">
+            <div id = "mondayoption" class = "inlineblocks dayspopupoption daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
+            <div id  = "tuesdayoption" class = "inlineblocks dayspopupoption daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
+            <div id = "wednesdayoption" class = "inlineblocks dayspopupoption daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
+            <div id = "thursdayoption" class = "inlineblocks dayspopupoption daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
+            <div id = "fridayoption" class = "inlineblocks dayspopupoption daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
+          </div>
+          <div name = "mondayoption" class = "weekinfooption">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglistoption begtime">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select class = "daysfont insideelement classroomselectoption">
+              </select>
+            </div>
+          </div>
+          <div name = "tuesdayoption" class = "weekinfooption">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select class = "daysfont insideelement morninglistoption begtime">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement name finishhouroption" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select class = "daysfont insideelement classroomselectoption">
+              </select>
+            </div>
+          </div>
+          <div name = "wednesdayoption" class = "weekinfooption">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select class = "daysfont insideelement morninglistoption begtime">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select class = "daysfont insideelement classroomselectoption">
+              </select>
+            </div>
+          </div>
+          <div name = "thursdayoption" class = "weekinfooption">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select class = "daysfont insideelement morninglistoption begtime">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select class = "daysfont insideelement classroomselectoption">
+              </select>
+            </div>
+          </div>
+          <div name = "fridayoption" class = "weekinfooption">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name = "morninglistoption" class = "daysfont insideelement morninglistoption begtime">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhouroption" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
+              <select class = "daysfont insideelement classroomselectoption">
+              </select>
+            </div>
+          </div>
+          <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(true);">
+            Guardar clase
+          </button>
         </div>
-    </section>
-    <footer id = "piepagina">
-      <button class="inlineblocks buttonsetschedule">Guardar horario</button>
-    </footer>
-
-    <div id = "optionspopup">
-      <div id = "optionsheader">
-        <div class = "montserratfont font16">Opciones</div>
-        <button class = "closebutton" onclick="closeModalButtons('optionspopup')">&times;</button>
       </div>
-      <div id = "optionsbody">
-        <button class = "montserratfont font16 optionbuton" onclick="openEditModal()">Editar horario</button><br>
-        <button class = "montserratfont font16 optionbuton" onclick="deleteSubject()">Eliminar horario</button>
+      <div id = "addschedulepopup">
+        <div id = "addscheduleheader">
+          <div id = "title">Nueva clase</div>
+          <button style = "float: right;" class = "closebutton" onclick="closeAddScheduleButtons()">&times;</button>    
+        </div>
+        <div id = "addschedulebody">
+          <div class = "sectionpanel verticalalign">
+            <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
+            <label class = "inlineblocks daysfont marginr25">Materia</label>
+            <div class = "sectionpanelselector">
+              <select id = "subjectspopup" class = "daysfont" onchange="teacherSectionCharge(this)">
+                <option value = ""></option>
+              </select>
+            </div>
+            <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
+              <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+            </div>
+          </div>
+          <div class = "sectionpanel verticalalign">
+            <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
+            <label class = "inlineblocks daysfont marginr20">Profesor</label>
+            <div class = "sectionpanelselector">
+              <select id = "teacherspopup" class = "daysfont">
+                <option value = ""> </option>
+              </select>
+            </div>
+            <div class = "inlineblocks sectionbefore verticalalign">
+              <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
+            </div>
+          </div>
+          <div id = "weekdayspopup" class = "verticalalign">
+            <img src = "../images/iconos/calendar.png">
+            <div id = "monday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
+            <div id  = "tuesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
+            <div id = "wednesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
+            <div id = "thursday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
+            <div id = "friday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
+          </div>       
+          <div name = "monday" class = "weekinfo">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0)">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhour" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select name = "classroom" class = "daysfont insideelement classroomselect">
+              </select>
+            </div>
+          </div>
+          <div name = "tuesday" class = "weekinfo">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,1)">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement name finishhour" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select name = "classroom" class = "daysfont insideelement classroomselect">
+              </select>
+            </div>
+          </div>
+          <div name = "wednesday" class = "weekinfo">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,2)">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhour" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select name = "classroom" class = "daysfont insideelement classroomselect">
+              </select>
+            </div>
+          </div>
+          <div name = "thursday" class = "weekinfo">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,3)">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhour" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement">Salón</div>
+              <select name = "classroom" class = "daysfont insideelement classroomselect">
+              </select>
+            </div>
+          </div>
+          <div name = "friday" class = "weekinfo">
+            <div class = "daytimes verticalalign">
+              <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
+              <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
+              <label class = "insideelement daysfont">Inicio</label>
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,4)">
+              </select>
+              <label  class = "insideelement daysfont">Fin</label>  
+              <input type="text" class = "daysfont insideelement finishhour" readonly>
+            </div>
+            <div class = "classroomselection verticalalign">
+              <img src = "../images/iconos/classroom.png" class = "insideelement">
+              <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
+              <select name = "classroom" class = "daysfont insideelement classroomselect">
+              </select>
+            </div>
+          </div>
+          <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(false);">
+            Guardar clase
+          </button>
+        </div>
       </div>
-    </div>
-
-    <div id = "editionpopup">
-      <div id = "editionheader">
-        <div class = "montserratfont font16">Editar horario</div>
-        <button class = "closebutton" onclick="closeModalButtons('editionpopup')">&times;</button>
-      </div>
-      <div id = "editionbody">
-        <div class = "sectionpanel verticalalign">
-          <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
-          <label class = "inlineblocks daysfont marginr25">Materia</label>
-          <div class = "sectionpanelselector">
-            <input type = "text" id = "subjectspopupoption" class = "daysfont" readonly>
-          </div>
-          <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
-            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
-          </div>
-        </div>
-        <div class = "sectionpanel verticalalign">
-          <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
-          <label class = "inlineblocks daysfont marginr20">Profesor</label>
-          <div class = "sectionpanelselector">
-            <select id = "teacherspopupoption" class = "daysfont">
-            </select>
-          </div>
-          <div class = "inlineblocks sectionbefore verticalalign">
-            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
-          </div>
-        </div>
-        <div id = "editionweekdayspopup" class = "verticalalign">
-          <img src = "../images/iconos/calendar.png">
-          <div id = "mondayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
-          <div id  = "tuesdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
-          <div id = "wednesdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
-          <div id = "thursdayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
-          <div id = "fridayoption" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
-        </div>
-        <div name = "mondayoption" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglistoption begtime">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select class = "daysfont insideelement classroomselectoption">
-            </select>
-          </div>
-        </div>
-        <div name = "tuesdayoption" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select class = "daysfont insideelement morninglistoption begtime">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement name finishhouroption" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select class = "daysfont insideelement classroomselectoption">
-            </select>
-          </div>
-        </div>
-        <div name = "wednesdayoption" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select class = "daysfont insideelement morninglistoption begtime">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select class = "daysfont insideelement classroomselectoption">
-            </select>
-          </div>
-        </div>
-        <div name = "thursdayoption" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select class = "daysfont insideelement morninglistoption begtime">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select class = "daysfont insideelement classroomselectoption">
-            </select>
-          </div>
-        </div>
-        <div name = "fridayoption" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name = "morninglistoption" class = "daysfont insideelement morninglistoption begtime">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhouroption" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
-            <select class = "daysfont insideelement classroomselectoption">
-            </select>
-          </div>
-        </div>
-        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(true);">
-          Guardar clase
-        </button>
-      </div>
-    </div>
-    <div id = "addschedulepopup">
-      <div id = "addscheduleheader">
-        <div id = "title">Nueva clase</div>
-        <button style = "float: right;" class = "closebutton" onclick="closeAddScheduleButtons()">&times;</button>    
-      </div>
-      <div id = "addschedulebody">
-        <div class = "sectionpanel verticalalign">
-          <img src = "../images/iconos/type.png" class = "iconsize inlineblocks marginr25">
-          <label class = "inlineblocks daysfont marginr25">Materia</label>
-          <div class = "sectionpanelselector">
-            <select id = "subjectspopup" class = "daysfont" onchange="teacherSectionCharge(this)">
-              <option value = ""></option>
-            </select>
-          </div>
-          <div class = "inlineblocks sectionbefore verticalalign" style="text-align: center;">
-            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
-          </div>
-        </div>
-        <div class = "sectionpanel verticalalign">
-          <img src = "../images/iconos/profesor.png" class = "iconsize inlineblocks marginr25">
-          <label class = "inlineblocks daysfont marginr20">Profesor</label>
-          <div class = "sectionpanelselector">
-            <select id = "teacherspopup" class = "daysfont">
-              <option value = ""> </option>
-            </select>
-          </div>
-          <div class = "inlineblocks sectionbefore verticalalign">
-            <img src = "../images/iconos/arrowspinner.png" class = "iconsize14">
-          </div>
-        </div>
-        <div id = "weekdayspopup" class = "verticalalign">
-          <img src = "../images/iconos/calendar.png">
-          <div id = "monday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,0)">Lunes</div>
-          <div id  = "tuesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,1)">Martes</div>
-          <div id = "wednesday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,2)">Miércoles</div>
-          <div id = "thursday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,3)">Jueves</div>
-          <div id = "friday" class = "inlineblocks dayspopup daysfont" onclick = "displayElementWeek(this,4)">Viernes</div>
-        </div>       
-        <div name = "monday" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0)">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select name = "classroom" class = "daysfont insideelement classroomselect">
-            </select>
-          </div>
-        </div>
-        <div name = "tuesday" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,1)">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement name finishhour" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select name = "classroom" class = "daysfont insideelement classroomselect">
-            </select>
-          </div>
-        </div>
-        <div name = "wednesday" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,2)">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select name = "classroom" class = "daysfont insideelement classroomselect">
-            </select>
-          </div>
-        </div>
-        <div name = "thursday" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,3)">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement">Salón</div>
-            <select name = "classroom" class = "daysfont insideelement classroomselect">
-            </select>
-          </div>
-        </div>
-        <div name = "friday" class = "weekinfo">
-          <div class = "daytimes verticalalign">
-            <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
-            <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
-            <label class = "insideelement daysfont">Inicio</label>
-            <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,4)">
-            </select>
-            <label  class = "insideelement daysfont">Fin</label>  
-            <input type="text" class = "daysfont insideelement finishhour" readonly>
-          </div>
-          <div class = "classroomselection verticalalign">
-            <img src = "../images/iconos/classroom.png" class = "insideelement">
-            <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
-            <select name = "classroom" class = "daysfont insideelement classroomselect">
-            </select>
-          </div>
-        </div>
-        <button class = "buttonpopup buttonsetschedule" onclick="manageSubject(false);">
-          Guardar clase
-        </button>
-      </div>
-    </div>
-    <div id = "overlay"></div>
-</body>
+      <div id = "overlay"></div>
+  </body>
 </html>

@@ -34,7 +34,6 @@ function setFinalTime(turn){
 
 var hasbeencharged = false;
 function chargeOffer(){
-
     if(!hasbeencharged){
         for(var counter=0;counter < subjects_schedule.length;counter ++){
             for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
@@ -77,7 +76,7 @@ function teachersDivCharge(teachersarray){
 
 var selectweekelements = [false,false,false,false,false];
 function displayElementWeek(value,numberelement){
-    if(value.style.color != 'rgb(254, 153, 0)'){
+    if(!selectweekelements[numberelement]){
         value.style.color = 'rgb(254, 153, 0)';
         document.getElementsByName(value.id)[0].style.display = "block";
         selectweekelements[numberelement] = true;

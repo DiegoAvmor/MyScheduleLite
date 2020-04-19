@@ -55,10 +55,12 @@ function openModalButtons(divoption){
 
 function closeModalButtons(elementname){
     const modal = document.getElementById(elementname);
+    console.log(modal);
     modal.classList.remove('active');
     overlay.classList.remove('active');
     popupoptionssubkeyselected = "";
     popupoptionssubjectselected = "";
+    restartElement($('.dayspopupoption'));
 }
 
 function openAddScheduleButtons(){
@@ -75,7 +77,6 @@ function openEditModal(){
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
-
 }
 
 function closeAddScheduleButtons(){
@@ -83,6 +84,7 @@ function closeAddScheduleButtons(){
     if(modal == null) return;
     modal.classList.remove('active');
     overlay.classList.remove('activenoopacity');
+    restartElement($('.dayspopup'));
 }
 
 function displayWindowSize(){
@@ -90,3 +92,11 @@ function displayWindowSize(){
 }
 
 window.addEventListener("resize",displayWindowSize);
+
+function restartElement(weeknameelements){
+    for(var counter = 0;counter < weeknameelements.length;counter ++){
+        weeknameelements[counter].style.color = '#444444';
+        document.getElementsByName(weeknameelements[counter].id)[0].style.display = "none";
+    }
+    selectweekelements = [false,false,false,false,false];
+}

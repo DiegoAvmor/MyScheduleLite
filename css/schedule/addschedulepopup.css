@@ -71,7 +71,7 @@
     align-items: center;
 }
 
-.weekinfo{
+.weekinfo,.weekinfooption{
     height: 95px;
     width: 432px;
     margin-left: 34px;
@@ -93,7 +93,7 @@
     border-radius: 5px;
 }
 
-.dayspopup{
+.dayspopup,.dayspopupoption{
     margin-left: 29px;
     color: #444444;
     cursor: pointer;
@@ -130,7 +130,7 @@
     text-align: center;
 }
 
-.morninglist{
+.morninglist,.morninglistoption{
     width: 45px;
     height: 28px;
     border-radius: 5px;
@@ -149,7 +149,7 @@
     height: 25px;
 }
 
-.classroomselect{
+.classroomselect,.classroomselectoption{
     width: 150px;
     height: 25px;
     border: none;
