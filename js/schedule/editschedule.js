@@ -1,9 +1,11 @@
 function chargeSubjectName(){
+    var actualteacher,actualclassroom;
     document.getElementById('subjectspopupoption').value = popupoptionssubjectselected;
     setTeachersEdit();
     for(var counter = 0;counter < subjects_schedule.length;counter ++){
         if(subjects_schedule[counter].clave_materia === popupoptionssubkeyselected){
             setValuesModal(subjects_schedule[counter]);
+            actualteacher = subjects_schedule[counter].nombre_maestro;
         }
     }
 }
@@ -25,5 +27,9 @@ function teachersDivChargeOption(teachersoffer){
 }
 
 function setValuesModal(jsonvalues){
-    displayElementWeek($('.dayspopupoption')[weekdays[jsonvalues.dia_semana]],jsonvalues.dia_semana);
+    displayElementWeek($('.dayspopupoption')[weekdays[jsonvalues.dia_semana]],weekdays[jsonvalues.dia_semana]);
+    var timeelement = document.getElementsByClassName("begtime")[weekdays[jsonvalues.dia_semana]];
+    timeelement.value = jsonvalues.hora_inicio;
+    setFinalHour(timeelement,weekdays[jsonvalues.dia_semana],"finishhouroption");
+    document.getElementsByClassName("classroomselectoption")[weekdays[jsonvalues.dia_semana]].value = jsonvalues.clave_aula;
 }

@@ -263,7 +263,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglistoption begtime">
+              <select name="morninglist" class = "daysfont insideelement morninglistoption begtime" onchange="setFinalHour(this,0,'finishhouroption')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhouroption" readonly>
@@ -271,7 +271,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select class = "daysfont insideelement classroomselectoption">
+              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -280,7 +280,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select class = "daysfont insideelement morninglistoption begtime">
+              <select class = "daysfont insideelement morninglistoption begtime"  onchange="setFinalHour(this,1,'finishhouroption')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement name finishhouroption" readonly>
@@ -288,7 +288,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select class = "daysfont insideelement classroomselectoption">
+              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -297,7 +297,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select class = "daysfont insideelement morninglistoption begtime">
+              <select class = "daysfont insideelement morninglistoption begtime"  onchange="setFinalHour(this,2,'finishhouroption')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhouroption" readonly>
@@ -305,7 +305,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select class = "daysfont insideelement classroomselectoption">
+              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -314,7 +314,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select class = "daysfont insideelement morninglistoption begtime">
+              <select class = "daysfont insideelement morninglistoption begtime"  onchange="setFinalHour(this,3,'finishhouroption')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhouroption" readonly>
@@ -322,7 +322,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select class = "daysfont insideelement classroomselectoption">
+              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -331,7 +331,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name = "morninglistoption" class = "daysfont insideelement morninglistoption begtime">
+              <select name = "morninglistoption" class = "daysfont insideelement morninglistoption begtime"  onchange="setFinalHour(this,4,'finishhouroption')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhouroption" readonly>
@@ -339,7 +339,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
-              <select class = "daysfont insideelement classroomselectoption">
+              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -391,7 +391,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Lunes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0)">
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,0,'finishhour')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhour" readonly>
@@ -408,7 +408,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Martes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,1)">
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,1,'finishhour')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement name finishhour" readonly>
@@ -425,7 +425,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Miércoles</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,2)">
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,2,'finishhour')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhour" readonly>
@@ -442,7 +442,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Jueves</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,3)">
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,3,'finishhour')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhour" readonly>
@@ -459,7 +459,7 @@
               <div class = "daysfont orangefont inlineblocks insideelement">Viernes</div>
               <img src = "../images/iconos/clock.png" class = "insideelement iconsize">
               <label class = "insideelement daysfont">Inicio</label>
-              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,4)">
+              <select name="morninglist" class = "daysfont insideelement morninglist begtime" onchange="setFinalHour(this,4,'finishhour')">
               </select>
               <label  class = "insideelement daysfont">Fin</label>  
               <input type="text" class = "daysfont insideelement finishhour" readonly>

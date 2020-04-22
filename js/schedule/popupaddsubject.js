@@ -21,8 +21,8 @@ function setTimeOption(turno){
  * 7:00 - 10:00
  * Lo que puede provocar issues futuros
  */
-function setFinalTime(turn){
-    var divfinalhours = $('.finishhour');
+function setFinalTime(turn,divnamefinalhours){
+    var divfinalhours = $('.' + divnamefinalhours);
     var hour = '14:30';
     if(turn == 'Matutino'){
         hour = '7:30';
@@ -44,7 +44,7 @@ function chargeOffer(){
             }
         }
         optionDivCharge();
-        classRoomDivCharge();
+        classRoomDivCharge("classroom");
         hasbeencharged = true;
     }
 }
@@ -87,10 +87,10 @@ function displayElementWeek(value,numberelement){
     document.getElementsByName(value.id)[0].style.display = "none";
 }
 
-function setFinalHour(optionsection,numbersection){
+function setFinalHour(optionsection,numbersection,divfinishname){
     var originalvalue = optionsection.value;
     var minutesdigit = originalvalue.split(':');
-    var divoptionshour = document.getElementsByClassName('finishhour')[numbersection];
+    var divoptionshour = document.getElementsByClassName(divfinishname)[numbersection];
     if(minutesdigit[1] == '00'){
         divoptionshour.value = minutesdigit[0] + ':30';
         return;
@@ -98,8 +98,8 @@ function setFinalHour(optionsection,numbersection){
     divoptionshour.value = parseInt(minutesdigit[0]) + 1 + ':00';
 }
 
-function classRoomDivCharge(){
-    var classroomdiv = document.getElementsByName("classroom");
+function classRoomDivCharge(divclassroom){
+    var classroomdiv = document.getElementsByName(divclassroom);
     for(var counter = 0;counter < classroomdiv.length;counter ++){
         for(var counter2 = 0;counter2 < classrooms.length;counter2 ++){
             var optiondivclassroom = document.createElement('option');

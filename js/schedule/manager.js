@@ -2,6 +2,7 @@ let subjects_schedule = new Array();
 let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
 let classrooms;
+let turno;
 
 $(document).ready(function(){
     displayWindowSize();
@@ -9,7 +10,7 @@ $(document).ready(function(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const key_value = urlParams.get('clave_grupo')
-    const turno = urlParams.get('turno');
+    turno = urlParams.get('turno');   
     getSubjectSchedules(key_value);
     getOffer(key_value);
     chargeTime(turno);
@@ -18,7 +19,8 @@ $(document).ready(function(){
     const groupgeneration = info[1].split('=')[1];
     setGroupHeader(carrerkey, key_value, groupgeneration, turno);
     setTimeOption(turno);
-    setFinalTime(turno)
+    setFinalTime(turno,"finishhouroption");
+    setFinalTime(turno,"finishhour");
 });
 
 function getSubjectSchedules(clave_grupo){

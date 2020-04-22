@@ -55,12 +55,14 @@ function openModalButtons(divoption){
 
 function closeModalButtons(elementname){
     const modal = document.getElementById(elementname);
-    console.log(modal);
+    console.log(elementname);
     modal.classList.remove('active');
     overlay.classList.remove('active');
     popupoptionssubkeyselected = "";
     popupoptionssubjectselected = "";
-    restartElement($('.dayspopupoption'));
+    if(elementname === "editionpopup"){
+        restartElement($('.dayspopupoption'));
+    }
 }
 
 function openAddScheduleButtons(){
@@ -77,6 +79,7 @@ function openEditModal(){
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
+    console.log(subjects_schedule);
 }
 
 function closeAddScheduleButtons(){

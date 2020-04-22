@@ -53,10 +53,13 @@ function addSubject(aux){
 function deleteSubject(){
     $('.' + popupoptionssubkeyselected).remove();
     for(var counter = 0;counter < subjects_schedule.length;counter ++){
-        if(popupoptionssubjectselected === subjects_schedule[counter].clave_materia){
+        if(popupoptionssubkeyselected === subjects_schedule[counter].clave_materia){
+            console.log("hola");
             subjects_schedule.splice(counter);
         }
     }
+    console.log(subjects_schedule);
     subjectselect.append('<option id= "' + popupoptionssubkeyselected + 'options" value = "' + popupoptionssubkeyselected + ',' + popupoptionssubjectselected + '" >' + popupoptionssubjectselected + '</option>');
+    selectweekelements = [false,false,false,false,false];
     closeModalButtons('optionspopup');
 }
