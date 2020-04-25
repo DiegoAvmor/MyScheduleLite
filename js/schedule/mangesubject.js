@@ -1,13 +1,16 @@
 function manageSubject(selector){
+    console.log(selector);
+    var complement = getComplement(selector);
     try{
-        var complement = getComplement(selector);
         checkSchedule(complement);
         if(selector){
             deleteSubject();
         }
         addSubject(complement);
     }catch(error){
-        console.log(error);
+        $("#errordiv" + complement).empty();
+        $("#errordiv" + complement).append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
+        document.getElementById("errordiv" + complement).style.display = "block";
     }
 }
 
@@ -21,6 +24,7 @@ function getComplement(selector){
 function checkSchedule(aux){
     for(var counter = 0;counter < selectweekelements.length; counter ++){
         var inittime = document.getElementsByClassName('morninglist' + aux)[counter].value;
+        console.log(document.getElementById('scheduletable').rows[timesmorning[inittime]].cells[counter].childElementCount);
         if(selectweekelements[counter] && document.getElementById('scheduletable').rows[timesmorning[inittime]].cells[counter].childElementCount != 0){
             console.log("error");
             throw "Horario invalido. Materias colicionando";
@@ -29,6 +33,10 @@ function checkSchedule(aux){
 }
 
 function addSubject(aux){
+    if(document.getElementById('subjectspopup' + aux).value.split(',')[0] == ""){
+        throw "Materia no seleccionada";
+    }
+    console.log(selectweekelements.length);
     for(var counter = 0;counter < selectweekelements.length;counter ++){
         if(selectweekelements[counter]){
             var subject = {
@@ -44,6 +52,9 @@ function addSubject(aux){
             chargeSubjectsTable(subject);
             subjects_schedule.push(subject);
         }
+    }
+    if(subjects_schedule.length == 0){
+        throw "Dia(s) no seleccionados";
     }
     $('#' + document.getElementById('subjectspopup').value.split(',')[0] + 'options').remove();
     $('#' + document.getElementById('teacherspopup').value.split(',')[0]).remove();

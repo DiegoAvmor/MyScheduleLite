@@ -71,16 +71,31 @@
     align-items: center;
 }
 
-.weekinfo,.weekinfooption{
-    height: 95px;
+#errormessage{
+    margin: auto;
+}
+
+#errordiv{
+    display: none;
+    padding-top: 15px;
+    height: 30px;
+    background: rgba(255, 27, 27, 0.548);
+}
+
+#errordiv,.weekinfo,.weekinfooption{
     width: 432px;
     margin-left: 34px;
     margin-bottom: 15px;
-    background: rgb(236, 236, 236);
     border-radius: 5px;
+   text-align: center;
+}
+
+.weekinfo,.weekinfooption{
+    background: rgb(236, 236, 236);
     display: none;
     padding-left: 15px;
     padding-top: 15px;
+    height: 95px;
 }
 
 .buttonpopup{

@@ -61,7 +61,7 @@ function closeModalButtons(elementname){
     popupoptionssubkeyselected = "";
     popupoptionssubjectselected = "";
     if(elementname === "editionpopup"){
-        restartElement($('.dayspopupoption'));
+        restartElement($('.dayspopupoption').document.getElementById("errordivoption"));
     }
 }
 
@@ -87,7 +87,7 @@ function closeAddScheduleButtons(){
     if(modal == null) return;
     modal.classList.remove('active');
     overlay.classList.remove('activenoopacity');
-    restartElement($('.dayspopup'));
+    restartElement($('.dayspopup'),document.getElementById("errordiv"));
 }
 
 function displayWindowSize(){
@@ -96,10 +96,11 @@ function displayWindowSize(){
 
 window.addEventListener("resize",displayWindowSize);
 
-function restartElement(weeknameelements){
+function restartElement(weeknameelements,errordiv){
     for(var counter = 0;counter < weeknameelements.length;counter ++){
         weeknameelements[counter].style.color = '#444444';
         document.getElementsByName(weeknameelements[counter].id)[0].style.display = "none";
     }
+    errordiv.style.display = "none";
     selectweekelements = [false,false,false,false,false];
 }
