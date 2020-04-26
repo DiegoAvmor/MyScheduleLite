@@ -58,10 +58,10 @@ function closeModalButtons(elementname){
     console.log(elementname);
     modal.classList.remove('active');
     overlay.classList.remove('active');
-    popupoptionssubkeyselected = "";
-    popupoptionssubjectselected = "";
     if(elementname === "editionpopup"){
-        restartElement($('.dayspopupoption').document.getElementById("errordivoption"));
+        restartElement($('.dayspopupoption'),document.getElementById("errordivoption"));
+        popupoptionssubkeyselected = "";
+        popupoptionssubjectselected = "";
     }
 }
 
@@ -79,7 +79,6 @@ function openEditModal(){
     if(modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
-    console.log(subjects_schedule);
 }
 
 function closeAddScheduleButtons(){

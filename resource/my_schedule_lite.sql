@@ -2,7 +2,6 @@
 
 CREATE DATABASE my_schedule_lite;
 
-
 USE my_schedule_lite;
 
 CREATE TABLE `administrador` (
