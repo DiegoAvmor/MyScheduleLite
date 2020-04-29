@@ -1,5 +1,31 @@
+function addSubject(){
+    try{
+        checkTimeSelect();
+        checkScheduleAdd();
+        checkSubjectSelected("subjectspopup");
+        addInfoSchedule();
+    }catch(error){
+        $("#errordiv").empty();
+        $("#errordiv").append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
+        document.getElementById("errordiv").style.display = "block";
+    }
+}
+
+function editSubject(){
+    try{
+        checkTimeSelect();
+        checkScheduleEdit();
+        deleteSubject();
+        editInfoSchedule();
+    }catch(error){
+        console.log(error);5
+        $("#errordiv").empty();
+        $("#errordiv").append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
+        document.getElementById("errordiv").style.display = "block";
+    }
+}
+
 function manageSubject(selector){
-    console.log(selector);
     var complement = getComplement(selector);
     try{
         checkTimeSelect();
@@ -24,13 +50,28 @@ function getComplement(selector){
     return "";
 }
 
-function checkSchedule(aux){
+function checkScheduleAdd(){
     for(var counter = 0;counter < selectweekelements.length; counter ++){
-        var inittime = document.getElementsByClassName('morninglist' + aux)[counter].value;
-        if(selectweekelements[counter] && hasInsideElement(timesmorning[inittime],counter) && checkSameElement(timesmorning[inittime],counter)){
+        var inittime = document.getElementsByClassName('morninglist')[counter].value;
+        if(selectweekelements[counter] && document.getElementById('scheduletable').rows[timesmorning[inittime]].cells[counter].childElementCount == 1 /** && checkSameElement(timesmorning[inittime],counter) **/){
             throw "Horario invalido. Materias colicionando";
         }
     }
+}
+
+function checkScheduleEdit(){
+    for(var counter = 0;counter < selectweekelements.length; counter ++){
+        var inittime = document.getElementsByClassName('morninglist')[counter].value;
+        if(selectweekelements[counter] && document.getElementById('scheduletable').rows[timesmorning[inittime]].cells[counter].childElementCount == 1){
+            if(!checkSameElement(timesmorning[inittime],counter)){
+                throw "Horario invalido. Materias colicionando";
+            }
+        }
+    }
+}
+
+function checkSameElement(rownumber,cellnumber){
+    return document.getElementById('scheduletable').rows[rownumber].cells[cellnumber].getElementsByClassName(popupoptionssubkeyselected).length == 1;
 }
 
 function checkTimeSelect(){
@@ -39,45 +80,53 @@ function checkTimeSelect(){
     }
 }
 
-function hasInsideElement(rownumber,cellnumber){
-    return document.getElementById('scheduletable').rows[rownumber].cells[cellnumber].childElementCount != 0;
-}
-
-function checkSameElement(rownumber,cellnumber){
-    return document.getElementById('scheduletable').rows[rownumber].cells[cellnumber].getElementsByClassName(popupoptionssubkeyselected).length == 0;
-}
-
-function addSubject(aux){
-    if(document.getElementById('subjectspopup' + aux).value.split(',')[0] == ""){
+function checkSubjectSelected(elementname){
+    if(document.getElementById(elementname).value.split(',')[0] == ""){
         throw "Materia no seleccionada";
     }
+}
+
+function addInfoSchedule(){
     for(var counter = 0;counter < selectweekelements.length;counter ++){
         if(selectweekelements[counter]){
-            var auxiliarnombremateria = document.getElementById('subjectspopup' + aux).value.split(',')[1];
-            var auxiliarclavemateria = document.getElementById('subjectspopup' + aux).value.split(',')[0];
-            if(aux != ""){
-                auxiliarnombremateria = popupoptionssubjectselected;
-                auxiliarclavemateria = popupoptionssubkeyselected;
-            }
             var subject = {
-                clave_aula:document.getElementsByClassName('classroomselect' + aux)[counter].value,
-                clave_maestro:document.getElementById('teacherspopup' + aux).value.split(',')[0],
-                clave_materia:auxiliarclavemateria,
+                clave_aula:document.getElementsByClassName('classroomselect')[counter].value,
+                clave_maestro:document.getElementById('teacherspopup').value.split(',')[0],
+                clave_materia:document.getElementById('subjectspopup').value.split(',')[0],
                 dia_semana:invertedweekdays[counter],
-                hora_inicio:document.getElementsByClassName('morninglist' + aux)[counter].value,
-                hora_termina:document.getElementsByClassName('finishhour' + aux)[counter].value,
-                nombre_maestro:document.getElementById('teacherspopup' + aux).value.split(',')[1],
-                nombre_materia:auxiliarnombremateria
+                hora_inicio:document.getElementsByClassName('morninglist')[counter].value,
+                hora_termina:document.getElementsByClassName('finishhour')[counter].value,
+                nombre_maestro:document.getElementById('teacherspopup').value.split(',')[1],
+                nombre_materia:document.getElementById('subjectspopup').value.split(',')[1]
             }
             chargeSubjectsTable(subject);
             subjects_schedule.push(subject);
         }
     }
-    if(aux != 'option'){
-        $('#' + document.getElementById('subjectspopup').value.split(',')[0] + 'options').remove();
-        $('#' + document.getElementById('teacherspopup').value.split(',')[0]).remove();
-    }
+    $('#' + document.getElementById('subjectspopup').value.split(',')[0] + 'options').remove();
+    $('#' + document.getElementById('teacherspopup').value.split(',')[0]).remove();
     closeAddScheduleButtons();
+}
+
+function editInfoSchedule(){
+    console.log(popupoptionssubjectselected);
+    console.log(popupoptionssubkeyselected);
+    for(var counter = 0;counter < selectweekelements.length;counter ++){
+        if(selectweekelements[counter]){
+            var subject = {
+                clave_aula:document.getElementsByClassName('classroomselectoption')[counter].value,
+                clave_maestro:document.getElementById('teacherspopupoption').value.split(',')[0],
+                clave_materia:popupoptionssubkeyselected,
+                dia_semana:invertedweekdays[counter],
+                hora_inicio:document.getElementsByClassName('morninglistoption')[counter].value,
+                hora_termina:document.getElementsByClassName('finishhouroption')[counter].value,
+                nombre_maestro:document.getElementById('teacherspopupoption').value.split(',')[1],
+                nombre_materia:popupoptionssubjectselected
+            }
+            chargeSubjectsTable(subject);
+            subjects_schedule.push(subject);
+        }
+    }
 }
 
 function deleteSubject(){
