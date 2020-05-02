@@ -71,18 +71,18 @@
     align-items: center;
 }
 
-#errormessage{
+.errormessage{
     margin: auto;
 }
 
-#errordiv{
+#errordiv,#errordivoption{
     display: none;
     padding-top: 15px;
     height: 30px;
     background: rgba(255, 27, 27, 0.548);
 }
 
-#errordiv,.weekinfo,.weekinfooption{
+#errordiv,.weekinfo,.weekinfooption,#errordivoption{
     width: 432px;
     margin-left: 34px;
     margin-bottom: 15px;

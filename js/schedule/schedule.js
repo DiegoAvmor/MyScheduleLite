@@ -2,6 +2,13 @@ function chargeTime(turno){
    document.getElementById(turno).style.display = 'block';
 }
 
+function setGroupHeader(keycarrer, keygroup, groupgeneration, groupturn){
+    $('#groupinfo').append(
+        '<h2>' + keycarrer + ' - Grupo ' 
+    + keygroup + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
+    + groupgeneration + ' - ' + groupturn + "</h2>"    );
+}
+
 function pageId(){
     document.getElementById("scheduleid").style.backgroundColor = "black";
 }

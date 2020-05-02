@@ -58,6 +58,7 @@ const handleOffer = response =>{
     let parsedResponse = JSON.parse(response);
     classrooms = parsedResponse.aulas; 
     deconstructSubjectResponse(parsedResponse.maestro_materia);
+    classRoomDivCharge("classroomoption");
 }
 
 function deconstructSubjectResponse(subject_teacher_relations){
@@ -88,9 +89,6 @@ function getTeachersBySubjectId(subject_id, array){
     return teachers;
 }
 
-function setGroupHeader(keycarrer, keygroup, groupgeneration, groupturn){
-    $('#groupinfo').append(
-        '<h2>' + keycarrer + ' - Grupo' 
-    + keygroup + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
-    + groupgeneration + ' - ' + groupturn + "</h2>"    );
+function chargeSchedule(){
+    console.log(subjects_schedule);
 }

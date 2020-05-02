@@ -6,7 +6,7 @@ function addSubject(){
         addInfoSchedule();
     }catch(error){
         $("#errordiv").empty();
-        $("#errordiv").append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
+        $("#errordiv").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordiv").style.display = "block";
     }
 }
@@ -19,35 +19,10 @@ function editSubject(){
         editInfoSchedule();
     }catch(error){
         console.log(error);5
-        $("#errordiv").empty();
-        $("#errordiv").append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
-        document.getElementById("errordiv").style.display = "block";
+        $("#errordivoption").empty();
+        $("#errordivoption").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
+        document.getElementById("errordivoption").style.display = "block";
     }
-}
-
-function manageSubject(selector){
-    var complement = getComplement(selector);
-    try{
-        checkTimeSelect();
-        checkSchedule(complement);
-        if(selector){
-            deleteSubject();
-        }
-        addSubject(complement);
-        closeModalButtons("editionpopup");
-    }catch(error){
-        console.log(error);
-        $("#errordiv" + complement).empty();
-        $("#errordiv" + complement).append('<div id = "errormessage" class = "inlineblocks">' +  error + '</div>');
-        document.getElementById("errordiv" + complement).style.display = "block";
-    }
-}
-
-function getComplement(selector){
-    if(selector){
-        return "option";
-    }
-    return "";
 }
 
 function checkScheduleAdd(){
@@ -61,7 +36,7 @@ function checkScheduleAdd(){
 
 function checkScheduleEdit(){
     for(var counter = 0;counter < selectweekelements.length; counter ++){
-        var inittime = document.getElementsByClassName('morninglist')[counter].value;
+        var inittime = document.getElementsByClassName('morninglistoption')[counter].value;
         if(selectweekelements[counter] && document.getElementById('scheduletable').rows[timesmorning[inittime]].cells[counter].childElementCount == 1){
             if(!checkSameElement(timesmorning[inittime],counter)){
                 throw "Horario invalido. Materias colicionando";
@@ -127,16 +102,22 @@ function editInfoSchedule(){
             subjects_schedule.push(subject);
         }
     }
+    closeModalButtons("editionpopup");
 }
 
-function deleteSubject(){
+function deleteSubject(editflag){
     $('.' + popupoptionssubkeyselected).remove();
+    console.log(subjects_schedule);
     for(var counter = 0;counter < subjects_schedule.length;counter ++){
+        console.log("hola");
         if(popupoptionssubkeyselected === subjects_schedule[counter].clave_materia){
-            subjects_schedule.splice(counter);
+            subjects_schedule.splice(counter,1);
+            counter --;
         }
     }
     console.log(subjects_schedule);
-    subjectselect.append('<option id= "' + popupoptionssubkeyselected + 'options" value = "' + popupoptionssubkeyselected + ',' + popupoptionssubjectselected + '" >' + popupoptionssubjectselected + '</option>');
+    if(editflag != undefined){
+        subjectselect.append('<option id= "' + popupoptionssubkeyselected + 'options" value = "' + popupoptionssubkeyselected + ',' + popupoptionssubjectselected + '" >' + popupoptionssubjectselected + '</option>');
+    }
     closeModalButtons('optionspopup');
 }

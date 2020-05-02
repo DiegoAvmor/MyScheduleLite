@@ -211,7 +211,7 @@
           </div>
       </section>
       <footer id = "piepagina">
-        <button class="inlineblocks buttonsetschedule">Guardar horario</button>
+        <button class="inlineblocks buttonsetschedule" onclick="chargeSchedule()">Guardar horario</button>
       </footer>
       <div id = "optionspopup">
         <div id = "optionsheader">
@@ -220,7 +220,7 @@
         </div>
         <div id = "optionsbody">
           <button class = "montserratfont font16 optionbuton" onclick="openEditModal()">Editar horario</button><br>
-          <button class = "montserratfont font16 optionbuton" onclick="deleteSubject()">Eliminar horario</button>
+          <button class = "montserratfont font16 optionbuton" onclick="deleteSubject({flag:true})">Eliminar horario</button>
         </div>
       </div>
       <div id = "editionpopup">
@@ -274,7 +274,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
+              <select name = "classroomoption" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -291,7 +291,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
+              <select name = "classroomoption" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -308,7 +308,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
+              <select name = "classroomoption" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -325,7 +325,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement">Salón</div>
-              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
+              <select name = "classroomoption" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
@@ -342,7 +342,7 @@
             <div class = "classroomselection verticalalign">
               <img src = "../images/iconos/classroom.png" class = "insideelement">
               <div class = "daysfont inlineblocks insideelement insideelement">Salón</div>
-              <select name = "classroom" class = "daysfont insideelement classroomselectoption">
+              <select name = "classroomoption" class = "daysfont insideelement classroomselectoption">
               </select>
             </div>
           </div>
