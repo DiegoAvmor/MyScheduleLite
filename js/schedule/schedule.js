@@ -76,7 +76,7 @@ function openAddScheduleButtons(){
     const modal = document.getElementById('addschedulepopup');
     modal.classList.add('active');
     overlay.classList.add('activenoopacity');
-    chargeOffer();
+    //chargeOffer();
 }
 
 function openEditModal(){

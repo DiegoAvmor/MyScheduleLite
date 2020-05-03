@@ -21,6 +21,7 @@ $(document).ready(function(){
     setTimeOption(turno);
     setFinalTime(turno,"finishhouroption");
     setFinalTime(turno,"finishhour");
+    chargeOffer();
 });
 
 function getSubjectSchedules(clave_grupo){
@@ -59,6 +60,7 @@ const handleOffer = response =>{
     classrooms = parsedResponse.aulas; 
     deconstructSubjectResponse(parsedResponse.maestro_materia);
     classRoomDivCharge("classroomoption");
+    classRoomDivCharge("classroom");
 }
 
 function deconstructSubjectResponse(subject_teacher_relations){

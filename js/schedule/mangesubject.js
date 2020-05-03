@@ -107,15 +107,12 @@ function editInfoSchedule(){
 
 function deleteSubject(editflag){
     $('.' + popupoptionssubkeyselected).remove();
-    console.log(subjects_schedule);
     for(var counter = 0;counter < subjects_schedule.length;counter ++){
-        console.log("hola");
         if(popupoptionssubkeyselected === subjects_schedule[counter].clave_materia){
             subjects_schedule.splice(counter,1);
             counter --;
         }
     }
-    console.log(subjects_schedule);
     if(editflag != undefined){
         subjectselect.append('<option id= "' + popupoptionssubkeyselected + 'options" value = "' + popupoptionssubkeyselected + ',' + popupoptionssubjectselected + '" >' + popupoptionssubjectselected + '</option>');
     }

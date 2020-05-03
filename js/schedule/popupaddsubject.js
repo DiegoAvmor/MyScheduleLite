@@ -32,9 +32,7 @@ function setFinalTime(turn,divnamefinalhours){
     }
 }
 
-var hasbeencharged = false;
 function chargeOffer(){
-    if(!hasbeencharged){
         for(var counter=0;counter < subjects_schedule.length;counter ++){
             for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
                 if(subjects_offer[counter2].clave_materia === subjects_schedule[counter].clave_materia){
@@ -44,9 +42,7 @@ function chargeOffer(){
             }
         }
         optionDivCharge();
-        classRoomDivCharge("classroom");
-        hasbeencharged = true;
-    }
+        
 }
 
 var subjectselect = $('#subjectspopup');
@@ -100,6 +96,7 @@ function setFinalHour(optionsection,numbersection,divfinishname){
 
 function classRoomDivCharge(divclassroom){
     var classroomdiv = document.getElementsByName(divclassroom);
+    
     for(var counter = 0;counter < classroomdiv.length;counter ++){
         for(var counter2 = 0;counter2 < classrooms.length;counter2 ++){
             var optiondivclassroom = document.createElement('option');
