@@ -5,18 +5,18 @@ let classrooms;
 let turno;
 
 $(document).ready(function(){
-    displayWindowSize();
-    pageId();
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const key_value = urlParams.get('clave_grupo')
-    turno = urlParams.get('turno');   
-    getSubjectSchedules(key_value);
-    getOffer(key_value);
-    chargeTime(turno);
     const info = document.cookie.split(';');
     const carrerkey = info[0].split('=')[1];
     const groupgeneration = info[1].split('=')[1];
+    turno = urlParams.get('turno');
+    displayWindowSize();
+    pageId(); 
+    getSubjectSchedules(key_value);
+    getOffer(key_value);
+    chargeTime(turno);
     setGroupHeader(carrerkey, key_value, groupgeneration, turno);
     setTimeOption(turno);
     setFinalTime(turno,"finishhouroption");

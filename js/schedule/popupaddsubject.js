@@ -33,16 +33,15 @@ function setFinalTime(turn,divnamefinalhours){
 }
 
 function chargeOffer(){
-        for(var counter=0;counter < subjects_schedule.length;counter ++){
-            for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
-                if(subjects_offer[counter2].clave_materia === subjects_schedule[counter].clave_materia){
-                    subjects_offer.splice(counter2);
-                    break;
-                }
+    for(var counter=0;counter < subjects_schedule.length;counter ++){
+        for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
+            if(subjects_offer[counter2].clave_materia === subjects_schedule[counter].clave_materia){
+                subjects_offer.splice(counter2);
+                break;
             }
         }
-        optionDivCharge();
-        
+    }
+    optionDivCharge();
 }
 
 var subjectselect = $('#subjectspopup');
