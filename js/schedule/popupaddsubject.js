@@ -41,7 +41,6 @@ function chargeOffer(){
             }
         }
     }
-    optionDivCharge();
 }
 
 var subjectselect = $('#subjectspopup');

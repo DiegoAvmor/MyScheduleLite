@@ -61,6 +61,8 @@ const handleOffer = response =>{
     deconstructSubjectResponse(parsedResponse.maestro_materia);
     classRoomDivCharge("classroomoption");
     classRoomDivCharge("classroom");
+    chargeOffer();
+    optionDivCharge();
 }
 
 function deconstructSubjectResponse(subject_teacher_relations){
