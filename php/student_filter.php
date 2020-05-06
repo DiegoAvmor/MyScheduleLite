@@ -1,6 +1,7 @@
 <?php
 include_once 'db.php';
 include 'model/SimpleResponse.php';
+include 'model/MobileScheduleResponse.php';
 
 $student_group_id = $_GET['group_id'];
 $day = $_GET['day'];
@@ -32,8 +33,7 @@ function getStudentScheduleOfDay($group_id,$day){
     if(!$horarios_alumno){
         $response -> set_message("No Schedules Found At " . $day);
     }else{
-        $response -> set_status(200);
-        $response -> set_message($horarios_alumno);
+        $response = new MobileScheduleResponse(200,"Schedules Found", $horarios_alumno);
     }
     return $response;
 }

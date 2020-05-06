@@ -1,5 +1,6 @@
 <?php
 include_once 'db.php';
+include 'model/MobileLoginResponse.php';
 include 'model/SimpleResponse.php';
 
 $email = $_POST['email'];
@@ -8,6 +9,8 @@ $password = $_POST['password'];
 if(isset($email) && isset($password)){
     $response = getUserDataInformation($email,$password);
     echo $response;
+}else{
+    echo new SimpleResponse(400,"Bad Request");
 }
 
 
@@ -35,15 +38,14 @@ function getUserDataInformation($email,$password){
             $response -> set_status(200);
             //Se establece los datos del usuario para el estudiante
             $studentData = array(
-                "user_type" => "Student",
                 "name" => $credentials['nombre_alumno'],
-                "group" => $credentials['clave_grupo'],
+                "group_id" => $credentials['clave_grupo'],
                 "school_cycle" => $credentials['ciclo_escolar'],
                 "career" => $credentials['clave_carrera'],
                 "semester" => $credentials['semestre'],
                 "turn" => $credentials['turno']
             );
-            $response -> set_message( $studentData );
+            $response = new MobileLoginResponse(200,"Access Granted","Student",$studentData);
         }else{
             $response -> set_message("Invalid Credentials, Try Again");
         }
@@ -61,14 +63,12 @@ function getUserDataInformation($email,$password){
             "maestro.email" => $email
         ]);
         if($credentials['password']===$password){
-            $response -> set_status(200);
             //Se establece los datos del usuario para el maestro
             $teacherData = array(
-                "user_type" => "Teacher",
                 "name" => $credentials['nombre_maestro'],
                 "teacher_id" => $credentials['clave_maestro']
             );
-            $response -> set_message($teacherData);
+            $response = new MobileLoginResponse(200,"Access Granted","Teacher",$teacherData);
         }else{
             $response -> set_message("Invalid Credentials, Try Again");
         }
