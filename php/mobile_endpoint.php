@@ -5,8 +5,11 @@ include 'model/SimpleResponse.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$response = getUserDataInformation($email,$password);
-echo $response;
+if(isset($email) && isset($password)){
+    $response = getUserDataInformation($email,$password);
+    echo $response;
+}
+
 
 function getUserDataInformation($email,$password){
     $dbconnection= establishConnectionDB();
@@ -31,8 +34,8 @@ function getUserDataInformation($email,$password){
         if($credentials['password']===$password){
             $response -> set_status(200);
             //Se establece los datos del usuario para el estudiante
-            $userData = array(
-                "user_Type" => "Student",
+            $studentData = array(
+                "user_type" => "Student",
                 "name" => $credentials['nombre_alumno'],
                 "group" => $credentials['clave_grupo'],
                 "school_cycle" => $credentials['ciclo_escolar'],
@@ -40,7 +43,13 @@ function getUserDataInformation($email,$password){
                 "semester" => $credentials['semestre'],
                 "turn" => $credentials['turno']
             );
-            $schedule = getStudentSchedule($credentials["clave_grupo"],$dbconnection)
+            $studentSchedule = getStudentSchedule($credentials["clave_grupo"],$dbconnection);
+            $response -> set_message(
+                array(
+                    "user_data" => $studentData,
+                    "schedule" => $studentSchedule
+                )
+            );
         }else{
             $response -> set_message("Invalid Credentials, Try Again");
         }
@@ -60,11 +69,17 @@ function getUserDataInformation($email,$password){
         if($credentials['password']===$password){
             $response -> set_status(200);
             //Se establece los datos del usuario para el maestro
-            $userData = array(
-                "user_Type" => "Teacher",
+            $teacherData = array(
+                "user_type" => "Teacher",
                 "name" => $credentials['nombre_maestro']
             );
-            $schedule = getTeacherSchedule($credentials['clave_maestro'],$dbconnection);
+            $teacherSchedule = getTeacherSchedule($credentials['clave_maestro'],$dbconnection);
+            $response -> set_message(
+                array(
+                    "user_data" => $teacherData,
+                    "schedule" => $teacherSchedule
+                )
+            );
         }else{
             $response -> set_message("Invalid Credentials, Try Again");
         }
@@ -75,7 +90,7 @@ function getUserDataInformation($email,$password){
 function getStudentSchedule($group_id,$dbconnection){
     $horarios_alumno = $dbconnection->select("horario",[
         "[<]materia"=>["clave_materia" => "clave_materia"],
-        "[<]maestro"=>["clave_maestro" => "calve_maestro"]
+        "[<]maestro"=>["clave_maestro" => "clave_maestro"]
     ],[
         "materia.nombre_materia",
         "maestro.nombre_maestro",
@@ -127,5 +142,38 @@ function getTeacherSchedule($teacher_id,$dbconnection){
 
 //Maestro: Nombre, Horarios [Lunes,Martes,Miercoles,Jueves,Viernes], Nombre Materia,Clave de Aula, Hora Inicio, Hora Termina , Dia semana y Clave Grupo
 //Alumno: Nombre Materia, Nombre Maestro, Aula, Hora Inicio, Hora Fin, Grupo Alumno , Ciclo escolar,clave carrera, turno y semestre
+
+/** Response Format
+ * { 
+ *      status : 200,
+ *      message: {
+ *          user_data: {
+ *              user_type : Student,
+ *              name : Diego Avila El Chico Cool,
+ *              group: 1,
+ *              school_cycle: 2019-2020,
+ *              career: LIS,
+ *              semester: 4,
+ *              turn: Matutino
+ *          },
+ *          schedule: {
+ *              Lunes : [
+ *                 {
+ *                      nombre_materia: Materia 1,
+ *                      nombre_maestro: Maestro 1,
+ *                      clave_aula: CC1,
+ *                      hora_inicio: 8:00,
+ *                      hora_termina: 9:00
+ *                 },
+ *              ],
+ *              Martes : [],
+ *              Miercoles : [{},{},{}],
+ *              Jueves : [{},{}],
+ *              Viernes : [{}]
+ *          }
+ *      }
+ * }
+*/
+
 
 ?>
