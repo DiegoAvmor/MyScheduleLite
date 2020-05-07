@@ -1,12 +1,12 @@
 <?php
-include 'model/SimpleResponse.php';
+//include 'SimpleResponse.php'; // Si se deja el include, se muere el programa
 class MobileScheduleResponse extends SimpleResponse{
 
     private $schedule;
 
     public function __construct($status, $message,$schedule) {
-        $this->status = $status;
-        $this->message = $message;
+        //Se debe llamar al constructor de la clase padre, alias el SUPER que usamos en java
+        parent::__construct($status, $message);
         $this->schedule = $schedule;
     }
 
