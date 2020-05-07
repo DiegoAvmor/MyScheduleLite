@@ -1,16 +1,17 @@
 <?php
 include_once 'db.php';
-include 'model/MobileLoginResponse.php';
 include 'model/SimpleResponse.php';
+include 'model/MobileLoginResponse.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 if(isset($email) && isset($password)){
     $response = getUserDataInformation($email,$password);
-    echo $response;
+    echo $response->get_JSON();
 }else{
-    echo new SimpleResponse(400,"Bad Request");
+    $response = new SimpleResponse(400,"Bad Request");
+    echo $response->get_JSON();
 }
 
 
@@ -35,7 +36,6 @@ function getUserDataInformation($email,$password){
             "alumno.email" => $email
         ]);
         if($credentials['password']===$password){
-            $response -> set_status(200);
             //Se establece los datos del usuario para el estudiante
             $studentData = array(
                 "name" => $credentials['nombre_alumno'],

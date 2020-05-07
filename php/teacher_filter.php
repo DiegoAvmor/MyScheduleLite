@@ -8,9 +8,10 @@ $day = $_GET['day'];
 
 if(isset($teacher_id) && isset($day)){
     $response = getTeacherScheduleOfDay($teacher_id,$day);
-    echo $response;
+    echo $response->get_JSON();
 }else{
-    echo new SimpleResponse(400,"Bad Request");
+    $response = new SimpleResponse(400,"Bad Request");
+    echo $response->get_JSON();
 }
 
 
