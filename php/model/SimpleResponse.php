@@ -4,12 +4,12 @@ class SimpleResponse{
     private $status;
     private $message;
 
-    function __construct($status, $message) {
+    public function __construct($status, $message) {
         $this->status = $status;
         $this->message = $message;
     }
 
-    function get_JSON() {
+    public function get_JSON() {
         return json_encode(
             array(
             'status'=> $this->get_status(),
