@@ -5,8 +5,8 @@ include 'model/MobileLoginResponse.php';
 
 header("Content-Type: application/json");
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = $_REQUEST['email'];
+$password = $_REQUEST['password'];
 
 if(isset($email) && isset($password)){
     $response = getUserDataInformation($email,$password);
