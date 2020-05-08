@@ -12,7 +12,7 @@ if(isset($email) && isset($password)){
     $response = getUserDataInformation($email,$password);
     echo $response->get_JSON();
 }else{
-    $response = new SimpleResponse(400,"Bad Request");
+    $response = new SimpleResponse(400,"No funciona asi, compa");
     echo $response->get_JSON();
 }
 
