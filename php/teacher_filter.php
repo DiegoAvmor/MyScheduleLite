@@ -5,8 +5,8 @@ include 'model/MobileScheduleResponse.php';
 
 header("Content-Type: application/json");
 
-$teacher_id = $_GET['teacher_id'];
-$day = $_GET['day'];
+$teacher_id = $_REQUEST['teacher_id'];
+$day = $_REQUEST['day'];
 
 if(isset($teacher_id) && isset($day)){
     $response = getTeacherScheduleOfDay($teacher_id,$day);

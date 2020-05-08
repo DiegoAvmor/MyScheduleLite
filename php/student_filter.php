@@ -5,8 +5,8 @@ include 'model/MobileScheduleResponse.php';
 
 header("Content-Type: application/json");
 
-$student_group_id = $_GET['group_id'];
-$day = $_GET['day'];
+$student_group_id = $_REQUEST['group_id'];
+$day = $_REQUEST['day'];
 
 if(isset($student_group_id) && isset($day)){
     $response = getStudentScheduleOfDay($student_group_id,$day);
