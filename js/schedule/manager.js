@@ -3,11 +3,13 @@ let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
 let classrooms;
 let turno;
+let clvgrp;
 
 $(document).ready(function(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const key_value = urlParams.get('clave_grupo')
+    const key_value = urlParams.get('clave_grupo');
+    clvgrp= key_value;
     const info = document.cookie.split(';');
     const carrerkey = info[0].split('=')[1];
     const groupgeneration = info[1].split('=')[1];
@@ -54,7 +56,20 @@ const handleResponse = response =>{
         chargeSubjectsTable(subjects_schedule[counter]);
     }
 }
-
+const handleResponseUpdate = response =>{
+    try {
+        console.log(respone);
+        let parsedResponse = JSON.parse(response);
+        if(parsedResponse.status == 200){
+            console.log("nice");
+        }else{
+            console.log("notnice");
+        }
+    } catch (e) {
+        console.log(e);
+        console.log(response);
+    }
+}
 const handleOffer = response =>{
     let parsedResponse = JSON.parse(response);
     classrooms = parsedResponse.aulas; 
@@ -93,6 +108,38 @@ function getTeachersBySubjectId(subject_id, array){
     return teachers;
 }
 
-function chargeSchedule(){
-    console.log(subjects_schedule);
+function chargeSchedule(subject){   
+    var outjson = JSON.stringify(subject);
+    var outclv = JSON.stringify(clvgrp);
+    console.log(outjson);
+    console.log(outclv);
+            $.ajax({
+                method: "POST",
+                url: "../php/update_schedule.php",
+                data: { "horario":outjson, "clave":outclv },
+             success: function (response) {
+               console.log(response);
+              },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+              }
+              });
+}
+
+function deleteSub(subject){
+    var outjson = JSON.stringify(subject);
+    var outclv = JSON.stringify(clvgrp);
+            $.ajax({
+                method: "POST",
+                url: "../php/remove_schedule.php",
+                data: { "horario":outjson, "clave":outclv },
+             success: function (response) {
+               console.log(response);
+              },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+              }
+              });
 }
