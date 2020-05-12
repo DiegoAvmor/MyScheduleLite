@@ -75,6 +75,7 @@ function addInfoSchedule(){
                 nombre_materia:document.getElementById('subjectspopup').value.split(',')[1]
             }
             chargeSubjectsTable(subject);
+            chargeSchedule(subject);
             subjects_schedule.push(subject);
         }
     }
@@ -100,6 +101,7 @@ function editInfoSchedule(){
             }
             chargeSubjectsTable(subject);
             subjects_schedule.push(subject);
+            chargeSchedule(subject);
         }
     }
     closeModalButtons("editionpopup");
