@@ -2,19 +2,46 @@
 include_once 'db.php';
 include 'model/SimpleResponse.php';
 
-$response = update();
-echo $response -> get_JSON();
+if(isset($_POST["materia"])&&isset($_POST["clave"])){
+    $inputMat= json_decode($_POST['materia']);
+    $inputClav=json_decode($_POST['clave']);
+    $callB = update($inputMat,$inputClav);
+    $resp=$callB->get_JSON();
+    echo $resp;
+}else{
+    echo "Datos enviados al backend se encuentran vacíos.";
+}
 
-function update(){
+function update($materia, $clavegrp){
     $dbconnection= establishConnectionDB();
     $response = new SimpleResponse(404,"Resource not founded");
-    //Falta añadir sentencia SQL
-    if($name){
-        $response -> set_status(200);
-        $response -> set_message("Llegamos bien al remove, Sir");
+    $count = $dbconnection->count("horario", [
+        "clave_materia" => $materia,
+        "clave_grupo"=> $clavegrp
+        ]);
+
+    if($count){
+        if($count>0){
+            $check= $dbconnection->delete("account", [
+                "AND" => [
+                    "clave_materia" => $materia,
+                    "clave_grupo" => $grupo
+                ]
+            ]);
+            if($check->rowCount()>0){
+                $response -> set_status(200);
+                $response -> set_message("Horario eliminado correctamente");
+            }else{
+                $response -> set_message("El horario no pudo ser eliminado de la BD.");
+            }
+        }else{
+            $response -> set_message("El horario a eliminar no pudo ser encontrado en la BD");
+        }
+
     }else{
-        $response -> set_message("Hay problemas en el remove, Sir");
-    }
+
+        $response -> set_message("No encontradas coincidencias entre materia y grupo en la BD");
+    }   
     
     return $response;
 }

@@ -127,13 +127,13 @@ function chargeSchedule(subject){
               });
 }
 
-function deleteSub(subject){
-    var outjson = JSON.stringify(subject);
+function deleteSub(materia){
+    var outmat= JSON.stringify(materia);
     var outclv = JSON.stringify(clvgrp);
             $.ajax({
                 method: "POST",
                 url: "../php/remove_schedule.php",
-                data: { "horario":outjson, "clave":outclv },
+                data: {"clave":outclv, "materia":outmat  },
              success: function (response) {
                console.log(response);
               },
