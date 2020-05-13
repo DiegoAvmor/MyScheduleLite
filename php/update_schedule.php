@@ -8,7 +8,7 @@ if(isset($_POST["horario"])&&isset($_POST["clave"])){
     $resp=$callB->get_JSON();
     echo $resp;
 }else{
-    echo "suck me nuts";
+    echo "Datos enviados al backend se encuentran vacíos.";
 }
 
 function update($horario,$claveGrupo){
@@ -36,13 +36,13 @@ function update($horario,$claveGrupo){
 
             if($check->rowCount()>0){
                 $response -> set_status(200);
-                $response -> set_message("Llegamos al update, Sir");
+                $response -> set_message("Horario añadido con éxito.");
             }else{
-                $response -> set_message("Hay problemas en el update, Sir");
+                $response -> set_message("El horario no pudo ser añadido a la BD.");
             }
         }
     }else{
-        $response -> set_message("Hay problemas en el update, Sir");
+        $response -> set_message("No se pudo añadir el horario: el mismo maestro tiene coincidencias en la misma hora y día de la semana.");
     }
     return $response;
 }
