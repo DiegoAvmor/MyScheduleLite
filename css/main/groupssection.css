@@ -65,6 +65,7 @@
     overflow-x: hidden;
     scrollbar-color: rgba(196, 196, 196, 1) transparent;
     scrollbar-width: thin;
+    margin: 0 auto;
 }
 
 #boton{

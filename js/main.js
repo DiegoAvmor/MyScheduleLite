@@ -32,7 +32,7 @@ function subjectsCharge(value){
     seccionmaterias.append('<h2 class = "texto">' + grupos[value].grupo.clave_carrera + ' - Grupo' 
     + grupos[value].grupo.clave_grupo + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
     + grupos[value].grupo.ciclo_escolar + ' - ' + grupos[value].grupo.turno + "</h2>");
-    seccionmaterias.append('<section id = "cuadromaterias"></section>');
+    seccionmaterias.append('<section id = "cuadromaterias"><div id = "innermarge"></div></section>');
     if(buttonText(grupos[value].materias.length)){
         subjectsPictures(grupos[value].materias);
     }
@@ -48,7 +48,7 @@ function buttonText(subjectsnumber){
 }
 
 function subjectsPictures(groupsubjects){
-    var subjectpicture = $("#cuadromaterias");
+    var subjectpicture = $("#innermarge");
     groupsubjects.forEach(subject => {
         if(subject.clave_materia){
             let hpresenciales = subject.horas_presenciales;
