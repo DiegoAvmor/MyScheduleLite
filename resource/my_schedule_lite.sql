@@ -381,7 +381,7 @@ ALTER TABLE `aula_carga`
 ALTER TABLE `carga`
   ADD PRIMARY KEY (`clave_maestro`,`clave_materia`,`clave_grupo`),
   ADD KEY `clave_materia` (`clave_materia`),
-  ADD KEY `clave_grupo` (`clave_grupo`);//
+  ADD KEY `clave_grupo` (`clave_grupo`);
 
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`clave_carrera`);
