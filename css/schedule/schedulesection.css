@@ -10,7 +10,6 @@
     width: 90%;
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
     margin-right: 4px;
-    
 }
 
 .size-300{
@@ -104,10 +103,13 @@ table{
     padding-left: 5px;
     margin-left: 2px;
     padding-right: 7px;
-    /**overflow: scroll;
-    **/
+    overflow: scroll;
     scrollbar-color: rgba(196, 196, 196, 1) transparent;
     scrollbar-width: thin;
+}
+
+.scheduleinfo div{
+
 }
 
 .scheduletitle{
