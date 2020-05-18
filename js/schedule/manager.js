@@ -129,25 +129,6 @@ function getTeachersBySubjectId(subject_id, array){
     return teachers;
 }
 
-function chargeSchedule(subject){   
-    var outjson = JSON.stringify(subject);
-    var outclv = JSON.stringify(clvgrp);
-    console.log(outjson);
-    console.log(outclv);
-            $.ajax({
-                method: "POST",
-                url: "../php/update_schedule.php",
-                data: { "horario":outjson, "clave":outclv },
-             success: function (response) {
-               console.log(response);
-              },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
-              }
-              });
-}
-
 function deleteSub(materia){
     var outmat= JSON.stringify(materia);
     var outclv = JSON.stringify(clvgrp);

@@ -102,6 +102,10 @@ function displayWindowSize(){
 
 window.addEventListener("resize",displayWindowSize);
 
+function returnMainPage(){
+    window.location.assign("main.html");
+}
+
 function restartElement(weeknameelements,errordiv){
     for(var counter = 0;counter < weeknameelements.length;counter ++){
         weeknameelements[counter].style.color = '#444444';

@@ -100,7 +100,7 @@ function createDivsGrous(){
 
 function displayWindowSize(){
     document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
-    document.getElementById("grupos").style.height = document.documentElement.clientHeight - 250 + "px";
+    document.getElementById("grupos").style.height = document.documentElement.clientHeight - 290 + "px";
     document.getElementById("grupos").style.width = document.documentElement.clientWidth/3  +"px";
     barragrupos = document.getElementsByClassName("barragrupos");
     let groupdivwidth = document.getElementById('grupos').offsetWidth;

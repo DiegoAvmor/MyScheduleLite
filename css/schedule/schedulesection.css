@@ -19,7 +19,7 @@
 
 #schedulepicture{
     float: left;
-    height: 600px;
+    height: 550px;
     width: 100%;
     overflow-y: scroll;
     scrollbar-color: rgba(196, 196, 196, 1) transparent;
