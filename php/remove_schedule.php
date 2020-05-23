@@ -22,10 +22,10 @@ function update($materia, $clavegrp){
 
     if($count){
         if($count>0){
-            $check= $dbconnection->delete("account", [
+            $check= $dbconnection->delete("horario", [
                 "AND" => [
                     "clave_materia" => $materia,
-                    "clave_grupo" => $grupo
+                    "clave_grupo" => $clavegrp
                 ]
             ]);
             if($check->rowCount()>0){

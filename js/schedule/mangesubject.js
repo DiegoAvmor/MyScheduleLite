@@ -20,7 +20,7 @@ function editSubject(){
         deleteSubject();
         editInfoSchedule();
     }catch(error){
-        console.log(error);5
+        console.log(error);
         $("#errordivoption").empty();
         $("#errordivoption").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordivoption").style.display = "block";
@@ -87,8 +87,6 @@ function addInfoSchedule(){
 }
 
 function editInfoSchedule(){
-    console.log(popupoptionssubjectselected);
-    console.log(popupoptionssubkeyselected);
     for(var counter = 0;counter < selectweekelements.length;counter ++){
         if(selectweekelements[counter]){
             var subject = {
@@ -120,6 +118,7 @@ function deleteSubject(editflag){
     if(editflag != undefined){
         subjectselect.append('<option id= "' + popupoptionssubkeyselected + 'options" value = "' + popupoptionssubkeyselected + ',' + popupoptionssubjectselected + '" >' + popupoptionssubjectselected + '</option>');
     }
+    deleteSub(popupoptionssubkeyselected);
     closeModalButtons('optionspopup');
 }
 

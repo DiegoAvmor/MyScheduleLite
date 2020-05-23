@@ -1,6 +1,7 @@
 let subjects_schedule = new Array();
 let subjects_offer = new Array(); //Arreglo de materias
 let map_subjects_teachers = new Array(); //Mapa de materias respecto a maestros
+let offer;
 let classrooms;
 let turno;
 let clvgrp;
@@ -16,38 +17,42 @@ $(document).ready(function(){
     turno = urlParams.get('turno');
     displayWindowSize();
     pageId(); 
-    getSubjectSchedules(key_value);
-    getOffer(key_value);
+    subjects_schedule = JSON.parse(getSubjectSchedules(key_value));
+    chargeSubjects();
+    console.log(subjects_schedule);
+    offer = JSON.parse(getOffer(key_value));
+    console.log(offer);
+    deconstructSubjectResponse(offer.maestro_materia);
+    console.log(subjects_offer);
+    console.log(map_subjects_teachers);
+    handler(offer);
     chargeTime(turno);
     setGroupHeader(carrerkey, key_value, groupgeneration, turno);
     setTimeOption(turno);
     setFinalTime(turno,"finishhouroption");
     setFinalTime(turno,"finishhour");
-    chargeOffer();
 });
 
 function getSubjectSchedules(clave_grupo){
-    $.ajax({
+    return $.ajax({
         type: "GET",
         url: "../php/manage_subject_data.php",
         data: {
             "clave_grupo": clave_grupo
-        }
-      })
-        .done(handleResponse)
-        .fail((xhr, status, error) => console.log(error));
+        },
+        async: false
+      }).responseText;
 }
 
 function getOffer(clave_grupo){
-    $.ajax({
+    return $.ajax({
         type: "GET",
         url: "../php/manage_offer.php",
         data: {
             "clave_grupo": clave_grupo
-        }
-      })
-        .done(handleOffer)
-        .fail((xhr, status, error) => console.log(error));
+        },
+        async: false
+      }).responseText;
 }
 
 const handleResponse = response =>{
@@ -56,6 +61,13 @@ const handleResponse = response =>{
         chargeSubjectsTable(subjects_schedule[counter]);
     }
 }
+
+function chargeSubjects(){
+    for(var counter=0;counter < subjects_schedule.length;counter ++){
+        chargeSubjectsTable(subjects_schedule[counter]);
+    }
+}
+
 const handleResponseUpdate = response =>{
     try {
         console.log(respone);
@@ -80,6 +92,14 @@ const handleOffer = response =>{
     optionDivCharge();
 }
 
+function handler(parsedResponse){
+    classrooms = parsedResponse.aulas; 
+    classRoomDivCharge("classroomoption");
+    classRoomDivCharge("classroom");
+    chargeOffer();
+    optionDivCharge();
+}
+
 function deconstructSubjectResponse(subject_teacher_relations){
     subject_teacher_relations.forEach(relation => {
         if(!checkSubjectInArray(relation.clave_materia)){
@@ -92,6 +112,7 @@ function deconstructSubjectResponse(subject_teacher_relations){
         relation["teachers"] = getTeachersBySubjectId(subject.clave_materia,subject_teacher_relations);
         return relation;
     });
+    
 }
 
 function checkSubjectInArray(subject_id){
@@ -140,7 +161,8 @@ function deleteSub(materia){
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status);
                 console.log(thrownError);
-              }
+              },
+              async: false
               });
 }
 function validateSub(materia){

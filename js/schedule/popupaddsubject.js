@@ -33,19 +33,23 @@ function setFinalTime(turn,divnamefinalhours){
 }
 
 function chargeOffer(){
+    console.log("hola2");
+    console.log(subjects_offer.length);
+    console.log(subjects_schedule.length);
     for(var counter=0;counter < subjects_schedule.length;counter ++){
         for(var counter2=0;counter2 < subjects_offer.length;counter2 ++){
             if(subjects_offer[counter2].clave_materia === subjects_schedule[counter].clave_materia){
-                subjects_offer.splice(counter2);
-                break;
+                subjects_offer.splice(counter2,1);
+                console.log("hola3");
             }
         }
     }
+    console.log(subjects_offer.length);
 }
 
 var subjectselect = $('#subjectspopup');
 function optionDivCharge(){
-    for(var counter = 0; counter<subjects_offer.length; counter ++){
+    for(var counter = 0; counter<Object.keys(subjects_offer).length; counter ++){
         subjectselect.append('<option id= "' + subjects_offer[counter].clave_materia + 'options" value = "' + subjects_offer[counter].clave_materia + ',' + subjects_offer[counter].nombre_materia + '" >' + subjects_offer[counter].nombre_materia + '</option>');
     }
 }

@@ -53,7 +53,7 @@
 }
 
 .barragrupos:hover{
-    width: 420px;
+    width: calc(30px + 40px);
     height: 50px;
     position: relative;
     padding-top: 25px;
@@ -62,8 +62,10 @@
 #grupos{
     height: 348px;
     overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-color: rgba(196, 196, 196, 1) transparent;
     scrollbar-width: thin;
+    margin: 0 auto;
 }
 
 #boton{

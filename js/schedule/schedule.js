@@ -25,6 +25,7 @@ function pageId(){
 function chargeSubjectsTable(subject){
     let newschedulelement = document.createElement('div');
     newschedulelement.setAttribute("class","scheduleinfo " + subject.clave_materia);
+    let newschedulecontainer = document.createElement('div');
     let newsubjecttitle = document.createElement('div');
     newsubjecttitle.setAttribute("class","scheduletitle montserratfont font16 fontsemibold");
     newsubjecttitle.innerHTML = subject.nombre_materia;
@@ -41,11 +42,12 @@ function chargeSubjectsTable(subject){
     let newroomname = document.createElement("p");
     newroomname.setAttribute("class","montserratfont font16");
     newroomname.innerHTML = "Aula: " + subject.clave_aula;
-    newschedulelement.append(newsubjecttitle);
-    newschedulelement.append(newoptionsbutton);
-    newschedulelement.append(newseparator);
-    newschedulelement.append(newteachername);
-    newschedulelement.append(newroomname);
+    newschedulelement.append(newschedulecontainer);
+    newschedulecontainer.append(newsubjecttitle);
+    newschedulecontainer.append(newoptionsbutton);
+    newschedulecontainer.append(newseparator);
+    newschedulecontainer.append(newteachername);
+    newschedulecontainer.append(newroomname);
     document.getElementById("scheduletable").rows[timesmorning[subject.hora_inicio]].cells[weekdays[subject.dia_semana]].append(newschedulelement);
 }
 
@@ -101,6 +103,10 @@ function displayWindowSize(){
 }
 
 window.addEventListener("resize",displayWindowSize);
+
+function returnMainPage(){
+    window.location.assign("main.html");
+}
 
 function restartElement(weeknameelements,errordiv){
     for(var counter = 0;counter < weeknameelements.length;counter ++){

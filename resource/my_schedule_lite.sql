@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE my_schedule_lite;
 
 USE my_schedule_lite;
@@ -103,7 +101,8 @@ INSERT INTO `carga` (`clave_maestro`, `clave_materia`, `clave_grupo`) VALUES
 (454545, 'MAT163-PO', 3),
 (565656, 'MAT161-RSU', 1),
 (565656, 'MAT163-TC', 3),
-(565656, 'MATLCC-PE', 2);
+(565656, 'MATLCC-PE', 2),
+(121212, 'MAT163-AC', 3);
 
 
 CREATE TABLE `carrera` (
@@ -381,7 +380,7 @@ ALTER TABLE `aula_carga`
 ALTER TABLE `carga`
   ADD PRIMARY KEY (`clave_maestro`,`clave_materia`,`clave_grupo`),
   ADD KEY `clave_materia` (`clave_materia`),
-  ADD KEY `clave_grupo` (`clave_grupo`);//
+  ADD KEY `clave_grupo` (`clave_grupo`);
 
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`clave_carrera`);

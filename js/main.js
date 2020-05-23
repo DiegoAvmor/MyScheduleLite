@@ -13,9 +13,9 @@ function gruposClickEvent(gruposeleccionado){
         elementselected.style.boxShadow = "";
         elementselected.style.border = "";
     }
-    console.log(gruposeleccionado.offsetHeight);
-    console.log(gruposeleccionado.offsetWidth);
-    gruposeleccionado.style.width = gruposeleccionado.offsetWidth + 5 + "px";
+    console.log(elementselected);
+    console.log(gruposeleccionado);
+    gruposeleccionado.style.width = document.getElementById("grupos").offsetWidth - 10 + "px";
     gruposeleccionado.style.height = gruposeleccionado.offsetHeight - 25 + "px";
     gruposeleccionado.style.position = "relative";
     gruposeleccionado.style.paddingTop = "25px";
@@ -32,7 +32,7 @@ function subjectsCharge(value){
     seccionmaterias.append('<h2 class = "texto">' + grupos[value].grupo.clave_carrera + ' - Grupo' 
     + grupos[value].grupo.clave_grupo + '<img id = "separadortitulo" src="../images/iconos/divisor.png" alt="divisor">Generación: '
     + grupos[value].grupo.ciclo_escolar + ' - ' + grupos[value].grupo.turno + "</h2>");
-    seccionmaterias.append('<section id = "cuadromaterias"></section>');
+    seccionmaterias.append('<section id = "cuadromaterias"><div id = "innermarge"></div></section>');
     if(buttonText(grupos[value].materias.length)){
         subjectsPictures(grupos[value].materias);
     }
@@ -48,7 +48,7 @@ function buttonText(subjectsnumber){
 }
 
 function subjectsPictures(groupsubjects){
-    var subjectpicture = $("#cuadromaterias");
+    var subjectpicture = $("#innermarge");
     groupsubjects.forEach(subject => {
         if(subject.clave_materia){
             let hpresenciales = subject.horas_presenciales;
@@ -100,14 +100,14 @@ function createDivsGrous(){
 
 function displayWindowSize(){
     document.getElementById("barratareas").style.height = document.documentElement.clientHeight - 110 + "px";
-    document.getElementById("grupos").style.height = document.documentElement.clientHeight - 280 + "px";
-    document.getElementById("grupos").style.width = document.documentElement.clientWidth/3 +"px";
+    document.getElementById("grupos").style.height = document.documentElement.clientHeight - 290 + "px";
+    document.getElementById("grupos").style.width = document.documentElement.clientWidth/3  +"px";
     barragrupos = document.getElementsByClassName("barragrupos");
     let groupdivwidth = document.getElementById('grupos').offsetWidth;
     for(var contador = 0;contador<nuevoselementos.length;contador++){
         barragrupos[contador].style.width = groupdivwidth - 20 + "px";
     }
-    document.getElementById("secciongrupos").style.width = document.getElementById("grupos").offsetWidth - 20 + "px";
+    document.getElementById("secciongrupos").style.width = document.getElementById("grupos").offsetWidth - 10 + "px";
     document.getElementById("cuadromaterias").style.width = document.documentElement.clientWidth/2.2 + "px";
     document.getElementById("materias").style.width = document.documentElement.clientWidth/2.2 + "px";
     document.getElementById("materias").style.height = document.documentElement.clientHeight - 260 + "px";
