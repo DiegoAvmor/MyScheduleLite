@@ -3,6 +3,7 @@ function addSubject(){
         checkTimeSelect();
         checkScheduleAdd();
         checkSubjectSelected("subjectspopup");
+        validateUpdate();
         addInfoSchedule();
     }catch(error){
         $("#errordiv").empty();
@@ -15,6 +16,7 @@ function editSubject(){
     try{
         checkTimeSelect();
         checkScheduleEdit();
+        //validateUpdate();
         deleteSubject();
         editInfoSchedule();
     }catch(error){
@@ -118,4 +120,26 @@ function deleteSubject(editflag){
     }
     deleteSub(popupoptionssubkeyselected);
     closeModalButtons('optionspopup');
+}
+
+
+function validateUpdate(){
+    for(var counter = 0;counter < selectweekelements.length;counter ++){
+        if(selectweekelements[counter]){
+            var subject = {
+                clave_aula:document.getElementsByClassName('classroomselect')[counter].value,
+                clave_maestro:document.getElementById('teacherspopup').value.split(',')[0],
+                clave_materia:document.getElementById('subjectspopup').value.split(',')[0],
+                dia_semana:invertedweekdays[counter],
+                hora_inicio:document.getElementsByClassName('morninglist')[counter].value,
+                hora_termina:document.getElementsByClassName('finishhour')[counter].value,
+                nombre_maestro:document.getElementById('teacherspopup').value.split(',')[1],
+                nombre_materia:document.getElementById('subjectspopup').value.split(',')[1]
+            }
+            if(!validateSub(subject)){
+                console.log(validateSub(subject));
+                throw 'Horario inválido, ¡choque con otras materias!';
+            }
+        }
+    }
 }

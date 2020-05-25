@@ -165,3 +165,23 @@ function deleteSub(materia){
               async: false
               });
 }
+function validateSub(materia){
+    var ret;
+    var outmat= JSON.stringify(materia);
+            $.ajax({
+                async:false,
+                method: "POST",
+                url: "../php/validate_schedule_update.php",
+                data: { "horario":outmat  },
+             success: function (response) {
+                 ret=response;
+                 console.log (ret);
+              },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+              }
+              });
+
+    return ret;
+}
