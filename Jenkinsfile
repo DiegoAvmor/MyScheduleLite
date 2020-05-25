@@ -1,4 +1,4 @@
-node ("master"){
+node ("ServidorUbuntu"){
     try{
         stage('Slack init notification'){
             slackSend color: "good", message: "La ejecucion numero ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha sido iniciada"
@@ -13,12 +13,13 @@ node ("master"){
             }
         }
         stage('slack notification'){
-            slackSend color: "good", message: "El analisis de codigo de la ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha concluido con exito"
+            slackSend color: "good", message: "La ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha concluido con exito"
         }
     }catch(e){
-        slackSend color: "danger", message: "El analisis de codigo de la ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha fallado"
+        slackSend color: "danger", message: "La ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha fallado"
     }
 }
+/**
 node("ServidorUbuntu"){
     try{
         stage('Captura de codigo') { 
@@ -40,3 +41,4 @@ node("ServidorUbuntu"){
         slackSend color: "danger", message: "El despliegue de la ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha fallado"
     }
 }
+**/
