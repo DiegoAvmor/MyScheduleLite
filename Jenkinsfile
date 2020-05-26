@@ -27,4 +27,7 @@ node ("ServidorUbuntu"){
     }catch(e){
         slackSend color: "danger", message: "La ejecucion ${env.BUILD_NUMBER} del proyecto ${env.JOB_NAME} ha fallado"
     }
+    /**
+    Prueba webhook
+    **/
 }
