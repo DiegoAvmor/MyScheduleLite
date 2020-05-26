@@ -25,7 +25,7 @@ function validate($horario){
 
             $response= True;
     }else{
-        echo("No se pudo añadir el horario: el mismo maestro tiene coincidencias en la misma hora y día de la semana.");
+        echo("No se pudo añadir el horario: el mismo maestro tiene coincidencias el ".$horario->dia_semana." en el horario: ".$horario->hora_inicio." a ".$horario->hora_termina.".");
         $response=False;
     } 
     return $response;
