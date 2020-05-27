@@ -1,0 +1,31 @@
+{
+  "name": "myschedulelite",
+  "version": "1.0.0",
+  "description": "Proyecto para la clase de aseguramiento de la calidad de software",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoAvmor/MyScheduleLite.git"
+  },
+  "keywords": [
+    "ACS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoAvmor/MyScheduleLite/issues"
+  },
+  "homepage": "https://github.com/DiegoAvmor/MyScheduleLite#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
