@@ -17,7 +17,6 @@ function login(nameuser, password) {
 }
 
 test('Comprobar el login exitoso', () => {
-    console.log(JSON.parse(loginautentication("admin2@admin.com","asdasdasd")).message);
     expect(JSON.parse(loginautentication("admin2@admin.com","asdasdasd")).message).toMatch("../MyScheduleLite/pages/main.html");
   });
 

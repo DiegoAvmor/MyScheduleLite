@@ -58,6 +58,7 @@ $("#get").click(function(){
 
 const handleResponse = response =>{
     grupos = JSON.parse(response);
+    console.log(grupos);
     pageId();
     createDivsGrous();
 }
