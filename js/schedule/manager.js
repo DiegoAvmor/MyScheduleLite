@@ -132,6 +132,7 @@ function getTeachersBySubjectId(subject_id, array){
 function chargeSchedule(subject){   
     var outjson = JSON.stringify(subject);
     var outclv = JSON.stringify(clvgrp);
+    console.log(clvgrp);
     console.log(outjson);
     console.log(outclv);
             $.ajax({
@@ -151,6 +152,7 @@ function chargeSchedule(subject){
 function deleteSub(materia){
     var outmat= JSON.stringify(materia);
     var outclv = JSON.stringify(clvgrp);
+    console.log(outmat);
             $.ajax({
                 method: "POST",
                 url: "../php/remove_schedule.php",
@@ -165,6 +167,7 @@ function deleteSub(materia){
               async: false
               });
 }
+
 function validateSub(materia){
     var ret;
     var outmat= JSON.stringify(materia);
