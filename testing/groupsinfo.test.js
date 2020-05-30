@@ -1,7 +1,7 @@
 const $ = require('jquery');
 
 test("Comprobar la informacion de los grupos ",() => {
-    expect(JSON.parse(getGroupInfo()).length).toBeGreaterThan(0);
+    expect(JSON.parse(getGroupInfo()).length).toBe(7);
 });
 
 function getGroupInfo(){
