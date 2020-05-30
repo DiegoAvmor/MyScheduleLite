@@ -174,8 +174,10 @@ function validateSub(materia){
                 url: "../php/validate_schedule_update.php",
                 data: { "horario":outmat  },
              success: function (response) {
-                 ret=response;
-                 console.log (ret);
+                 output= JSON.parse(response);
+                 console.log (output);
+                 console.log(output.status);
+                 ret=output;
               },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status);

@@ -1,11 +1,12 @@
 function addSubject(){
     try{
+        validateUpdate();
         checkTimeSelect();
         checkScheduleAdd();
-        checkSubjectSelected("subjectspopup");
-        validateUpdate();
+        checkSubjectSelected("subjectspopup");      
         addInfoSchedule();
     }catch(error){
+        console.log(error);
         $("#errordiv").empty();
         $("#errordiv").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordiv").style.display = "block";
@@ -14,10 +15,11 @@ function addSubject(){
 
 function editSubject(){
     try{
-        checkTimeSelect();
-        checkScheduleEdit();
-        //validateUpdate();
         deleteSubject();
+        validateUpdateEdit();
+        checkTimeSelect();
+        checkScheduleEdit();        
+        
         editInfoSchedule();
     }catch(error){
         console.log(error);
@@ -135,10 +137,49 @@ function validateUpdate(){
                 hora_termina:document.getElementsByClassName('finishhour')[counter].value,
                 nombre_maestro:document.getElementById('teacherspopup').value.split(',')[1],
                 nombre_materia:document.getElementById('subjectspopup').value.split(',')[1]
+            }            
+            var output=validateSub(subject);
+            if(output.status==400){
+                throw output.message;
+            }else{
+                console.log("Válido");
             }
-            if(!validateSub(subject)){
-                console.log(validateSub(subject));
-                throw 'Horario inválido, ¡choque con otras materias!';
+        }
+    }
+}
+function validateUpdateEdit(){
+    for(var counter = 0;counter < selectweekelements.length;counter ++){
+        if(selectweekelements[counter]){
+            var subject = {
+                clave_aula:document.getElementsByClassName('classroomselect')[counter].value,
+                clave_maestro:document.getElementById('teacherspopup').value.split(',')[0],
+                clave_materia:document.getElementById('subjectspopup').value.split(',')[0],
+                dia_semana:invertedweekdays[counter],
+                hora_inicio:document.getElementsByClassName('morninglist')[counter].value,
+                hora_termina:document.getElementsByClassName('finishhour')[counter].value,
+                nombre_maestro:document.getElementById('teacherspopup').value.split(',')[1],
+                nombre_materia:document.getElementById('subjectspopup').value.split(',')[1]
+            }            
+            
+        }
+    }
+    for(var counter = 0;counter < selectweekelements.length;counter ++){
+        if(selectweekelements[counter]){
+            var subject = {
+                clave_aula:document.getElementsByClassName('classroomselectoption')[counter].value,
+                clave_maestro:document.getElementById('teacherspopupoption').value.split(',')[0],
+                clave_materia:popupoptionssubkeyselected,
+                dia_semana:invertedweekdays[counter],
+                hora_inicio:document.getElementsByClassName('morninglistoption')[counter].value,
+                hora_termina:document.getElementsByClassName('finishhouroption')[counter].value,
+                nombre_maestro:document.getElementById('teacherspopupoption').value.split(',')[1],
+                nombre_materia:popupoptionssubjectselected
+            }
+            var output=validateSub(subject);
+            if(output.status==400){
+                throw output.message;
+            }else{
+                console.log("Válido");
             }
         }
     }
