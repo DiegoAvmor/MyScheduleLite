@@ -5,16 +5,16 @@ if(isset($_POST["horario"])){
     
     $inputHor= json_decode($_POST['horario']);
     $callB = validate($inputHor); 
-    $response =json_encode($callB);  
+    $response =$callB->get_JSON();  
     echo $response;
 }else{
     echo "Datos enviados al backend se encuentran vacíos.";
 }
 
 function validate($horario){
-
+    $response= new SimpleResponse(404,"Resource not found");
     $dbconnection= establishConnectionDB();
-    $response = False;
+    
     $count = $dbconnection->count("horario", [
         "clave_maestro" => $horario->clave_maestro,
         "hora_inicio"=> $horario->hora_inicio,
@@ -22,11 +22,12 @@ function validate($horario){
         "dia_semana"=> $horario->dia_semana
         ]);  
     if(!$count){
+        $response -> set_status(200);
+        $response -> set_message("El horario a ingresar es válido");
 
-            $response= True;
     }else{
-        echo("No se pudo añadir el horario: el mismo maestro tiene coincidencias el ".$horario->dia_semana." en el horario: ".$horario->hora_inicio." a ".$horario->hora_termina.".");
-        $response=False;
+        $response -> set_status(400);
+        $response -> set_message("No se pudo añadir el horario: el mismo maestro tiene coincidencias el ".$horario->dia_semana." en el horario: ".$horario->hora_inicio." a ".$horario->hora_termina.".");
     } 
     return $response;
 }
