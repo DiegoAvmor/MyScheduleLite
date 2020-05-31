@@ -6,27 +6,53 @@ function addSubject(){
         checkSubjectSelected("subjectspopup");      
         addInfoSchedule();
     }catch(error){
-        console.log(error);
+        document.getElementById('errordiv').style.paddingTop = '15px';
         $("#errordiv").empty();
         $("#errordiv").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordiv").style.display = "block";
+        if(error.includes("coincidencias")){
+            document.getElementById('errordiv').style.paddingTop = '0px';
+        }
     }
 }
 
 function editSubject(){
+    let arrayselectsubject = getActualInformation();
     try{
         deleteSubject();
         validateUpdateEdit();
         checkTimeSelect();
-        checkScheduleEdit();        
-        
+        checkScheduleEdit(); 
         editInfoSchedule();
     }catch(error){
-        console.log(error);
+        document.getElementById('errordivoption').style.paddingTop = '15px';
         $("#errordivoption").empty();
         $("#errordivoption").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordivoption").style.display = "block";
+        overlay.classList.add('active');
+        restoreInfo(arrayselectsubject);
+        if(error.includes("coincidencias")){
+            document.getElementById('errordivoption').style.paddingTop = '0px';
+        }
     }
+}
+
+function restoreInfo(arrayselectsubject){
+    arrayselectsubject.forEach(function(item){
+        chargeSubjectsTable(item);
+        chargeSchedule(item);
+        subjects_schedule.push(item);
+    });
+}
+
+function getActualInformation(){
+    let arrayselectsubject = new Array();
+    subjects_schedule.forEach(function(item,index){
+        if(item.clave_materia == popupoptionssubkeyselected){
+            arrayselectsubject.push(item);
+        }
+    });
+    return arrayselectsubject;
 }
 
 function checkScheduleAdd(){
@@ -147,6 +173,7 @@ function validateUpdate(){
         }
     }
 }
+
 function validateUpdateEdit(){
     for(var counter = 0;counter < selectweekelements.length;counter ++){
         if(selectweekelements[counter]){

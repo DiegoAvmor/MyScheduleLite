@@ -1,5 +1,4 @@
 const handleValidation = authResponse =>{
-    console.log(authResponse);
     let parsedResponse = JSON.parse(authResponse);
     if(parsedResponse.status != 200){
         document.location.replace(parsedResponse.message);

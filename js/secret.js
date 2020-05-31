@@ -9,7 +9,6 @@ $(".backpack-image").click(function(ev){
 
 function readCode(input){
     secretHandler=secretHandler+input;
-    console.log(secretHandler);
     if(SECRET.length===secretHandler.length){
         if(secretHandler==SECRET){
             document.location = "https://es.pornhub.com/view_video.php?viewkey=ph5e39ac3f69542";

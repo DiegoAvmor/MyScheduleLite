@@ -19,12 +19,8 @@ $(document).ready(function(){
     pageId(); 
     subjects_schedule = JSON.parse(getSubjectSchedules(key_value));
     chargeSubjects();
-    console.log(subjects_schedule);
     offer = JSON.parse(getOffer(key_value));
-    console.log(offer);
     deconstructSubjectResponse(offer.maestro_materia);
-    console.log(subjects_offer);
-    console.log(map_subjects_teachers);
     handler(offer);
     chargeTime(turno);
     setGroupHeader(carrerkey, key_value, groupgeneration, turno);
@@ -70,7 +66,6 @@ function chargeSubjects(){
 
 const handleResponseUpdate = response =>{
     try {
-        console.log(respone);
         let parsedResponse = JSON.parse(response);
         if(parsedResponse.status == 200){
             console.log("nice");
@@ -132,8 +127,6 @@ function getTeachersBySubjectId(subject_id, array){
 function chargeSchedule(subject){   
     var outjson = JSON.stringify(subject);
     var outclv = JSON.stringify(clvgrp);
-    console.log(outjson);
-    console.log(outclv);
             $.ajax({
                 method: "POST",
                 url: "../php/update_schedule.php",
