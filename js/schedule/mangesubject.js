@@ -6,7 +6,6 @@ function addSubject(){
         checkSubjectSelected("subjectspopup");      
         addInfoSchedule();
     }catch(error){
-        console.log(error);
         $("#errordiv").empty();
         $("#errordiv").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordiv").style.display = "block";
@@ -15,18 +14,26 @@ function addSubject(){
 
 function editSubject(){
     try{
+        getActualInformation()
         deleteSubject();
         validateUpdateEdit();
         checkTimeSelect();
-        checkScheduleEdit();        
-        
+        checkScheduleEdit(); 
         editInfoSchedule();
     }catch(error){
-        console.log(error);
         $("#errordivoption").empty();
         $("#errordivoption").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordivoption").style.display = "block";
+        /**
+         * Todo
+         * Manejo de excepciones
+         * Regresar todo a como estaba
+         */
     }
+}
+
+function getActualInformation(){
+    console.log(subjects_schedule);
 }
 
 function checkScheduleAdd(){
@@ -147,6 +154,7 @@ function validateUpdate(){
         }
     }
 }
+
 function validateUpdateEdit(){
     for(var counter = 0;counter < selectweekelements.length;counter ++){
         if(selectweekelements[counter]){

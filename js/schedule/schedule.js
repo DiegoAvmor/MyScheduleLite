@@ -64,7 +64,6 @@ function openModalButtons(divoption){
 
 function closeModalButtons(elementname){
     const modal = document.getElementById(elementname);
-    console.log(elementname);
     modal.classList.remove('active');
     overlay.classList.remove('active');
     if(elementname === "editionpopup"){

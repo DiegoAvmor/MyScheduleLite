@@ -13,8 +13,6 @@ function gruposClickEvent(gruposeleccionado){
         elementselected.style.boxShadow = "";
         elementselected.style.border = "";
     }
-    console.log(elementselected);
-    console.log(gruposeleccionado);
     gruposeleccionado.style.width = document.getElementById("grupos").offsetWidth - 10 + "px";
     gruposeleccionado.style.height = gruposeleccionado.offsetHeight - 25 + "px";
     gruposeleccionado.style.position = "relative";
