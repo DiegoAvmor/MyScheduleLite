@@ -13,8 +13,8 @@ function addSubject(){
 }
 
 function editSubject(){
+    let arrayselectsubject = getActualInformation();
     try{
-        getActualInformation()
         deleteSubject();
         validateUpdateEdit();
         checkTimeSelect();
@@ -24,16 +24,24 @@ function editSubject(){
         $("#errordivoption").empty();
         $("#errordivoption").append('<div class = "inlineblocks errormessage">' +  error + '</div>');
         document.getElementById("errordivoption").style.display = "block";
-        /**
-         * Todo
-         * Manejo de excepciones
-         * Regresar todo a como estaba
-         */
-    }
+        overlay.classList.add('active');
+        restoreInfo(arrayselectsubject);
+}
+
+function restoreInfo(arrayselectsubject){
+    arrayselectsubject.forEach(function(item){
+        chargeSubjectsTable(item);
+    });
 }
 
 function getActualInformation(){
-    console.log(subjects_schedule);
+    let arrayselectsubject = new Array();
+    subjects_schedule.forEach(function(item,index){
+        if(item.clave_materia == popupoptionssubkeyselected){
+            arrayselectsubject.push(item);
+        }
+    });
+    return arrayselectsubject;
 }
 
 function checkScheduleAdd(){
