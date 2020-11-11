@@ -1,0 +1,159 @@
+#schedulesection{
+    margin: 20px auto auto 220px;
+    width: 1400px;
+}
+
+#weekdays{
+    text-align: center;
+    float: right;
+    height: 37px;
+    width: 90%;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-right: 4px;
+}
+
+.size-300{
+    width: 249px;
+}
+
+#schedulepicture{
+    float: left;
+    height: 550px;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+}
+
+#Matutino,#Vespertino{
+    display: none;
+}
+
+#hours{
+    display: inline-block;
+    height: 1880px;
+    width: 10%;
+}
+
+#subjects{
+    display: inline-block;
+    width: 89.7%;
+}
+
+table{
+    height: 1425px;
+    width: 100%;
+}
+
+td{
+    height: 125px;
+    width: 200px;
+}
+
+th{
+    height: 40px;
+}
+
+.centertd{
+    border: 2px solid #FE9900;
+}
+
+.asidetd{
+    border-top: 2px solid #FE9900;
+    border-bottom: 2px solid #FE9900;
+}
+
+.centerth{
+    border-left: 2px solid #FE9900;
+    border-right: 2px solid #FE9900;
+}
+
+table{
+    border-collapse: collapse;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.font16{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+#firsttime{
+    padding-top: 27px;
+}
+
+.time{
+    padding-right: 12px;
+    text-align: right;
+    float: right;
+    display: block;
+    height: 128px;
+    width: 90%;
+}
+
+.scheduleinfo{
+    height: 125px;
+    border: 10px;
+    width: 93%;
+    margin-right: -15px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding-left: 5px;
+    margin-left: 2px;
+    padding-right: 7px;
+    overflow: scroll;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+}
+
+.scheduleinfo div{
+
+}
+
+.scheduletitle{
+    width: 91%;
+    display: inline-block;
+    
+}
+
+.optionsbuton{
+    margin-top: 5px;
+    width: 14px;
+    height: 14px;
+    float: right;
+    cursor: pointer;
+    background: transparent;
+    border: none !important;
+    background: url("../../images/iconos/options.png");
+}
+
+#horizontalseparator{
+    vertical-align: top;
+    margin-bottom: -50px;
+}
+
+#piepagina{
+    margin-left: 150px;
+    width: 1250px;
+    float: left;
+    text-align: center;
+    padding-top: 40px;
+}
+
+p{
+    margin-top: -6px;
+}
+
+.montserratfont{
+    font-family: 'Montserrat';
+}
+
+.fontsemibold{
+    font-weight: bold;
+}
+
+.centeralign{
+    text-align: center;
+}

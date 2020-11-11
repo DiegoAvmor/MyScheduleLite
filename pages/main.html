@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="../js/main.js?" defer></script>
+    <script src="../js/validate.js"></script>
+    <script src="../js/manager.js?" defer></script>
+    <link rel="stylesheet" href="../css/main/document.css">
+    <link rel="stylesheet" href="../css/main/head.css">
+    <link rel="stylesheet" href="../css/main/toolsaside.css">
+    <link rel="stylesheet" href="../css/main/groupssection.css">
+    <link rel="stylesheet" href="../css/template/toolsaside.css">
+    <link rel="stylesheet" href="../css/main/subjectsection.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> 
+    <title>My schedule lite</title>
+</head>
+<body>
+    <header>
+        <img id = "teamlogo" src="../images/Logo.png" alt="Italian Trulli">
+    </header>
+    <aside id = barratareas>
+        <div class = barraherramienta>
+            <div id ="mainid" class = barraindicador>&nbsp;</div>
+            <img class = icono src="../images/iconos/homeicon.png" >
+            <div class = "texto boton">Inicio</div>
+        </div>
+        <div class = "barraherramienta">
+            <img class = "icono grupos" src="../images/iconos/grupoicon.png" >
+            <div class = "texto boton">Grupos</div>
+        </div>
+        <div class = "barraherramienta fondo">
+            <div class = "barraindicador">&nbsp;</div>
+            <img class = "icono" src="../images/iconos/logout.png" >
+            <button class = "texto boton">Salir</button>
+        </div>
+    </aside>
+    <section id = "secciongrupos">
+        <div class = "texto boldfont">
+            Inicio
+        </div>
+        <div id = "barrabusqueda">
+            <form class = "prueba">
+                <img src = "../images/iconos/lupaicon.png" id = "lupa">
+                <input type="text" class = "boton busqueda" size="25" id="searchBar" placeholder=" P. EJ: grupo 2">
+            </form>
+        </div>
+        <div id = "grupos">
+        </div>
+        <div id = "boton">
+            <button id = "crearhorario" class = "texto" onclick="chargeSchedule()">Crear horario</button>
+        </div>
+    </section>
+    <section id = "materias">
+        <h2 class = "texto">&nbsp;</h2>
+        <section id = "cuadromaterias" class = "cuadrosmaterias">
+            <div id = "innermarge">
+            </div>
+        </section>
+    </section>
+</body>
+</html>

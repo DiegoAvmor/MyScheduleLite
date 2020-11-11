@@ -1,0 +1,94 @@
+#secciongrupos{
+    margin-top: 15px;
+    margin-left: 30px;
+    height: 100px;
+    width: 431px;
+    float: left;
+}
+
+#barrabusqueda, .barragrupos {
+    padding-top: 5px;
+}
+
+.prueba{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.busqueda{
+    font-size: 23px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.boldfont{
+    font-weight: bold;
+}
+
+#barrabusqueda,.barragrupos{
+    height: 40px;
+    /**width: 400px;**/
+    box-shadow: 0 8px 6px -6px black;
+    background-color: white;
+}
+
+#barrabusqueda{
+    margin-bottom: 30px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.barragrupos{
+    padding-top: 16px;
+    margin-bottom: 15px;
+    transition:  width .5s, height .5s,padding-top .5s;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.barragrupos,#crearhorario{
+    border-radius: 5px 5px 5px 5px;
+}
+
+.barragrupos:hover{
+    width: calc(30px + 40px);
+    height: 50px;
+    position: relative;
+    padding-top: 25px;
+}
+
+#grupos{
+    height: 348px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: rgba(196, 196, 196, 1) transparent;
+    scrollbar-width: thin;
+    margin: 0 auto;
+}
+
+#boton{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#crearhorario:hover{
+    background-color:  #3b3a39;
+    color:white;
+}
+
+#crearhorario{
+    background-color: rgba(254, 153, 0, 1);
+    border: 0px;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 100px;
+}
+
+#divisor{
+    vertical-align: bottom;
+    margin-left: 12px;
+    margin-right: 15px;
+}

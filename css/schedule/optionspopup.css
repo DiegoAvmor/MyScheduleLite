@@ -1,0 +1,66 @@
+#optionspopup,#editionpopup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    background-color: #FE9900;
+}
+
+#optionspopup.active,#editionpopup.active{
+    transform: translate(-50%,-45%) scale(1);
+}
+
+#optionsheader,#editionheader{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#optionsheader .closebutton,#editionheader .closebutton{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#optionsbody,#editionbody{
+    text-align: center;
+    justify-content: space-between;
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#overlay.activenoopacity{
+    pointer-events: all;
+}
+
+.optionbuton{
+    height: 40px;
+    width: 300px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-style: none;
+}

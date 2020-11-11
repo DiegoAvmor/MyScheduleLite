@@ -1,0 +1,15 @@
+body{
+    margin: 0px 0px 0px 0px;
+    background-color:rgba(240, 240, 240, 1);
+}
+
+.texto{
+    vertical-align: top;
+    display: inline-block;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    letter-spacing: 0.05em;
+}
